@@ -1,6 +1,6 @@
 # Cendovari Webdesign Sida — naturligt scrollflöde
 
-2026-10-10. Den bifogade designen och publiceringen är godkända av användaren. Arbetet sker på `codex/natural-scroll-preview` från verifierad main `2a9df0f071609e0485289e07ec63c673adbded1b`. Publiceringen verifieras efter att de lokala webbläsarkontrollerna passerat.
+2026-10-10. Den bifogade designen och publiceringen är godkända av användaren. Arbetet sker på `codex/natural-scroll-preview` från verifierad main `2a9df0f071609e0485289e07ec63c673adbded1b`. Main/Pages-publiceringen och den riktiga HTTPS-sidan är verifierade; kvitto finns sist i rapporten.
 
 ## Underlag och avgränsning
 
@@ -61,6 +61,16 @@ Bilderna visar slutversionen i emulerade viewports, inte fysiska telefoner.
 
 ## Publicering
 
-Samtliga lokala slutkontroller har passerat. Den godkända arbetsbranchen förs till main utan force-push och det befintliga Pages-flödet bygger versionen. Den riktiga HTTPS-länken och exportens hash verifieras därefter; publiceringskvittot dokumenteras i nästa loggpost.
+Samtliga lokala och publika slutkontroller har passerat. Den godkända arbetsbranchen är förd till main utan force-push och det befintliga Pages-flödet har publicerat versionen. Den riktiga HTTPS-länken och exportens hash är verifierade enligt kvittot nedan.
 
 [Publicerad förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/). GitHub Pages behåller Deploy from a branch: main, projektets rot (/), HTTPS-standardadressen.
+
+## Verifierad publicering 2026-10-10
+
+Den godkända versionen publicerades från arbetsbranchen till main med vanlig commit [`691e733c…`](https://github.com/Cendovari/cendovari-webdesign-sida/commit/691e733c8c751c773bc109f32007e342dc41f408). Ingen force-push gjordes. [Pages-bygge och publicering](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38065155829) avslutades med success. Den riktiga [HTTPS-förhandsvisningen](https://cendovari.github.io/cendovari-webdesign-sida/) gav HTTP 200. Publicerad index och redigerbar källa matchar slutversionens SHA256 ovan byteexakt.
+
+På den verkliga HTTPS-sidan passerade fyra Chrome-körningar (320×844, 390×844, 1440×900 och reducerad rörelse 390×844), med 67 layoutprover. Navigation, öppet menyläge/fokusfälla/scrollåsning, PB-system och Hagströms Motor i Dator/Mobil, Tillbaka/Escape/fokus/scrollåterställning, Designstudio, Om oss och Kontakt, native scroll samt filmuppspelning och paus/reducerad rörelse fungerade. Alla ikoner ersattes och faktiska Manrope-fontfaces laddades. Inga JavaScript-undantag, misslyckade requests, HTTP-resursfel, backendanrop, dolda fokusmål eller oavsiktlig horisontell overflow hittades.
+
+Tre ytterligare publika kontaktkörningar (390×844, 1440×900 och reducerad rörelse 390×844) passerade 26 kontrollpunkter. Validering, upprepade Enter efter redigering, textarea-radbrytning, utkast/ändring, headingfokus, bevarade fält, stilinspiration och borttagning, manuell kopiering samt meny/Escape/scrollåsning verifierades. Inga backendanrop gjordes. Clipboard API ger förväntade policybegränsningar; den manuella fallbacken fungerar.
+
+Mobilkontrollerna är desktopemulering på Windows, inte fysiska telefoner. De tidigare redovisade enhets- och mediebegränsningarna kvarstår. Det efterföljande publiceringskvittot ändrar endast README och granskningsdokumentation; källa, export, runtime och medier förblir oförändrade. Pages behåller befintliga inställningar, standardadress och main/root. Produktion, Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting och domän/DNS är orörda.

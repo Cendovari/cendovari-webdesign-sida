@@ -1,7 +1,7 @@
 {
   "title": "Cendovari Webdesign Sida — godkänt naturligt scrollflöde",
   "date": "2026-10-10",
-  "status": "Webbläsarkontroller passerade; godkänd för main/Pages-publicering. HTTPS verifieras efter publicering.",
+  "status": "Godkänd och publicerad på GitHub Pages; HTTPS-källa/export verifierade byteexakt och publika webbläsarkontroller passerade.",
   "repository": "https://github.com/Cendovari/cendovari-webdesign-sida",
   "branch": "codex/natural-scroll-preview",
   "baseline_commit": "2a9df0f071609e0485289e07ec63c673adbded1b",
@@ -131,9 +131,54 @@
   "scope": "Endast detta separata repo och den isolerade arbetsklonen. Ingen force-push. Produktion, Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting, Pages-inställningar, domän/DNS är orörda.",
   "authorization": "Användaren har godkänt design och naturligt scrollflöde samt main/Pages-publicering efter godkända webbläsarkontroller. Väsentliga visuella avvikelser kräver ny visning.",
   "publication": {
+    "date": "2026-10-10",
     "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "status": "Verifieras efter publicering",
-    "pages_configuration_changed": false
+    "status": "Verifierad",
+    "content_commit": "691e733c8c751c773bc109f32007e342dc41f408",
+    "workflow_run": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38065155829",
+    "workflow_conclusion": "success",
+    "https_status": 200,
+    "source_and_export_match_approved": true,
+    "pages_configuration_changed": false,
+    "browser_verification": {
+      "origin": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
+      "viewports": [
+        "320x844",
+        "390x844",
+        "1440x900",
+        "390x844 reduced-motion"
+      ],
+      "runs": 4,
+      "layout_samples": 67,
+      "passed": true,
+      "javascript_exceptions": 0,
+      "http_errors": 0,
+      "failed_requests": 0,
+      "backend_requests": 0,
+      "unintended_overflow": 0,
+      "hidden_focus_targets": 0,
+      "loaded_manrope_fontfaces": true,
+      "all_icons_replaced": true,
+      "physical_devices_tested": false
+    },
+    "contact_verification": {
+      "runs": 3,
+      "checkpoints": 26,
+      "passed": true,
+      "export_sha256": "02296f5ac7c41fd69c9cb0d26be7866aca952cd79b9df689dbf805149c3e7c84",
+      "viewports": [
+        "390x844",
+        "1440x900",
+        "390x844 reduced-motion"
+      ],
+      "javascript_exceptions": 0,
+      "failed_requests": 0,
+      "non_read_requests": 0,
+      "post_load_http_requests": 0,
+      "expected_clipboard_policy_console_messages": true,
+      "manual_copy_passed": true
+    }
   },
   "historical_mobile_publication": {
     "title": "Cendovari Webdesign Sida — godkänd och publicerad mobilförfining",
@@ -265,5 +310,6 @@
         "physical_devices_tested": false
       }
     }
-  }
+  },
+  "approved_content_commit": "691e733c8c751c773bc109f32007e342dc41f408"
 }

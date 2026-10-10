@@ -2,7 +2,7 @@
 
 Separat webbdesignförhandsvisning för Cendovari AB. Den godkända pärlemorgrunden, kristallen, silver/lila ljuset och typografin följer med i ett tydligare flöde på dator och telefon. Startsidan lämnar skärmen direkt vid scroll, följd av stora vertikala filmkort och en gemensam presentation av dator och mobil. Tjänster, arbetsprocess, FAQ och kontakt följer i normalt sidflöde.
 
-**Status: webbläsargranskad och godkänd för publicering.** Användaren har godkänt paketets utseende och scrollflöde samt publicering när webbläsarkontrollerna passerar.
+**Status: godkänd och publicerad på GitHub Pages.** Den verkliga HTTPS-sidan gav HTTP 200 och publicerad källa/export matchar den granskade versionen byteexakt.
 
 - [Förhandsvisning på GitHub Pages](https://cendovari.github.io/cendovari-webdesign-sida/)
 - [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/natural-scroll-preview)
@@ -46,11 +46,13 @@ Behåll controllerhändelser, mobilmenyn, kontaktflödet och den inbäddade medi
 
 ## Verifiering och publiceringsflöde
 
-Slutversionen passerade 14 körningar av export/regenererad källa, 236 layoutprover och sex extra kontakt-/interaktionskörningar med 106 kontrollpunkter. Kontroller och begränsningar dokumenteras i [granskningsrapporten](docs/natural-scroll-review.md). Telefonstorlekar, touch och rotation testas med Chrome på Windows och desktopemulering. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.
+Slutversionen passerade 14 körningar av export/regenererad källa och 236 layoutprover. Sex extra kontakt-/interaktionskörningar med 106 kontrollpunkter avsåg samma controllers före en rent blankteckenmässig formatstädning. Efter publicering passerade fyra riktiga HTTPS-körningar med 67 layoutprover och tre publika kontaktkörningar med 26 kontrollpunkter. Kontroller och begränsningar dokumenteras i [granskningsrapporten](docs/natural-scroll-review.md). Telefonstorlekar, touch och rotation testas med Chrome på Windows och desktopemulering. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.
 
-Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Den här ändringens design och publicering är redan godkända; efter kontroller förs arbetsbranchen till main och den verkliga HTTPS-länken verifieras.
+Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Den här ändringens design och publicering godkändes i förväg; arbetsbranchen är förd till main efter kontroller och den verkliga HTTPS-länken är verifierad.
 
 GitHub Pages behåller befintligt flöde: **Deploy from a branch**, `main`, projektets rot (`/`) och GitHubs HTTPS-standardadress. Ingen ändring av Pages-inställningar, egen domän, hosting eller DNS görs. Cendovari-Website, Modbus Buddy, WordPress och cendovari.com lämnas orörda. Lägg aldrig till lösenord, tokens, `.env`, gamla Git-mappar eller filer från andra projekt.
+
+Innehållscommit: [`691e733c…`](https://github.com/Cendovari/cendovari-webdesign-sida/commit/691e733c8c751c773bc109f32007e342dc41f408). [Godkänt Pages-bygge](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38065155829). Publicerad källa och export matchar SHA256 i `preview-review.json`.
 
 ## Tidigare publicering — historisk arbetslogg
 
