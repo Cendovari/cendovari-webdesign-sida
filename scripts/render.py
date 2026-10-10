@@ -98,7 +98,7 @@ def _render_document(fragment: str, title: str) -> str:
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="{_FRAME_CSP}">
 <title>{document_title}</title>
@@ -117,11 +117,11 @@ html>body{{padding:0}}</style>
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="{_SHELL_CSP}">
 <title>{document_title}</title>
-<style>:root{{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}}html,body{{margin:0}}body{{box-sizing:border-box;padding:1rem;background:inherit}}iframe{{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}}</style>
+<style>:root{{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}}html,body{{margin:0}}body{{box-sizing:border-box;padding:1rem;background:inherit}}iframe{{display:block;width:100%;height:calc(var(--cv-visible-height,100dvh) - 2rem);max-height:calc(var(--cv-visible-height,100dvh) - 2rem);margin:0 auto;border:0}}@media(max-width:820px),(max-width:1024px) and (max-height:500px){{html,body{{height:100%;overflow:hidden;background:#f0f1f6;color-scheme:light}}body{{height:var(--cv-visible-height,100dvh);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}}iframe{{height:100%!important;max-height:none;max-width:100%;margin:0}}}}</style>
 </head>
 <body>
 <iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="{document_title}" data-srcdoc="{escape(frame_html)}"></iframe>

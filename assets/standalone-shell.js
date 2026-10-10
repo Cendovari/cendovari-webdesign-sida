@@ -3,7 +3,60 @@
   if (!(frame instanceof HTMLIFrameElement)) {
     return;
   }
-  let viewportHeight = globalThis.innerHeight;
+  const viewport = globalThis.visualViewport;
+  let viewportFrame = 0;
+  let settleFrame = 0;
+  let reportedHeight = null;
+  let resizing = false;
+  let measurePort = null;
+  const mobileShell = matchMedia('(max-width:820px), (max-width:1024px) and (max-height:500px)');
+  const visibleHeight = () => Math.floor(viewport?.height || globalThis.innerHeight);
+  const availableHeight = () => {
+    const bodyStyle = getComputedStyle(document.body);
+    const padding = (Number.parseFloat(bodyStyle.paddingTop) || 0) +
+      (Number.parseFloat(bodyStyle.paddingBottom) || 0);
+    return Math.max(0, Math.floor(visibleHeight() - padding));
+  };
+  const fitFrame = (available) => {
+    if (reportedHeight == null) {
+      frame.style.removeProperty('height');
+      return;
+    }
+    if (available == null) available = availableHeight();
+    frame.style.height = Math.min(Math.ceil(reportedHeight), available) + 'px';
+  };
+  const updateVisibleHeight = () => {
+    viewportFrame = 0;
+    document.documentElement.style.setProperty('--cv-visible-height', visibleHeight() + 'px');
+    fitFrame();
+    if (resizing) {
+      settleFrame = requestAnimationFrame(() => {
+        settleFrame = 0;
+        resizing = false;
+        measurePort?.postMessage({ type: 'measure' });
+      });
+    }
+  };
+  const queueVisibleHeight = () => { if (!viewportFrame) viewportFrame = requestAnimationFrame(updateVisibleHeight); };
+  const resetVisibleHeight = () => {
+    if (settleFrame) cancelAnimationFrame(settleFrame);
+    settleFrame = 0;
+    resizing = true;
+    reportedHeight = null;
+    document.documentElement.style.setProperty('--cv-visible-height', visibleHeight() + 'px');
+    frame.style.removeProperty('height');
+    queueVisibleHeight();
+  };
+  updateVisibleHeight();
+  viewport?.addEventListener('resize', resetVisibleHeight, {passive:true});
+  globalThis.addEventListener('resize', resetVisibleHeight, {passive:true});
+  globalThis.addEventListener('pagehide', () => {
+    if (viewportFrame) cancelAnimationFrame(viewportFrame);
+    if (settleFrame) cancelAnimationFrame(settleFrame);
+    viewportFrame = 0;
+    settleFrame = 0;
+  });
+  globalThis.addEventListener('pageshow', resetVisibleHeight);
   const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
     globalThis.location.pathname,
     globalThis.location.search,
@@ -70,6 +123,7 @@
   };
 
   const channel = new MessageChannel();
+  measurePort = channel.port1;
   channel.port1.addEventListener("message", (event) => {
     const data = event.data;
     if (typeof data !== "object" || data == null) {
@@ -104,7 +158,13 @@
         height >= 0 &&
         height <= 10_000
       ) {
-        frame.style.height = Math.ceil(height) + "px";
+        if (resizing) return;
+        const available = availableHeight();
+        // This demo's desktop content is a 700 px scroller plus its 56 px bar.
+        // Reject a late height from the previous compact viewport after rotation.
+        if (!mobileShell.matches && height < Math.min(756, available)) return;
+        reportedHeight = height;
+        fitFrame(available);
       }
       return;
     }
@@ -167,14 +227,6 @@
   if (srcdoc == null) {
     return;
   }
-  globalThis.addEventListener("resize", () => {
-    const height = Number.parseFloat(frame.style.height);
-    if (!Number.isFinite(height) || height <= viewportHeight) {
-      frame.style.removeProperty("height");
-    }
-    viewportHeight = globalThis.innerHeight;
-    channel.port1.postMessage({ type: "measure" });
-  });
   frame.addEventListener(
     "load",
     () => {

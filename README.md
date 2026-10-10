@@ -1,29 +1,52 @@
-# Cendovari Webdesign Sida — senaste förhandsvisningen
+# Cendovari Webdesign Sida — granskningsversion
 
-Separat Luminous-demo för granskning av Cendovaris webbdesign. Projektet använder det bifogade senaste paketet och påverkar inte produktionswebbplatsen. Publiceringsstatus och utförda kontroller finns längre ned.
+Separat Luminous-demo för Cendovaris webbdesign. Den här arbetsbranchen innehåller en genomarbetad mobilversion och förbättrade interaktioner. Pärlemorgrunden, kristallen, silver/lila ljuset och datorversionens komposition är bevarade.
 
-## Rätt version
+**Status: arbetsbranch för granskning. Main och GitHub Pages har inte uppdaterats i detta arbete.** Den publicerade sidan visar fortfarande den tidigare godkända versionen.
 
-Datum: 2026-10-10. Källa: den senast godkända Luminous-förhandsvisningen.
+- [Granska arbetsbranchen](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/luminous-mobile-refinement)
+- [Hämta granskningsversionen som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/codex/luminous-mobile-refinement.zip)
+- [Tidigare publicerad förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
+- [Ändringar, verifiering och skärmbilder](docs/mobile-review.md)
 
-- Redigerbar källa: `preview-source.html`, från paketets Luminous-förhandsvisning med en minimal teknisk rättelse för det lokala kontaktutkastet.
-- Ursprungspaketets käll-SHA256: `7be347f0b06956b3ce130e1416cc5f85b8850f3568e8852fcda1bc8aba6d9956`.
-- Rot-ID: `cv-lumen`. 18 lokala scriptblock. Aktuella käll- och exporthashar finns i arbetsloggen.
-- `index.html` är den genererade, fristående exporten med den lokala runtime som medföljer i `assets/`.
-- `.nojekyll` finns med för statisk servering. Ingen `CNAME` eller koppling till cendovari.com finns i paketet.
-- `preview-review.json` beskriver ändringarna och tidigare käll-/syntetiska kontroller. Lokala sökvägar i rapporten är referenser, inte krav på mottagarens dator.
+## Prova granskningsversionen
 
-## Senaste funktioner
+Hämta arbetsbranchens ZIP, packa upp det och öppna `index.html` i webbläsaren. Exporten är en komplett fristående webbsida; `preview-source.html` är det redigerbara fragmentet och ska inte öppnas som en hel sida. Ikoner och typsnitt kräver internetanslutning.
 
-Kristall och dator-/mobilsekvens som följer scrollen, projektöppning från kort till konceptbild, diskreta musreflektioner på kristall och projektytor, CV-former i hemsideillustrationen, tjänster, arbetsprocess, FAQ, designstudion, PB-system-/bilverkstadskoncept, Om oss samt lokalt kontaktutkast med inspiration och kopiering.
+För lokal HTTP-server, kör från den uppackade projektmappen:
 
-Två illustrativa filmloopar är inbäddade i källan. De används i fyra filmplaceringar, med två ytterligare stilla posterplaceringar. Filmerna är 960×540, 24 fps, utan ljud. Looparna är korta och har små återställningar i kroppsrörelser; de är inte verifierade som perfekt sömlösa.
+```sh
+python3 -m http.server 8766 --bind 127.0.0.1
+```
 
-PB-system och Hagströms Motor är tillfälliga namn i designkoncepten. Filmerna är illustrationer, inte verifierade fotografier från dessa verksamheter. Bevara märkningen. Modbus Buddy ingår inte i denna förhandsvisning.
+Öppna sedan `http://127.0.0.1:8766/`. På Windows kan `python` användas i stället för `python3`. Den lokala länken fungerar på datorn där servern körs. Kollegor kan hämta samma ZIP och öppna exporten på sin egen dator.
 
-Kontaktformuläret visar endast ett lokalt utkast; det skickar inte e-post och har ingen backend. Kopiering kan begränsas av exportens iframe-sandbox. Behåll fungerande manuell kopiering om Clipboard API inte är tillgängligt.
+## Rätt källa
 
-## Generera exporten igen
+Arbetsbranchen utgår från aktuell main, `6ecb3e31ad15d4636d1d607af17555788aae5a3a`, verifierad 2026-10-10. Den publicerade `preview-source.html` används som grund. Inget äldre ZIP-paket har återimporterats.
+
+- Rot-ID: `cv-lumen`. Källan har 19 lokala scriptblock, inklusive den nya mobilmenyn.
+- Kontaktformulärets publicerade iframe-rättelse är bevarad: lokal knapphantering med validering och lokalt utkast, Enter i enkla fält och vanliga radbrytningar i textarea.
+- `index.html` genereras från källan och stödfilerna i `assets/` med `scripts/render.py`.
+- `.nojekyll`, svenska och `noindex,nofollow` i både exporten och iframe är bevarade. Ingen `CNAME` eller koppling till cendovari.com finns.
+
+## Upplevelse och material
+
+Kristall, scrollstyrd dator-/mobilsekvens, projektöppningar, designstudio, tjänster, arbetsprocess, FAQ, Om oss och lokalt kontaktutkast finns kvar. Mobilen har egen komposition, kompakt navigation och tydliga Dator/Mobil-val i koncepten. Desktop behåller musreflektioner och flygande projektbilder; touchlägen har fortsatt avsiktliga begränsningar för dem.
+
+Två illustrativa filmloopar är inbäddade i källan och används i fyra filmplaceringar. Ytterligare två placeringar är stilla posters. Filmerna är 960×540, 24 fps och utan ljud. Film- och bildpayloads är oförändrade. De korta looparna är inte verifierat sömlösa, och inga längre originalfilmer fanns i projektet. Inga nya kundbilder eller kundpåståenden har lagts till.
+
+PB-system och Hagströms Motor är tillfälliga namn i designkoncepten. Filmer och bilder är illustrationsmaterial, inte verifierade fotografier från dessa verksamheter. Bevara märkningen. Modbus Buddy ingår inte i förhandsvisningen.
+
+Kontaktformuläret visar bara ett lokalt utkast. Det skickar inte e-post och har ingen backend. Kopiering kan begränsas av iframe-policyn; den manuella fallbacken visar och markerar texten för kopiering. Inmatade uppgifter och inspiration behålls vid navigation men sparas inte i någon backend.
+
+## Verifiering och begränsningar
+
+Navigation, båda koncepten, fokus/scroll, jämförelse, kontaktutkast och medier har granskats i Chrome vid 320, 360, 390, 430, 768, 1024 och 1440 px, inklusive kort liggande vy och reducerad rörelse. Höjdändringar, rotation och touch emuleras på desktop. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats. Exakt omfattning, mätningar och skärmbilder finns i [granskningsrapporten](docs/mobile-review.md).
+
+Inga blockerande JavaScript- eller resursfel hittades. Clipboard API kan ge det dokumenterade policyfelet; manuell kopiering fungerar. Ikoner och typsnitt behöver fortsatt internetanslutning. Exporten kräver JavaScript; utan det saknas en synlig fallback.
+
+## Ändra och regenerera
 
 Kör från projektmappen med Python 3:
 
@@ -31,46 +54,30 @@ Kör från projektmappen med Python 3:
 python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webdesign Sida — Förhandsvisning' --force
 ```
 
-Ändra källan och generera exporten igen i stället för att redigera olika versioner av designen. Rot-ID och alla CSS-/JS-referenser måste fortsätta stämma.
+Ändra källan och generera exporten igen. Behåll rot-ID, controllerhändelser, lokalt kontaktflöde och den inbäddade mediehanteringen. Videornas initialt tomma `src` är avsiktligt och ska inte ersättas med relativa filmadresser utan att kontrollern också anpassas och verifieras.
 
-## Beroenden och kontroller
+Runtime och exportskript följer med. Ikoner och Floating UI laddas från versionsangivna unpkg-adresser i runtime. Typsnitt laddas från font-CDN:er. `noindex,nofollow` är sökmotormetadata, inte lösenordsskydd.
 
-Runtime och exportskript följer med. Ikoner och Floating UI laddas från versionsangivna unpkg-adresser i runtime. Typsnitt laddas från godkända font-CDN:er. Ikoner ska initieras efter att deras bibliotek laddats.
+## Arbetsflöde och publicering
 
-Exporten har `lang="sv"` och `noindex,nofollow` i både yttre dokument och iframe. Det är sökmotormetadata, inte lösenordsskydd.
+Uppdatera endast detta separata repository. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting och domän/DNS ska lämnas orörda. Lägg aldrig till lösenord, tokens, `.env`, gamla Git-mappar eller filer från andra projekt.
 
-Källa, scriptsyntax, exportinnehåll och paketstruktur har kontrollerats. Exporten har verifierats både lokalt och på den publicerade HTTPS-adressen i Chrome: desktop 1440×900, mobil 390×844, smal mobil 320×844 och reducerad rörelse 390×844. Samtliga fyra publicerade körningar passerade. Mobilkontrollerna simulerar viewport och touch; fysiska telefoner har inte testats.
+1. Kontrollera repository, `git remote -v`, branch och `git status`. Bevara orelaterade ändringar och Git-historiken.
+2. Hämta aktuell main och börja i en separat arbetsbranch från den verifierade versionen.
+3. Ändra källan, regenerera exporten och kontrollera samtliga vyer, interaktioner, rörelselägen och storlekar. Uppdatera dokumentationen.
+4. Skapa en vanlig commit och pusha arbetsbranchen utan force-push. Visa den färdiga exporten och skärmbilder för granskning.
+5. **Först efter användarens godkännande:** för den granskade versionen till main, låt det befintliga Pages-flödet bygga och verifiera den slutliga HTTPS-länken.
 
-Uppdatera endast detta separata webbdesignrepo. Den riktiga Cendovari-sidan, WordPress, produktionsrepot och Modbus Buddy ska lämnas orörda. Behåll Git-historiken och pusha en vanlig commit utan force-push.
+GitHub Pages använder **Deploy from a branch**, `main` och projektets rot (`/`). GitHubs standardadress och HTTPS används. Ingen ändring av Pages-inställningar, egen domän eller DNS ingår i mobilförbättringen.
 
-## Publicering och framtida ändringar
+## Tidigare publicering — historisk arbetslogg
 
-- [Öppna förhandsvisningen](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [GitHub-repository](https://github.com/Cendovari/cendovari-webdesign-sida)
-- [Publicerad Luminous-källa och export](https://github.com/Cendovari/cendovari-webdesign-sida/commit/ac3e7d475b431b8d52e63cdb2f9890959018ff3c)
-- [Första godkända Pages-bygget](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38053471800)
+Följande gäller den tidigare publicerade baslinjen. Aktuell arbetsbranch och dess verifiering beskrivs ovan och i granskningsrapporten.
 
-**Status: Publicerad och verifierad 2026-10-10. Den riktiga HTTPS-länken ger HTTP 200 och serverar exakt den kontrollerade Luminous-exporten. Alla publicerade browserkontroller nedan passerade.**
-
-Utgå från en separat klon av detta publicerade repo, med `origin` satt till `https://github.com/Cendovari/cendovari-webdesign-sida.git`. Kontrollera alltid repository, remote, branch och arbetskatalogens status före en ändring. Den äldre lokala förberedelsehistoriken är bevarad separat och ska inte slås ihop med den publicerade historiken. Bevara orelaterat arbete och Git-historiken.
-
-1. Kontrollera `git remote -v`, `git branch --show-current` och `git status`. Arbeta på `main` i rätt separata repo.
-2. När arbetskatalogen är ren, hämta senaste historiken med `git pull --ff-only origin main`. Om annan ändring finns: granska och bevara den först.
-3. Ändra källan, regenerera exporten och genomför kontrollerna nedan. Granska diffen och lägg endast till avsedda projektfiler.
-4. Skapa en vanlig commit och kör `git push origin main`. Använd aldrig force-push.
-5. Vänta på Pages-bygget i Actions och verifiera HTTPS-länken innan den delas.
-
-GitHub Pages använder **Deploy from a branch**, `main` och projektets rot (`/`). Behåll detta Pages-flöde. GitHubs standardadress används med obligatorisk HTTPS; egen domän är tom. Ingen `CNAME` eller DNS-ändring ingår.
-
-Redigera `preview-source.html` och regenerera `index.html` med kommandot ovan. På Windows kan `python` användas i stället för `python3`. Behåll `cv-lumen`, svenska, sökmotormetadata, lokalt kontaktutkast och videokontrollern. Videornas initialt tomma `src` är avsiktligt; behåll inbäddade filmer och posters samt deras controller i samma export. Lägg aldrig till lösenord, tokens, `.env` eller filer från andra projekt.
-
-Kontrollera sedan desktop, mobil och smala skärmar: navigation och undersidor, ikoner/typsnitt, filmer/posters/play/paus, scrollanimationer och kristall, dator-/mobilövergången, projektöppning samt Tillbaka/Escape, inspiration och lokalt kontaktutkast, pausad/systemets reducerade rörelse och horisontell overflow. Vänta på Pages-bygget och verifiera samma funktioner på den slutliga HTTPS-adressen innan länken delas.
-
-## Arbetslogg för denna uppdatering
 
 - Användaren klargjorde att det tidigare repot endast var planerat och godkände skapandet av ett nytt separat repo med samma namn.
 - Underlag: `cendovari-webdesign-latest (1).zip`, SHA256 `78687ae06f171093d851f5effdd9c8d134f5f32bb607a49e08e50968d2fe7484`. Arkivet granskades först i en separat mapp. Inga äldre förhandsvisningsfiler användes som designkälla.
-- Paketets källa har `cv-lumen` och SHA256 enligt avsnittet Rätt version. Exporten regenererades i granskningen och blev byteidentisk med paketets index. Runtime, exportskript och `.nojekyll` matchade det separata projektets stödfiler.
+- Paketets källa har `cv-lumen`. Den historiska källans och exportens SHA256 efter publiceringsrättelsen finns nedan. Exporten regenererades i granskningen och blev först byteidentisk med paketets index. Runtime, exportskript och `.nojekyll` matchade det separata projektets stödfiler.
 - Browserkontroll bekräftade att Chrome blockerade den ursprungliga formulärsubmit-knappen i `sandbox="allow-scripts"`. En minimal rättelse ändrade knappen till lokal click-hantering, validerar formuläret och återanvänder samtliga befintliga submit-handlers. Enter i namn/e-post återanvänder samma lokala utkast; textarea-radbrytning bevaras. Sandbox, CSP och designen ändrades inte.
 - De övriga 17 controllers och samtliga inbäddade bild-/videopayloads är byteidentiska med paketet. Två video-only MP4-loopar är 960×540/24 fps; inga ljudspår eller externa filmadresser finns. Inga backendanrop eller vanliga hemlighetsmönster hittades.
 - Källan efter den tekniska rättelsen har SHA256 `6e0eff2527b9e4b34adfdb7fc103c866db87b25e2727f2d4a186e36e8523ce82`; exporten har SHA256 `a3b824e00f65f62e2112d0f9002827a3bfe7a5197cef3b63da5edc1ea20dff6e`.
