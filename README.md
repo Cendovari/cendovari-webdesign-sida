@@ -1,74 +1,56 @@
-# Cendovari Webdesign Sida — publicerad förhandsvisning
+# Cendovari Webdesign Sida — naturligt scrollflöde
 
-Separat Luminous-demo för Cendovaris webbdesign. Den godkända versionen innehåller en genomarbetad mobilversion och förbättrade interaktioner. Pärlemorgrunden, kristallen, silver/lila ljuset och datorversionens komposition är bevarade.
+Separat webbdesignförhandsvisning för Cendovari AB. Den godkända pärlemorgrunden, kristallen, silver/lila ljuset och typografin följer med i ett tydligare flöde på dator och telefon. Startsidan lämnar skärmen direkt vid scroll, följd av stora vertikala filmkort och en gemensam presentation av dator och mobil. Tjänster, arbetsprocess, FAQ och kontakt följer i normalt sidflöde.
 
-**Status: godkänd och publicerad på GitHub Pages 2026-10-10.** Efter användarens godkännande fördes den verifierade innehållscommitten `4f597db02a33e287f00c91d3fea55ce4ee5f3b4c` till main utan force-push. Den riktiga HTTPS-länken har verifierats och exporten matchar granskningsversionen byteexakt.
+**Status: webbläsargranskad och godkänd för publicering.** Användaren har godkänt paketets utseende och scrollflöde samt publicering när webbläsarkontrollerna passerar.
 
-- [Godkänd granskningsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/luminous-mobile-refinement)
-- [Hämta publicerad version som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
-- [Publicerad förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [Ändringar, verifiering och skärmbilder](docs/mobile-review.md)
+- [Förhandsvisning på GitHub Pages](https://cendovari.github.io/cendovari-webdesign-sida/)
+- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/natural-scroll-preview)
+- [Hämta projektet som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
+- [Ändringar, verifiering och skärmbilder](docs/natural-scroll-review.md)
+- [Tidigare mobilförfining — historisk rapport](docs/mobile-review.md)
 
-## Prova förhandsvisningen
+## Källa och bevarade funktioner
 
-Öppna den publicerade länken ovan eller hämta main-versionens ZIP, packa upp det och öppna `index.html` i webbläsaren. Exporten är en komplett fristående webbsida; `preview-source.html` är det redigerbara fragmentet och ska inte öppnas som en hel sida. Ikoner och typsnitt kräver internetanslutning.
+Arbetet började från verifierad main, `2a9df0f071609e0485289e07ec63c673adbded1b`. Det godkända paketet `cendovari-scrollpaket.zip` har samma bas. Inga senare main-rättelser behövde förenas. Paketets redigerbara källa och färdiga export användes som konkret designreferens; de övriga projektfilerna behölls eftersom paketets runtime och exporterare är semantiskt identiska.
 
-För lokal HTTP-server, kör från den uppackade projektmappen:
+- Aktuell rot: `cv-silk`, med 20 lokala scriptblock. Mobilmenyn, sidbyteshändelserna, fokus, projektöppningarna, Tillbaka/Escape och återställning av scroll är bevarade.
+- Den publicerade iframe-rättelsen för kontaktutkastet är bevarad, liksom Enter i enkla fält och radbrytningar i textarea. Enter efter redigering rättades också: fältets ändringshändelse slutförs före utkastets visning och fokusflytt. Formuläret skickar ingen e-post och har ingen backend.
+- Designstudio, stilval, jämförelse, inspiration, process/FAQ, Om oss och konceptens Dator/Mobil-lägen finns kvar. De gamla kontrollerna för startsidans animationsfaser är dolda och inaktiva.
+- `index.html` är den kompletta exporten. `preview-source.html` är ett redigerbart fragment, inte en hel webbsida.
+- Svenska, `noindex,nofollow` i export och iframe, `.nojekyll` och sandbox är bevarade. Ingen `CNAME` finns.
+
+## Material och begränsningar
+
+PB-system och Hagströms Motor är tillfälliga företagsnamn i designkoncept. Filmer och bilder är illustrationsmaterial. Samtliga inbäddade mediepayloads är oförändrade; inga nya kundresultat, omdömen eller företagsuppgifter har lagts till. De två befintliga, korta MP4-looparna är 960×540, 24 fps och utan ljud. Matchande posters, `playsinline` och filmkontrollern är bevarade. Filmerna är inte verifierat sömlösa och längre originalfilmer saknas.
+
+Kontaktuppgifter och inspiration behålls lokalt mellan vyerna. Clipboard API kan blockeras av iframe-policyn; en manuell fallback visar och markerar utkastet. Ikoner och typsnitt behöver internetanslutning. Exporten kräver JavaScript och saknar en synlig fallback utan det.
+
+## Prova och ändra
+
+Öppna Pages-länken ovan eller hämta projektets ZIP och öppna `index.html`. För lokal HTTP-server, kör från projektmappen:
 
 ```sh
 python3 -m http.server 8766 --bind 127.0.0.1
 ```
 
-Öppna sedan `http://127.0.0.1:8766/`. På Windows kan `python` användas i stället för `python3`. Den lokala länken fungerar på datorn där servern körs. Kollegor kan hämta samma ZIP och öppna exporten på sin egen dator.
+Öppna `http://127.0.0.1:8766/`. På Windows kan `python` användas i stället för `python3`. Den lokala länken fungerar bara på datorn som kör servern.
 
-## Rätt källa
-
-Mobilförfiningen utgår från dåvarande main, `6ecb3e31ad15d4636d1d607af17555788aae5a3a`, verifierad 2026-10-10. Den publicerade `preview-source.html` används som grund. Inget äldre ZIP-paket har återimporterats.
-
-- Rot-ID: `cv-lumen`. Källan har 19 lokala scriptblock, inklusive den nya mobilmenyn.
-- Kontaktformulärets publicerade iframe-rättelse är bevarad: lokal knapphantering med validering och lokalt utkast, Enter i enkla fält och vanliga radbrytningar i textarea.
-- `index.html` genereras från källan och stödfilerna i `assets/` med `scripts/render.py`.
-- `.nojekyll`, svenska och `noindex,nofollow` i både exporten och iframe är bevarade. Ingen `CNAME` eller koppling till cendovari.com finns.
-
-## Upplevelse och material
-
-Kristall, scrollstyrd dator-/mobilsekvens, projektöppningar, designstudio, tjänster, arbetsprocess, FAQ, Om oss och lokalt kontaktutkast finns kvar. Mobilen har egen komposition, kompakt navigation och tydliga Dator/Mobil-val i koncepten. Desktop behåller musreflektioner och flygande projektbilder; touchlägen har fortsatt avsiktliga begränsningar för dem.
-
-Två illustrativa filmloopar är inbäddade i källan och används i fyra filmplaceringar. Ytterligare två placeringar är stilla posters. Filmerna är 960×540, 24 fps och utan ljud. Film- och bildpayloads är oförändrade. De korta looparna är inte verifierat sömlösa, och inga längre originalfilmer fanns i projektet. Inga nya kundbilder eller kundpåståenden har lagts till.
-
-PB-system och Hagströms Motor är tillfälliga namn i designkoncepten. Filmer och bilder är illustrationsmaterial, inte verifierade fotografier från dessa verksamheter. Bevara märkningen. Modbus Buddy ingår inte i förhandsvisningen.
-
-Kontaktformuläret visar bara ett lokalt utkast. Det skickar inte e-post och har ingen backend. Kopiering kan begränsas av iframe-policyn; den manuella fallbacken visar och markerar texten för kopiering. Inmatade uppgifter och inspiration behålls vid navigation men sparas inte i någon backend.
-
-## Verifiering och begränsningar
-
-Navigation, båda koncepten, fokus/scroll, jämförelse, kontaktutkast och medier har granskats i Chrome vid 320, 360, 390, 430, 768, 1024 och 1440 px, inklusive kort liggande vy och reducerad rörelse. Höjdändringar, rotation och touch emuleras på desktop. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats. Exakt omfattning, mätningar och skärmbilder finns i [granskningsrapporten](docs/mobile-review.md).
-
-Efter publiceringen passerade 113 kontrollgrupper på den riktiga HTTPS-länken vid 320×844, 390×844, 1440×900 och reducerad rörelse 390×844. Export och källa var byteidentiska med den godkända versionen. Inga blockerande JavaScript- eller resursfel hittades. Clipboard API kan ge det dokumenterade policyfelet; manuell kopiering fungerar. Ikoner och typsnitt behöver fortsatt internetanslutning. Exporten kräver JavaScript; utan det saknas en synlig fallback.
-
-## Ändra och regenerera
-
-Kör från projektmappen med Python 3:
+Ändra `preview-source.html` och regenerera exporten från projektmappen:
 
 ```sh
 python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webdesign Sida — Förhandsvisning' --force
 ```
 
-Ändra källan och generera exporten igen. Behåll rot-ID, controllerhändelser, lokalt kontaktflöde och den inbäddade mediehanteringen. Videornas initialt tomma `src` är avsiktligt och ska inte ersättas med relativa filmadresser utan att kontrollern också anpassas och verifieras.
+Behåll controllerhändelser, mobilmenyn, kontaktflödet och den inbäddade mediehanteringen. Videornas initialt tomma `src` är avsiktliga; byt inte till relativa filmadresser utan att också anpassa och verifiera kontrollern. Runtime och exportskript följer med.
 
-Runtime och exportskript följer med. Ikoner och Floating UI laddas från versionsangivna unpkg-adresser i runtime. Typsnitt laddas från font-CDN:er. `noindex,nofollow` är sökmotormetadata, inte lösenordsskydd.
+## Verifiering och publiceringsflöde
 
-## Arbetsflöde och publicering
+Slutversionen passerade 14 körningar av export/regenererad källa, 236 layoutprover och sex extra kontakt-/interaktionskörningar med 106 kontrollpunkter. Kontroller och begränsningar dokumenteras i [granskningsrapporten](docs/natural-scroll-review.md). Telefonstorlekar, touch och rotation testas med Chrome på Windows och desktopemulering. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.
 
-Uppdatera endast detta separata repository. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting och domän/DNS ska lämnas orörda. Lägg aldrig till lösenord, tokens, `.env`, gamla Git-mappar eller filer från andra projekt.
+Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Den här ändringens design och publicering är redan godkända; efter kontroller förs arbetsbranchen till main och den verkliga HTTPS-länken verifieras.
 
-1. Kontrollera repository, `git remote -v`, branch och `git status`. Bevara orelaterade ändringar och Git-historiken.
-2. Hämta aktuell main och börja i en separat arbetsbranch från den verifierade versionen.
-3. Ändra källan, regenerera exporten och kontrollera samtliga vyer, interaktioner, rörelselägen och storlekar. Uppdatera dokumentationen.
-4. Skapa en vanlig commit och pusha arbetsbranchen utan force-push. Visa den färdiga exporten och skärmbilder för granskning.
-5. **Först efter användarens godkännande:** för den granskade versionen till main, låt det befintliga Pages-flödet bygga och verifiera den slutliga HTTPS-länken.
-
-GitHub Pages använder **Deploy from a branch**, `main` och projektets rot (`/`). GitHubs standardadress och HTTPS används. Ingen ändring av Pages-inställningar, egen domän eller DNS gjordes. [Pages-bygget för den godkända versionen](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38060677367) avslutades med success.
+GitHub Pages behåller befintligt flöde: **Deploy from a branch**, `main`, projektets rot (`/`) och GitHubs HTTPS-standardadress. Ingen ändring av Pages-inställningar, egen domän, hosting eller DNS görs. Cendovari-Website, Modbus Buddy, WordPress och cendovari.com lämnas orörda. Lägg aldrig till lösenord, tokens, `.env`, gamla Git-mappar eller filer från andra projekt.
 
 ## Tidigare publicering — historisk arbetslogg
 

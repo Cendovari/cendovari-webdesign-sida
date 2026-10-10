@@ -1,131 +1,269 @@
 {
-  "title": "Cendovari Webdesign Sida — godkänd och publicerad mobilförfining",
+  "title": "Cendovari Webdesign Sida — godkänt naturligt scrollflöde",
   "date": "2026-10-10",
-  "status": "Godkänd 2026-10-10 och publicerad på GitHub Pages; HTTPS-export och källa verifierade byteexakt.",
+  "status": "Webbläsarkontroller passerade; godkänd för main/Pages-publicering. HTTPS verifieras efter publicering.",
   "repository": "https://github.com/Cendovari/cendovari-webdesign-sida",
-  "branch": "main",
-  "baseline_commit": "6ecb3e31ad15d4636d1d607af17555788aae5a3a",
+  "branch": "codex/natural-scroll-preview",
+  "baseline_commit": "2a9df0f071609e0485289e07ec63c673adbded1b",
+  "package": {
+    "name": "cendovari-scrollpaket.zip",
+    "sha256": "7f3e385b3060587f575620d2c9f1e9ea150b862af7ad6c3939b378c351192d3e",
+    "source_sha256": "cf66c2813af9b2139c312a18fbbaeefc7bfa543dfa41abdf4b56e245609f768a",
+    "export_sha256": "eea605d51dcf6487b73a1354b7b2b00f05089e0a59c3dd1b8d64ef42f5696f9b",
+    "base_matches_current_main": true
+  },
   "source": "preview-source.html",
   "export": "index.html",
-  "root": "cv-lumen",
-  "source_sha256": "3f92bd30a63cb429ec6a03fce1c2384cbc9e128997093c6ab5848329894ba632",
-  "export_sha256": "2e9cdf0e6e17685909514e467ccc2b550a76b3dbc1cf16d0b324810c2f9af9a0",
-  "documentation": "docs/mobile-review.md",
-  "screenshots": "docs/review/",
+  "root": "cv-silk",
+  "source_sha256": "51bf6d1dd9f16ef71d6f382642a823dd9e2eb789de3fb1a176542e241f9b8d91",
+  "export_sha256": "02296f5ac7c41fd69c9cb0d26be7866aca952cd79b9df689dbf805149c3e7c84",
+  "documentation": "docs/natural-scroll-review.md",
+  "screenshots": "docs/natural-scroll/",
   "changes": [
-    "Kompakt mobilheader, separat tillgänglig meny och tydlig kontaktväg vid 320 px.",
-    "Samordnad iframe-/scrollhöjd, faktisk previewbarhöjd och stabil storyprogress vid höjdändringar.",
-    "Egen mobilkomposition, kortare story, hela konceptnamn och läsbara responsiva konceptvyer.",
-    "Riktad jämförelsedragning, 44 px touchytor och bevarade stil-/inspirationsval.",
-    "Lokalt kontaktutkast, 16 px fält, fokus/validering och begriplig manuell kopiering.",
-    "En dekorativ mobilfilm åt gången, poster vid nekad uppspelning och paus för osynlig canvas.",
-    "Stabila synliga scrollankare vid rörelsebyte; dold/inert storytext väljs inte som ankare.",
-    "Datorillustrationen anpassas till höjden ovanför bildtexten; dimensioner cachas mellan scrollhändelser.",
-    "Det senaste sektionsvalet avbryter även ett väntande sidbyte utan animation i reducerat rörelseläge."
+    "Startsidan rör sig direkt med scroll; den långa fasta förvandlingsscenen är borttagen.",
+    "Stora vertikala filmkort följer direkt efter startsidan, med begränsad tillväxt/parallax och alltid tillgänglig text och knappar.",
+    "Dator och mobil visas tillsammans under en gemensam rubrik; startsidans fasstyrande kontroller är dolda och inaktiva.",
+    "Mobilillustrationens inre grid och textradbrytning hindrar klippning vid smala bredder.",
+    "Naturlig scrollcontroller har en ägare, städar listeners/observers, samlar frames och räknar geometri utan skalningsåterkoppling.",
+    "Ny controller gör inga geometrimätningar när startsidan är dold, inert, under öppen meny, pausad/reducerad eller i bakgrund/pagehide.",
+    "Kristallens tidsanimation pausar offscreen/meny/bakgrund; ljusförflyttning är begränsad till startsidans höjd.",
+    "Kontaktutkastets befintliga iframe-fix är bevarad och Enter efter redigering rättad: fältets change slutförs före utkastvisning och fokusflytt."
+  ],
+  "preserved": [
+    "Mobilmeny, fokus, navigation, projektöppning, Tillbaka/Escape och scrollåterställning.",
+    "Kontaktens publicerade iframe-fix, validering, Enter/textarea, lokalt utkast och manuell kopiering.",
+    "Stilval/jämförelse, inspiration, tjänster/process/FAQ, Om oss och båda konceptens Dator/Mobil-visning.",
+    "Alla tio medieposter, fem runtime/exporterfiler, noindex,nofollow och sandbox.",
+    "Märkning av illustrationsfilmer och tillfälliga företagsnamn; inga nya kundpåståenden."
   ],
   "verification": {
     "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
-    "full_functional_matrix_export_sha256": "fd79a22c548da1297c971d7ae4b950dd5efcaf8cd1580f4958c1cdde41c0393b",
-    "final_targeted_export_sha256": "2e9cdf0e6e17685909514e467ccc2b550a76b3dbc1cf16d0b324810c2f9af9a0",
     "viewports": [
       "320x844",
-      "360x844",
       "390x844",
-      "430x932",
-      "768x1024",
-      "1024x768",
+      "540x960",
+      "820x1180",
       "1440x900",
       "844x390",
-      "320x568"
+      "390x844 reduced-motion"
     ],
-    "checks": [
-      "Alla huvudvyer, båda koncepten från startsida och Designexempel, interna länkar, Tillbaka/Escape och fokus/scroll.",
-      "Menysemantik, fokusfälla, stängning före navigation, upprepade sidbyten och släppt scrollåsning.",
-      "Jämförelse med touch, vertikal scroll, reglage, tangentbord, 0/100 och avbruten dragning.",
-      "Kontaktval/inspiration, validering, Enter, textarea-radbrytning, utkast, ändring och manuell kopiering utan backendanrop.",
-      "Filmuppspelning/posters, paus, systemets reducerade rörelse och simulerad dold sida.",
-      "Höjdändring, rotation, korta skärmar, overflow, ikoner, typsnitt och JavaScript/resursfel.",
-      "19 källscripts med giltig syntax, 10 byteidentiska medieposter och deterministiskt regenererad export.",
-      "Fristående file://-export och lokal HTTP-server."
+    "entry_types": [
+      "Standalone index.html",
+      "Från aktuell preview-source.html nygenererad sandboxad export"
     ],
     "physical_devices_tested": false,
-    "limits": [
-      "Safari på fysisk iPhone och Chrome på fysisk Android är inte testade.",
-      "Verkliga telefoners tangentbord, adressfält, notch/safe areas, batteri och GPU är inte verifierade.",
-      "Bakgrundsläget testas med simulerad document.hidden, inte fysisk OS-/flikväxling.",
-      "Clipboard API begränsas av iframe-policy; manuell kopiering är verifierad.",
-      "Illustrationsfilmerna är korta befintliga loopar, inte verifierat sömlösa.",
-      "Ikoner och typsnitt behöver internetanslutning.",
-      "Exporten kräver JavaScript; utan JavaScript saknas en synlig fallback."
-    ],
-    "final_targeted_result": {
-      "test_modes": 10,
-      "passed": 10,
-      "assertion_failures": 0,
-      "javascript_exceptions": 0,
-      "http_errors": 0,
-      "failed_requests": 0
+    "static": {
+      "source_scripts": 20,
+      "total_syntax_checks": 52,
+      "syntax_passed": true,
+      "media_occurrences": 10,
+      "media_unchanged": true,
+      "runtime_files": 5,
+      "runtime_unchanged": true,
+      "export_reproducible_byte_exact": true,
+      "controller_lifecycle_audit_passed": true
     },
-    "full_matrix_note": "Mellanversionens breda matris hittade layoutfel som rättades och omtestades i slutexporten. Slutresultatet avser de riktade slutkontrollerna, inte alla assertions i mellanversionen."
-  },
-  "scope": "Endast den nya isolerade klonen och detta separata repo, inklusive main efter användarens publiceringsgodkännande. Produktion, Modbus Buddy, WordPress, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push.",
-  "historical_review_note": "Nedan bevaras paketets ursprungliga granskning som historiskt underlag. Dess begränsningar beskriver den dåvarande versionen, inte den publicerade mobilversionen.",
-  "historical_review": {
-    "preview": "/workspace/cendovari-luminous-preview.html",
-    "root": "cv-lumen",
-    "accepted_baseline": "/workspace/cendovari-master-preview.html",
-    "scope": "New inline preview only. Accepted previews, original videos, export project, live website, WordPress, GitHub and Modbus Buddy untouched.",
-    "changes": [
-      "Project image grows from its captured card frame into the opened concept image, then blends out. Native navigation, focus, scroll, Back and Escape remain authoritative.",
-      "Soft pointer reflection over featured and gallery image surfaces, only for mouse/fine-pointer motion-enabled previews. No idle animation loop.",
-      "Front-face crystal reflection reuses pointer coordinates and existing canvas scheduling; exactly two clipped main-logo front faces receive light without geometry or timeline changes.",
-      "Existing service form-study shapes now use original C/V brand proportions with CSS, without added markup or animations.",
-      "Two single-shot video trims replace rapid montages; 960x540 at 24fps with milder compression, matching first-frame posters in all six image placements.",
-      "Shorter unique root namespace keeps the preview at 890296 bytes without minifying native controllers."
-    ],
-    "checks": [
-      "27 unique IDs, valid labels and ARIA relationships, valid fragment nesting, 18 script syntax checks and 2027 scoped CSS selector branches.",
-      "Actual-tree synthetic PB/Motor gallery and homepage route, one expansion per open, native Back/Escape/focus/scroll preserved.",
-      "Pointer bounds, frame coalescing, touch/pen exclusion, pause/reduced/hidden/inert/offscreen gates, style restoration and detach cleanup.",
-      "Canvas mesh, paths, transforms, base fills and scheduled frames match baseline at 320, 736 and 1024 widths across eight scroll poses.",
-      "Final film first/middle/last frames inspected; codec, frame rate, dimensions, audio removal, faststart, poster payloads and source alignment verified.",
-      "13 protected files remain hash-identical. 14 native scripts match baseline exactly after root normalization; native video controller differs only in source payloads.",
-      "Independent focused source and synthetic integration review found no blocker."
-    ],
+    "browser_result": "PASS",
     "limits": [
-      "No browser rendering or video playback test; inline preview is the visual review surface.",
-      "The two videos repeat after roughly one second. Small physical pose resets remain; they are not claimed perfectly seamless.",
-      "Illustration films and temporary company names remain labeled as design concepts. No real photographs were supplied.",
-      "Mobile navigation redesign remains deferred. New transition decoration is disabled below 720px."
-    ]
-  },
-  "review_branch": "codex/luminous-mobile-refinement",
-  "approved_content_commit": "4f597db02a33e287f00c91d3fea55ce4ee5f3b4c",
-  "publication": {
-    "date": "2026-10-10",
-    "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "workflow_run": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38060677367",
-    "workflow_conclusion": "success",
-    "https_status": 200,
-    "source_and_export_match_approved": true,
-    "pages_configuration_changed": false,
-    "browser_verification": {
-      "origin": "https://cendovari.github.io/cendovari-webdesign-sida/",
-      "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
-      "viewports": [
-        "320x844",
-        "390x844",
-        "1440x900",
-        "390x844 reduced-motion"
-      ],
-      "check_groups": 113,
+      "Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.",
+      "Telefoners verkliga tangentbord, adressfält, notch/safe areas, batteri och GPU är inte verifierade; höjd, rotation och touch emuleras på desktop.",
+      "Bakgrund/pagehide testas med simulerade lifecycle-händelser; fysisk OS-växling är inte verifierad.",
+      "Clipboard API begränsas av iframe-policy; manuell kopiering finns kvar.",
+      "Kort illustrationsmaterial är inte verifierat sömlöst; längre original saknas.",
+      "Ikoner och typsnitt kräver internet. Exporten kräver JavaScript.",
+      "Den äldre kontaktdekorationens CSS-loop fortsätter offscreen när rörelse är på; paus/reducerad rörelse, meny och dold sida stoppar eller pausar den."
+    ],
+    "pre_form_fix_matrix_export_sha256": "df3c9ee5ed57f884773761b31981fe988d77cf59e6ebb3c8499f3fe85985cf6b",
+    "final_targeted_export_sha256": "02296f5ac7c41fd69c9cb0d26be7866aca952cd79b9df689dbf805149c3e7c84",
+    "full_pre_form_fix_matrix": {
+      "runs": 14,
+      "check_steps": 350,
+      "passed": true
+    },
+    "final_targeted_matrix": {
+      "runs": 14,
+      "layout_samples": 236,
       "passed": true,
       "javascript_exceptions": 0,
-      "http_errors": 0,
       "failed_requests": 0,
+      "http_errors": 0,
       "backend_requests": 0,
       "unintended_overflow": 0,
-      "physical_devices_tested": false
+      "hidden_focus_targets": 0,
+      "export_sha256": "02296f5ac7c41fd69c9cb0d26be7866aca952cd79b9df689dbf805149c3e7c84"
+    },
+    "final_contact_and_interactions": {
+      "runs": 6,
+      "checkpoints": 106,
+      "passed": true,
+      "javascript_exceptions": 0,
+      "failed_requests": 0,
+      "non_read_requests": 0,
+      "post_load_http_requests": 0,
+      "expected_clipboard_policy_console_messages": true,
+      "export_sha256": "2295c4810a066d5ccf077a32380e88db0d12d485aa6f5748201d2f45371f8fb8",
+      "controllers_byte_identical_in_final": true
+    },
+    "full_matrix_note": "Den breda df3c-matrisen och den riktade 2295-slutmatrisen redovisas separat. Mellan dem ändrades enbart formulärets blur/utkastordning; CSS och övrig markup är byteidentiska. Därefter togs åtta blanktecken på en tom HTML-rad bort för formatkontrollen; alla scripts och styles är byteidentiska och slutartefakterna granskades åter i webbläsaren med 14/14 PASS.",
+    "final_format_only_delta": {
+      "previous_export_sha256": "2295c4810a066d5ccf077a32380e88db0d12d485aa6f5748201d2f45371f8fb8",
+      "final_source_sha256": "51bf6d1dd9f16ef71d6f382642a823dd9e2eb789de3fb1a176542e241f9b8d91",
+      "final_export_sha256": "02296f5ac7c41fd69c9cb0d26be7866aca952cd79b9df689dbf805149c3e7c84",
+      "only_delta": "Remove eight spaces from one empty HTML line",
+      "scripts_unchanged": true,
+      "script_count": 20,
+      "styles_unchanged": true,
+      "style_count": 2
+    },
+    "pre_format_targeted_matrix": {
+      "runs": 14,
+      "layout_samples": 236,
+      "passed": true,
+      "javascript_exceptions": 0,
+      "failed_requests": 0,
+      "http_errors": 0,
+      "backend_requests": 0,
+      "unintended_overflow": 0,
+      "hidden_focus_targets": 0,
+      "export_sha256": "2295c4810a066d5ccf077a32380e88db0d12d485aa6f5748201d2f45371f8fb8"
+    }
+  },
+  "scope": "Endast detta separata repo och den isolerade arbetsklonen. Ingen force-push. Produktion, Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting, Pages-inställningar, domän/DNS är orörda.",
+  "authorization": "Användaren har godkänt design och naturligt scrollflöde samt main/Pages-publicering efter godkända webbläsarkontroller. Väsentliga visuella avvikelser kräver ny visning.",
+  "publication": {
+    "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+    "status": "Verifieras efter publicering",
+    "pages_configuration_changed": false
+  },
+  "historical_mobile_publication": {
+    "title": "Cendovari Webdesign Sida — godkänd och publicerad mobilförfining",
+    "date": "2026-10-10",
+    "status": "Godkänd 2026-10-10 och publicerad på GitHub Pages; HTTPS-export och källa verifierade byteexakt.",
+    "repository": "https://github.com/Cendovari/cendovari-webdesign-sida",
+    "branch": "main",
+    "baseline_commit": "6ecb3e31ad15d4636d1d607af17555788aae5a3a",
+    "source": "preview-source.html",
+    "export": "index.html",
+    "root": "cv-lumen",
+    "source_sha256": "3f92bd30a63cb429ec6a03fce1c2384cbc9e128997093c6ab5848329894ba632",
+    "export_sha256": "2e9cdf0e6e17685909514e467ccc2b550a76b3dbc1cf16d0b324810c2f9af9a0",
+    "documentation": "docs/mobile-review.md",
+    "screenshots": "docs/review/",
+    "changes": [
+      "Kompakt mobilheader, separat tillgänglig meny och tydlig kontaktväg vid 320 px.",
+      "Samordnad iframe-/scrollhöjd, faktisk previewbarhöjd och stabil storyprogress vid höjdändringar.",
+      "Egen mobilkomposition, kortare story, hela konceptnamn och läsbara responsiva konceptvyer.",
+      "Riktad jämförelsedragning, 44 px touchytor och bevarade stil-/inspirationsval.",
+      "Lokalt kontaktutkast, 16 px fält, fokus/validering och begriplig manuell kopiering.",
+      "En dekorativ mobilfilm åt gången, poster vid nekad uppspelning och paus för osynlig canvas.",
+      "Stabila synliga scrollankare vid rörelsebyte; dold/inert storytext väljs inte som ankare.",
+      "Datorillustrationen anpassas till höjden ovanför bildtexten; dimensioner cachas mellan scrollhändelser.",
+      "Det senaste sektionsvalet avbryter även ett väntande sidbyte utan animation i reducerat rörelseläge."
+    ],
+    "verification": {
+      "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
+      "full_functional_matrix_export_sha256": "fd79a22c548da1297c971d7ae4b950dd5efcaf8cd1580f4958c1cdde41c0393b",
+      "final_targeted_export_sha256": "2e9cdf0e6e17685909514e467ccc2b550a76b3dbc1cf16d0b324810c2f9af9a0",
+      "viewports": [
+        "320x844",
+        "360x844",
+        "390x844",
+        "430x932",
+        "768x1024",
+        "1024x768",
+        "1440x900",
+        "844x390",
+        "320x568"
+      ],
+      "checks": [
+        "Alla huvudvyer, båda koncepten från startsida och Designexempel, interna länkar, Tillbaka/Escape och fokus/scroll.",
+        "Menysemantik, fokusfälla, stängning före navigation, upprepade sidbyten och släppt scrollåsning.",
+        "Jämförelse med touch, vertikal scroll, reglage, tangentbord, 0/100 och avbruten dragning.",
+        "Kontaktval/inspiration, validering, Enter, textarea-radbrytning, utkast, ändring och manuell kopiering utan backendanrop.",
+        "Filmuppspelning/posters, paus, systemets reducerade rörelse och simulerad dold sida.",
+        "Höjdändring, rotation, korta skärmar, overflow, ikoner, typsnitt och JavaScript/resursfel.",
+        "19 källscripts med giltig syntax, 10 byteidentiska medieposter och deterministiskt regenererad export.",
+        "Fristående file://-export och lokal HTTP-server."
+      ],
+      "physical_devices_tested": false,
+      "limits": [
+        "Safari på fysisk iPhone och Chrome på fysisk Android är inte testade.",
+        "Verkliga telefoners tangentbord, adressfält, notch/safe areas, batteri och GPU är inte verifierade.",
+        "Bakgrundsläget testas med simulerad document.hidden, inte fysisk OS-/flikväxling.",
+        "Clipboard API begränsas av iframe-policy; manuell kopiering är verifierad.",
+        "Illustrationsfilmerna är korta befintliga loopar, inte verifierat sömlösa.",
+        "Ikoner och typsnitt behöver internetanslutning.",
+        "Exporten kräver JavaScript; utan JavaScript saknas en synlig fallback."
+      ],
+      "final_targeted_result": {
+        "test_modes": 10,
+        "passed": 10,
+        "assertion_failures": 0,
+        "javascript_exceptions": 0,
+        "http_errors": 0,
+        "failed_requests": 0
+      },
+      "full_matrix_note": "Mellanversionens breda matris hittade layoutfel som rättades och omtestades i slutexporten. Slutresultatet avser de riktade slutkontrollerna, inte alla assertions i mellanversionen."
+    },
+    "scope": "Endast den nya isolerade klonen och detta separata repo, inklusive main efter användarens publiceringsgodkännande. Produktion, Modbus Buddy, WordPress, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push.",
+    "historical_review_note": "Nedan bevaras paketets ursprungliga granskning som historiskt underlag. Dess begränsningar beskriver den dåvarande versionen, inte den publicerade mobilversionen.",
+    "historical_review": {
+      "preview": "/workspace/cendovari-luminous-preview.html",
+      "root": "cv-lumen",
+      "accepted_baseline": "/workspace/cendovari-master-preview.html",
+      "scope": "New inline preview only. Accepted previews, original videos, export project, live website, WordPress, GitHub and Modbus Buddy untouched.",
+      "changes": [
+        "Project image grows from its captured card frame into the opened concept image, then blends out. Native navigation, focus, scroll, Back and Escape remain authoritative.",
+        "Soft pointer reflection over featured and gallery image surfaces, only for mouse/fine-pointer motion-enabled previews. No idle animation loop.",
+        "Front-face crystal reflection reuses pointer coordinates and existing canvas scheduling; exactly two clipped main-logo front faces receive light without geometry or timeline changes.",
+        "Existing service form-study shapes now use original C/V brand proportions with CSS, without added markup or animations.",
+        "Two single-shot video trims replace rapid montages; 960x540 at 24fps with milder compression, matching first-frame posters in all six image placements.",
+        "Shorter unique root namespace keeps the preview at 890296 bytes without minifying native controllers."
+      ],
+      "checks": [
+        "27 unique IDs, valid labels and ARIA relationships, valid fragment nesting, 18 script syntax checks and 2027 scoped CSS selector branches.",
+        "Actual-tree synthetic PB/Motor gallery and homepage route, one expansion per open, native Back/Escape/focus/scroll preserved.",
+        "Pointer bounds, frame coalescing, touch/pen exclusion, pause/reduced/hidden/inert/offscreen gates, style restoration and detach cleanup.",
+        "Canvas mesh, paths, transforms, base fills and scheduled frames match baseline at 320, 736 and 1024 widths across eight scroll poses.",
+        "Final film first/middle/last frames inspected; codec, frame rate, dimensions, audio removal, faststart, poster payloads and source alignment verified.",
+        "13 protected files remain hash-identical. 14 native scripts match baseline exactly after root normalization; native video controller differs only in source payloads.",
+        "Independent focused source and synthetic integration review found no blocker."
+      ],
+      "limits": [
+        "No browser rendering or video playback test; inline preview is the visual review surface.",
+        "The two videos repeat after roughly one second. Small physical pose resets remain; they are not claimed perfectly seamless.",
+        "Illustration films and temporary company names remain labeled as design concepts. No real photographs were supplied.",
+        "Mobile navigation redesign remains deferred. New transition decoration is disabled below 720px."
+      ]
+    },
+    "review_branch": "codex/luminous-mobile-refinement",
+    "approved_content_commit": "4f597db02a33e287f00c91d3fea55ce4ee5f3b4c",
+    "publication": {
+      "date": "2026-10-10",
+      "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "workflow_run": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38060677367",
+      "workflow_conclusion": "success",
+      "https_status": 200,
+      "source_and_export_match_approved": true,
+      "pages_configuration_changed": false,
+      "browser_verification": {
+        "origin": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
+        "viewports": [
+          "320x844",
+          "390x844",
+          "1440x900",
+          "390x844 reduced-motion"
+        ],
+        "check_groups": 113,
+        "passed": true,
+        "javascript_exceptions": 0,
+        "http_errors": 0,
+        "failed_requests": 0,
+        "backend_requests": 0,
+        "unintended_overflow": 0,
+        "physical_devices_tested": false
+      }
     }
   }
 }
