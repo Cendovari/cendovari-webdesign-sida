@@ -37,7 +37,30 @@ Tvåvarvsproven använder verklig klocktid, video.currentTime och requestVideoFr
 | 1440×900 | Projekt | PB-system | 22.172 s | 2 | 532 |
 | 1440×900 | Projekt | Hagströms Motor | 22.258 s | 2 | 534 |
 
-Publiceringskvittot kompletteras efter godkänt Pages-bygge och kontroll av den riktiga HTTPS-länken.
+## Publicering och riktig HTTPS
+
+Innehållscommit [`34710a6f…`](https://github.com/Cendovari/cendovari-webdesign-sida/commit/34710a6f85d1d4a04b49a972afa6ab52fda9c58b) har exakt en förälder, den verifierade main-baslinjen `32b521cb…`, och exakt åtta planerade filer. Arbetsbranchen är publicerad och main uppdaterad med kontrollerad expected SHA och force=false. Oberoende GitHub-läsning bekräftar att övriga scripts, markup, CSS, bildpayloads och runtime är bevarade; inga workflow- eller domänfiler ändras.
+
+[Pages-bygge 38067162392](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38067162392) passerade med success. [Den riktiga förhandsvisningen](https://cendovari.github.io/cendovari-webdesign-sida/) kontrollerades därefter 2026-10-10 kl. 16:19:43 UTC. Index, källa och båda fulla MP4 levererades med HTTP 200 och byteexakta SHA256 enligt ovan. Båda filmerna har Content-Type video/mp4 och fungerande Range 206, bytes 0–1023. Befintligt main/root-Pages-flöde är oförändrat.
+
+5/5 publika Chrome-körningar passerade vid 320×844, 390×844, 1440×900, 844×390 och reducerad rörelse 390×844: 46 layoutprover, 78 duration-/attributprov och 30 kontinuitetsprov. Noll JavaScript-undantag, misslyckade requests, HTTP-fel eller backendanrop. 57 SVG-ikoner, inga ikonplaceholders och typsnitt färdigladdade. Meny, navigation, båda projektens Dator/Mobil, Tillbaka/Escape och fokus/scroll fungerade. Kontaktutkast skapades med klick och Enter och bevarade textarea-radbrytningar; alla filmer var pausade på kontaktsidan. Reducerat läge hade fyra posters, inga laddade filmsrc och inga aktiva animationer.
+
+Åtta riktiga HTTPS-tvåvarvsprov passerade. Media spelades i normal hastighet, video.duration var 10,000 s på alla fyra filmplatser; inga normala omladdningar, srcbyten, currentTime-sättningar eller emptied-händelser registrerades. Under dessa långprov registrerades noll stopp och tappade rutor. Mobiltesterna är Chrome på Windows med desktopemulering, inga fysiska telefoner.
+
+| Vy | Placering | Film | Uppmätt mediaprogress | Hela loopar | Presenterande callbacks |
+|---|---|---|---:|---:|---:|
+| 390×844 | Startsida | PB-system | 22.131 s | 2 | 530 |
+| 390×844 | Startsida | Hagströms Motor | 22.056 s | 2 | 530 |
+| 390×844 | Projekt | PB-system | 22.094 s | 2 | 531 |
+| 390×844 | Projekt | Hagströms Motor | 22.110 s | 2 | 531 |
+| 1440×900 | Startsida | PB-system | 22.092 s | 2 | 531 |
+| 1440×900 | Startsida | Hagströms Motor | 22.031 s | 2 | 528 |
+| 1440×900 | Projekt | PB-system | 22.174 s | 2 | 532 |
+| 1440×900 | Projekt | Hagströms Motor | 22.108 s | 2 | 531 |
+
+En kompletterande riktig HTTPS-kontroll vid 390 px passerade native-touch för båda filmernas ut/in-återupptagning samt menyfokus, Tab/Shift+Tab, inert bakgrund, scrollås, Escape och fokusåterställning. Meny och rörelsepaus stoppade alla fyra filmer. Noll JavaScript-/request-/HTTP-fel.
+
+Efterföljande verifieringscommit uppdaterar endast README och granskningsrapporter; källa, export och filmer är oförändrade.
 
 ## Begränsningar och avgränsning
 

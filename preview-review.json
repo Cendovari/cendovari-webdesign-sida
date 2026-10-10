@@ -1,7 +1,7 @@
 {
   "title": "Cendovari — fullängdsfilmer",
   "date": "2026-10-10",
-  "status": "Lokala kontroller godkända; Pages-publicering och HTTPS-verifiering återstår.",
+  "status": "Publicerad på GitHub Pages och verifierad via riktig HTTPS och Chrome-uppspelning.",
   "repository": "https://github.com/Cendovari/cendovari-webdesign-sida",
   "branch": "codex/restore-10-second-videos",
   "baseline_commit": "32b521cbef481482966e546ce33ebe2703aafb09",
@@ -67,7 +67,7 @@
   "verification": {
     "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
     "physical_devices_tested": false,
-    "status": "PASS lokalt",
+    "status": "PASS lokalt och på offentlig HTTPS",
     "limits": [
       "Safari/iPhone och Chrome/Android på fysisk telefon har inte testats.",
       "Originalmontagens kameraklipp och slut–början-klipp är bevarade; looparna är inte sömlösa.",
@@ -252,7 +252,8 @@
         10
       ],
       "playback_rate": 1,
-      "two_full_loops_each_home_and_project": true
+      "two_full_loops_each_home_and_project": true,
+      "duration_attribute_checks": 140
     },
     "touch_supplement": {
       "runs": 2,
@@ -282,12 +283,293 @@
       "Navigation, Designexempel, Om oss, Kontakt, Tillbaka/Escape, fokus/scroll och lokalt kontaktutkast.",
       "Noll normalflödes-reset, srcbyte, load eller emptied under loop- och kontinuitetsproven.",
       "Touch-svep, synlighetshysteres, en mobilfilm åt gången, posters vid nekad autoplay och file://."
-    ]
+    ],
+    "independent_remote_scope": {
+      "commit": "34710a6f85d1d4a04b49a972afa6ab52fda9c58b",
+      "parent": "32b521cbef481482966e546ce33ebe2703aafb09",
+      "changed_paths": [
+        "README.md",
+        "assets/video/hagstroms-motor-10s.mp4",
+        "assets/video/pb-system-10s.mp4",
+        "docs/video-review.md",
+        "index.html",
+        "preview-review.json",
+        "preview-source.html",
+        "scripts/render.py"
+      ],
+      "other19_scripts_css_markup_images_unchanged": true,
+      "renderer_only_media_src_self_change": true,
+      "runtime_workflows_cname_unchanged": true
+    }
   },
   "publication": {
     "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "status": "Verifieras efter publicering",
-    "pages_configuration_changed": false
+    "status": "Verifierad",
+    "date": "2026-10-10",
+    "content_commit": "34710a6f85d1d4a04b49a972afa6ab52fda9c58b",
+    "workflow_run": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38067162392",
+    "workflow_conclusion": "success",
+    "https_status": 200,
+    "checked_utc": "2026-10-10T16:19:43.200895+00:00",
+    "source_export_media_match_byte_exact": true,
+    "files": [
+      {
+        "path": "index.html",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "status": 200,
+        "bytes": 637817,
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "295c5847055b03c944794c57b6f789978dd58a2c096858658e2f1fed3e9cca93",
+        "expected_sha256": "295c5847055b03c944794c57b6f789978dd58a2c096858658e2f1fed3e9cca93"
+      },
+      {
+        "path": "preview-source.html",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/preview-source.html",
+        "status": 200,
+        "bytes": 525988,
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "4c25c55265ff93b7cb7f1ea513fc6aad2ea7580b8b29c122d67e22e2b126d0f4",
+        "expected_sha256": "4c25c55265ff93b7cb7f1ea513fc6aad2ea7580b8b29c122d67e22e2b126d0f4"
+      },
+      {
+        "path": "assets/video/pb-system-10s.mp4",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/pb-system-10s.mp4",
+        "status": 200,
+        "bytes": 3211270,
+        "content_type": "video/mp4",
+        "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+        "expected_sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+        "range_status": 206,
+        "content_range": "bytes 0-1023/3211270"
+      },
+      {
+        "path": "assets/video/hagstroms-motor-10s.mp4",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/hagstroms-motor-10s.mp4",
+        "status": 200,
+        "bytes": 3384000,
+        "content_type": "video/mp4",
+        "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+        "expected_sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+        "range_status": 206,
+        "content_range": "bytes 0-1023/3384000"
+      }
+    ],
+    "pages_configuration_changed": false,
+    "browser_verification": {
+      "browser": "Chrome på Windows med desktopemulering för mobil",
+      "viewports": [
+        {
+          "name": "index-mobile320",
+          "width": 320,
+          "height": 844
+        },
+        {
+          "name": "index-mobile390",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "name": "index-desktop1440",
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "name": "index-landscape844",
+          "width": 844,
+          "height": 390
+        },
+        {
+          "name": "index-reduced390",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "runs": 5,
+      "passed": true,
+      "layout_samples": 46,
+      "duration_attribute_checks": 78,
+      "continuity_checks": 30,
+      "long_loop_tests": [
+        {
+          "mode": "index-mobile390",
+          "view": "home",
+          "film": "PB-system",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.131216,
+          "wallSeconds": 22.15170000000298,
+          "frameCallbacks": 530,
+          "decodedFrames": 529,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-mobile390",
+          "view": "home",
+          "film": "Hagströms Motor",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.05563800000001,
+          "wallSeconds": 22.08739999999851,
+          "frameCallbacks": 530,
+          "decodedFrames": 529,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-mobile390",
+          "view": "project",
+          "film": "PB-system",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.09396699999999,
+          "wallSeconds": 22.11789999999851,
+          "frameCallbacks": 531,
+          "decodedFrames": 531,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-mobile390",
+          "view": "project",
+          "film": "Hagströms Motor",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.110006,
+          "wallSeconds": 22.12880000000447,
+          "frameCallbacks": 531,
+          "decodedFrames": 531,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-desktop1440",
+          "view": "home",
+          "film": "PB-system",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.091652999999997,
+          "wallSeconds": 22.11430000000447,
+          "frameCallbacks": 531,
+          "decodedFrames": 530,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-desktop1440",
+          "view": "home",
+          "film": "Hagströms Motor",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.031275000000008,
+          "wallSeconds": 22.06609999999404,
+          "frameCallbacks": 528,
+          "decodedFrames": 529,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-desktop1440",
+          "view": "project",
+          "film": "PB-system",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.17439599999999,
+          "wallSeconds": 22.2025,
+          "frameCallbacks": 532,
+          "decodedFrames": 533,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        },
+        {
+          "mode": "index-desktop1440",
+          "view": "project",
+          "film": "Hagströms Motor",
+          "duration": 10,
+          "rate": 1,
+          "wraps": 2,
+          "mediaSeconds": 22.108051,
+          "wallSeconds": 22.13110000000149,
+          "frameCallbacks": 531,
+          "decodedFrames": 530,
+          "droppedFrames": 0,
+          "stalls": 0,
+          "loadDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true
+        }
+      ],
+      "measured_duration_seconds": [
+        10,
+        10
+      ],
+      "playback_rate": 1,
+      "normal_scroll_pause_src_load_time_setter_emptied_deltas": 0,
+      "javascript_exceptions": 0,
+      "http_errors": 0,
+      "failed_requests": 0,
+      "backend_requests": 0,
+      "icon_count": 57,
+      "icon_placeholders": 0,
+      "font_status": "loaded",
+      "contact_click_enter_textarea_passed": true,
+      "reduced_posters_no_playback_animations": true,
+      "physical_devices_tested": false,
+      "native_touch_and_menu_focus_verified": true,
+      "menu_tab_shift_tab_escape_inert_scroll_lock_passed": true
+    }
   },
   "scope": "Alla projekt-/GitHub-skrivningar gäller endast Cendovari/cendovari-webdesign-sida och isolerad arbetsklon. Produktion, Cendovari-Website, Modbus Buddy, cendovari.com, WordPress, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push.",
   "historical_natural_scroll_publication": {

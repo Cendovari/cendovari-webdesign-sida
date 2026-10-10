@@ -2,7 +2,7 @@
 
 Separat webbdesignförhandsvisning för Cendovari AB. Den godkända pärlemorgrunden, kristallen, silver/lila ljuset och typografin följer med i ett tydligare flöde på dator och telefon. Startsidan lämnar skärmen direkt vid scroll, följd av stora vertikala filmkort och en gemensam presentation av dator och mobil. Tjänster, arbetsprocess, FAQ och kontakt följer i normalt sidflöde.
 
-**Status: godkänt scrollflöde är publicerat; fullängdsfilmerna har passerat lokala kontroller och väntar på Pages-/HTTPS-verifiering.** Videorättelsen dokumenteras i rapporten nedan.
+**Status: fullängdsfilmerna är publicerade och verifierade på GitHub Pages.** Båda filmerna är 10,000 sekunder. Det godkända scrollflödet och utseendet är bevarade.
 
 - [Förhandsvisning på GitHub Pages](https://cendovari.github.io/cendovari-webdesign-sida/)
 - [Videorättelsens arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/restore-10-second-videos)
@@ -47,11 +47,13 @@ Behåll controllerhändelser, mobilmenyn, kontaktflödet och mediehanteringen. V
 
 ## Verifiering och publiceringsflöde
 
-Videorättelsen har passerat 9 lokala Chrome-körningar av källa/export samt touch- och posterfallback-kontroller. Båda filmerna mättes till 10,000 s i alla fyra filmplatser; två fulla varv verifierades på emulerad mobil och dator utan omstart vid scroll eller paus. Detaljer och kommande HTTPS-kvitto finns i [filmrapporten](docs/video-review.md).
+Videorättelsen har passerat 9 lokala Chrome-körningar av källa/export samt touch- och posterfallback-kontroller. Efter publicering passerade 5 riktiga HTTPS-körningar vid 320/390/1440 px, kort liggande vy och reducerad rörelse. Båda filmerna mättes till 10,000 s i alla fyra filmplatser; två fulla varv verifierades på emulerad mobil och dator utan omstart vid scroll eller paus. Navigation, projekt, meny och lokalt kontaktutkast fungerade utan JavaScript-/resursfel. Källa, export och båda filmerna matchar publicerade SHA256; MP4 stöder Range 206. Detaljer finns i [filmrapporten](docs/video-review.md).
+
+Videokorrigeringens innehållscommit: [`34710a6f…`](https://github.com/Cendovari/cendovari-webdesign-sida/commit/34710a6f85d1d4a04b49a972afa6ab52fda9c58b). [Verifierat Pages-bygge](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38067162392).
 
 Basen med det godkända scrollflödet passerade 14 körningar av export/regenererad källa och 236 layoutprover. Sex extra kontakt-/interaktionskörningar med 106 kontrollpunkter avsåg samma controllers före en rent blankteckenmässig formatstädning. Efter publicering passerade fyra riktiga HTTPS-körningar med 67 layoutprover och tre publika kontaktkörningar med 26 kontrollpunkter. Kontroller och begränsningar dokumenteras i [granskningsrapporten](docs/natural-scroll-review.md). Telefonstorlekar, touch och rotation testas med Chrome på Windows och desktopemulering. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.
 
-Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Scrollflödets design och publicering godkändes i förväg och dess arbetsbranch fördes till main efter kontroller. Videokorrigeringens publicering är också godkänd och genomförs efter godkända kontroller.
+Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Scrollflödets design och publicering godkändes i förväg och dess arbetsbranch fördes till main efter kontroller. Videokorrigeringens publicering var också godkänd och är genomförd efter godkända kontroller, med verifierad riktig HTTPS-länk.
 
 GitHub Pages behåller befintligt flöde: **Deploy from a branch**, `main`, projektets rot (`/`) och GitHubs HTTPS-standardadress. Ingen ändring av Pages-inställningar, egen domän, hosting eller DNS görs. Cendovari-Website, Modbus Buddy, WordPress och cendovari.com lämnas orörda. Lägg aldrig till lösenord, tokens, `.env`, gamla Git-mappar eller filer från andra projekt.
 
