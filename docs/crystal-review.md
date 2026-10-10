@@ -43,7 +43,13 @@ Design-genvägen jämfördes med samma klick i det godkända paketet: sektions-/
 
 Ett försök med en annan flik gav document.hidden=false i körmiljön. Det räknas inte som verifierad verklig bakgrundsväxling. Hidden/visibilitychange och pagehide/pageshow kontrollerades uttryckligen genom simulerade lifecycle-händelser; de fryser och återupptar kristallerna från samma första pose. DPR3-emulering gav3 i exportens ytterdokument men1 i sandboxad iframe, och CDP tillåter inte metrics-override på det underordnade targetet. Därför är faktisk iframe-DPR3 inte browserverifierad; separat canvas/maxDPR3/ingen blur eller uppskalning är verifierade i koden och faktiskt raster vid DPR1. Ursprungliga miljö-/testavvikelser finns kvar i lokala QA-rapporter och räknas inte som produktfel eller passerade kontroller.
 
-Offentlig HTTPS-verifiering återstår tills befintligt Pages-bygge avslutats.
+Innehållscommit [e7ade187aa84a7fe29d82adee7fe627cd9b666c6](https://github.com/Cendovari/cendovari-webdesign-sida/commit/e7ade187aa84a7fe29d82adee7fe627cd9b666c6) publicerades med vanlig fast-forward från baslinjen; arbetsbranch och main pekade på samma innehållscommit. Exakt fem planerade filer ändrades och 34 befintliga lövfiler behöll SHA och mode. Runtime, båda MP4, exportskript och .nojekyll är oförändrade. Ingen CNAME eller workflowfil tillkom. En separat avslutande dokumentationscommit lägger enbart till verifieringskvittot.
+
+[Pages-bygge 38072174742](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38072174742) avslutades med success. [Den riktiga HTTPS-sidan](https://cendovari.github.io/cendovari-webdesign-sida/) samt källa och båda MP4 gav HTTP 200 och byteexakta SHA256 den 10 oktober 2026 kl.17:33:43 UTC. Båda filmernas Range-prov gav HTTP 206 med rätt byteintervall.
+
+Den publicerade exporten testades i verklig Chrome kl.17:34:04–17:36:34 UTC: 390 × 844, 1440 × 900 och reducerad rörelse vid 390 × 844. Samtliga tre körningar fick HTTP 200 och exakt samma export-SHA ovan. Åtta tvåvarvsprov av PB-system och Hagströms Motor på startsida och i projektvyer passerade. Under varje prov gick 22,059–22,202 sekunders media på 22,093–22,228 sekunders väggtid; 529–533 avkodade bildrutor, noll tappade bildrutor, uppmätta stopp eller extra src/load/currentTime/emptied-återställningar. Filmerna var 10 sekunder, 1280 × 720 och hastighet 1.
+
+14 publika kontinuitetsprov och 57 av 57 kontakt-/menykontroller passerade, tillsammans med 26 layoutprover och 42 film-/attributobservationer. Reducerad rörelse visade statiska posters utan laddade eller autospelande filmer. Noll JavaScript-/HTTP-/requestfel och inga backendanrop observerades. Faktiska publika hero-bilder vid 390 och 1440 px granskades visuellt. Offentliga kontroller använde automatiserade Chrome-klick/tap, wheel, tangenttryckningar och uttrycklig programmatisk scrollTop; den sistnämnda räknas inte som touchsvep.
 
 ## Begränsningar och avgränsning
 

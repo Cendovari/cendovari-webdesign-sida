@@ -1,7 +1,7 @@
 {
   "title": "Cendovari — godkänd kristallintroduktion",
   "date": "2026-10-10",
-  "status": "Lokala produktkontroller passerade; main/Pages-publicering och HTTPS-kontroll återstår.",
+  "status": "Publicerad och verifierad",
   "repository": "https://github.com/Cendovari/cendovari-webdesign-sida",
   "branch": "codex/crystal-introduction",
   "baseline_commit": "779da7f7f53c2931bb0b2bc8372d85430b8ba906",
@@ -70,7 +70,7 @@
   "verification": {
     "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
     "physical_devices_tested": false,
-    "status": "PASS lokalt; offentlig HTTPS-verifiering återstår.",
+    "status": "Lokala och offentliga Chrome-kontroller passerade",
     "entry_types": [
       "Fristående index.html",
       "Från aktuell preview-source.html nygenererad sandboxad export"
@@ -231,12 +231,186 @@
         "Chrome-emulering gav DPR3 i ytterdokumentet men DPR1 i sandboxad iframe; faktisk iframe-DPR3 ej verifierad. MaxDPR3, separat markcanvas och ingen CSS-blur/uppskalning verifierades statiskt samt raster vid faktiskDPR1.",
         "Initialt Design-test antog felaktigt högst80px mellan header och caption. Sluttest jämför sektionsankaret med samma godkända paket och mäter exakt samma geometri, delta0."
       ]
+    },
+    "independent_remote_scope": {
+      "commit": "e7ade187aa84a7fe29d82adee7fe627cd9b666c6",
+      "parent": "779da7f7f53c2931bb0b2bc8372d85430b8ba906",
+      "tree": "983aba10362195a314903c202391176d5b3e00b8",
+      "changed_paths": [
+        "README.md",
+        "docs/crystal-review.md",
+        "index.html",
+        "preview-review.json",
+        "preview-source.html"
+      ],
+      "unchanged_existing_leaf_blobs_and_modes": 34,
+      "deletions": 0,
+      "runtime_mp4_renderer_nojekyll_unchanged": true,
+      "cname_and_workflows_absent_before_and_after": true,
+      "refs_main_and_work_branch_verified": true
+    },
+    "public_film_contact": {
+      "publicURL": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "startedUTC": "2026-10-10T17:34:04.868Z",
+      "completedUTC": "2026-10-10T17:36:34.117Z",
+      "sourceSHA256": "7da7e776b36913febab04f9917e16a133d27c39615cd179b559a37ea9a5ddaf1",
+      "expectedIndexSHA256": "33e7895500ca24d0edf11efae659a1b42c3d31774ddf320e53f9b3556867959b",
+      "publicResponseIndexSHA256": [
+        "33e7895500ca24d0edf11efae659a1b42c3d31774ddf320e53f9b3556867959b",
+        "33e7895500ca24d0edf11efae659a1b42c3d31774ddf320e53f9b3556867959b",
+        "33e7895500ca24d0edf11efae659a1b42c3d31774ddf320e53f9b3556867959b"
+      ],
+      "publicResponseStatuses": [
+        200,
+        200,
+        200
+      ],
+      "passed": 3,
+      "runs": 3,
+      "allPassed": true,
+      "twoFullLoopTrials": 8,
+      "mediaSecondsRange": [
+        22.05905700000001,
+        22.202050999999997
+      ],
+      "wallSecondsRange": [
+        22.093100000001492,
+        22.22810000000149
+      ],
+      "frameCallbacksRange": [
+        529,
+        533
+      ],
+      "decodedFramesRange": [
+        529,
+        533
+      ],
+      "droppedFramesRange": [
+        0,
+        0
+      ],
+      "sampledStalls": 0,
+      "normalLoopResetDeltas": {
+        "loadCallsDelta": 0,
+        "timeSetterDelta": 0,
+        "srcMutationDelta": 0,
+        "emptiedDelta": 0
+      },
+      "continuityTrials": 14,
+      "continuityAllPassed": true,
+      "contactChecks": 57,
+      "contactPassed": 57,
+      "layoutSamples": 26,
+      "durationObservations": 42,
+      "javascriptErrors": 0,
+      "httpErrors": 0,
+      "requestFailures": 0,
+      "allNoBackend": true,
+      "perRun": [
+        {
+          "name": "index-mobile390",
+          "pass": true,
+          "layoutSamples": 11,
+          "durationObservations": 22,
+          "continuityTrials": 8,
+          "loopTrials": 4,
+          "contactChecks": 20,
+          "failures": []
+        },
+        {
+          "name": "index-desktop1440",
+          "pass": true,
+          "layoutSamples": 11,
+          "durationObservations": 20,
+          "continuityTrials": 6,
+          "loopTrials": 4,
+          "contactChecks": 17,
+          "failures": []
+        },
+        {
+          "name": "index-reduced390",
+          "pass": true,
+          "layoutSamples": 4,
+          "durationObservations": 0,
+          "continuityTrials": 0,
+          "loopTrials": 0,
+          "contactChecks": 20,
+          "failures": []
+        }
+      ],
+      "inputMethods": [
+        "Browser clicks and mobile touchscreen.tap",
+        "Chrome wheel, Escape/Enter/End and sequential keypress edits",
+        "Explicit programmatic inner scrollTop for direct scroll continuity cases; not touch-swipes"
+      ],
+      "limits": [
+        "Installed Chrome only, emulated viewports and touch; no physical phone or Safari",
+        "Public index only; no source fragment used as full website",
+        "Fifty-seven icons and fonts verified by browser observations, not an offline dependency guarantee",
+        "Opaque sandbox blocks Clipboard API; manual selection/copy fallback verified",
+        "Original pre-encoding source clips unavailable; no independent original-identity/no-transcode assertion",
+        "Full source SHA lock checked in local frozen folder; published source/MP4 GET hashes independently verified by parent before start, not recalculated by this browser script"
+      ]
     }
   },
   "publication": {
     "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "status": "Lokala kontroller godkända, väntar på befintligt Pages-bygge och verklig HTTPS-verifiering",
-    "pages_configuration_changed": false
+    "status": "Pages-bygge, HTTPS och offentlig browserkontroll verifierade",
+    "date": "2026-10-10",
+    "content_commit": "e7ade187aa84a7fe29d82adee7fe627cd9b666c6",
+    "workflow_run": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38072174742",
+    "workflow_conclusion": "success",
+    "https_status": 200,
+    "checked_utc": "2026-10-10T17:33:43.458042+00:00",
+    "source_export_media_match_byte_exact": true,
+    "pages_configuration_changed": false,
+    "files": [
+      {
+        "path": "index.html",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "status": 200,
+        "bytes": 624605,
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "33e7895500ca24d0edf11efae659a1b42c3d31774ddf320e53f9b3556867959b",
+        "expected_sha256": "33e7895500ca24d0edf11efae659a1b42c3d31774ddf320e53f9b3556867959b"
+      },
+      {
+        "path": "preview-source.html",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/preview-source.html",
+        "status": 200,
+        "bytes": 514049,
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "7da7e776b36913febab04f9917e16a133d27c39615cd179b559a37ea9a5ddaf1",
+        "expected_sha256": "7da7e776b36913febab04f9917e16a133d27c39615cd179b559a37ea9a5ddaf1"
+      },
+      {
+        "path": "assets/video/pb-system-10s.mp4",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/pb-system-10s.mp4",
+        "status": 200,
+        "bytes": 3211270,
+        "content_type": "video/mp4",
+        "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+        "expected_sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+        "range_status": 206,
+        "content_range": "bytes 0-1023/3211270"
+      },
+      {
+        "path": "assets/video/hagstroms-motor-10s.mp4",
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/hagstroms-motor-10s.mp4",
+        "status": 200,
+        "bytes": 3384000,
+        "content_type": "video/mp4",
+        "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+        "expected_sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+        "range_status": 206,
+        "content_range": "bytes 0-1023/3384000"
+      }
+    ],
+    "browser_started_utc": "2026-10-10T17:34:04.868Z",
+    "browser_completed_utc": "2026-10-10T17:36:34.117Z",
+    "public_browser_runs": 3,
+    "public_browser_all_passed": true,
+    "receipt_note": "Avslutande dokumentationscommit ändrar endast README.md, docs/crystal-review.md och preview-review.json. Verifierat webb-/medieinnehåll är innehållscommit ovan."
   },
   "authorization": "Användaren godkände paketets design och main/Pages-publicering efter kontroller. Ingen ny väsentlig visuell avvikelse införs.",
   "scope": "Endast isolerad arbetsklon och Cendovari/cendovari-webdesign-sida. Produktion, Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting, domän/DNS och Pages-inställningar orörda. Ingen force-push.",
