@@ -1,0 +1,29 @@
+{
+  "preview": "/workspace/cendovari-luminous-preview.html",
+  "root": "cv-lumen",
+  "accepted_baseline": "/workspace/cendovari-master-preview.html",
+  "scope": "New inline preview only. Accepted previews, original videos, export project, live website, WordPress, GitHub and Modbus Buddy untouched.",
+  "changes": [
+    "Project image grows from its captured card frame into the opened concept image, then blends out. Native navigation, focus, scroll, Back and Escape remain authoritative.",
+    "Soft pointer reflection over featured and gallery image surfaces, only for mouse/fine-pointer motion-enabled previews. No idle animation loop.",
+    "Front-face crystal reflection reuses pointer coordinates and existing canvas scheduling; exactly two clipped main-logo front faces receive light without geometry or timeline changes.",
+    "Existing service form-study shapes now use original C/V brand proportions with CSS, without added markup or animations.",
+    "Two single-shot video trims replace rapid montages; 960x540 at 24fps with milder compression, matching first-frame posters in all six image placements.",
+    "Shorter unique root namespace keeps the preview at 890296 bytes without minifying native controllers."
+  ],
+  "checks": [
+    "27 unique IDs, valid labels and ARIA relationships, valid fragment nesting, 18 script syntax checks and 2027 scoped CSS selector branches.",
+    "Actual-tree synthetic PB/Motor gallery and homepage route, one expansion per open, native Back/Escape/focus/scroll preserved.",
+    "Pointer bounds, frame coalescing, touch/pen exclusion, pause/reduced/hidden/inert/offscreen gates, style restoration and detach cleanup.",
+    "Canvas mesh, paths, transforms, base fills and scheduled frames match baseline at 320, 736 and 1024 widths across eight scroll poses.",
+    "Final film first/middle/last frames inspected; codec, frame rate, dimensions, audio removal, faststart, poster payloads and source alignment verified.",
+    "13 protected files remain hash-identical. 14 native scripts match baseline exactly after root normalization; native video controller differs only in source payloads.",
+    "Independent focused source and synthetic integration review found no blocker."
+  ],
+  "limits": [
+    "No browser rendering or video playback test; inline preview is the visual review surface.",
+    "The two videos repeat after roughly one second. Small physical pose resets remain; they are not claimed perfectly seamless.",
+    "Illustration films and temporary company names remain labeled as design concepts. No real photographs were supplied.",
+    "Mobile navigation redesign remains deferred. New transition decoration is disabled below 720px."
+  ]
+}
