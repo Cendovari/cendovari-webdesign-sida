@@ -73,11 +73,11 @@ Kontrollerna använder isolerade Chrome-profiler på Windows. Viewport, touch, r
 
 ## Mätning och desktopjämförelse
 
-Instrumenterade Chrome-körningar jämförde baslinje och kandidat vid 1440×900 och 390×844. Mätfönster var cirka 2,2 sekunder. Detta är en jämförelse i samma desktopmiljö, inte ett mått på fysisk mobilprestanda.
+Instrumenterade Chrome-körningar jämförde baslinje och kandidat vid 1440×900 och 390×844. Mätfönster var cirka 2,2 sekunder. Detta är en jämförelse i samma desktopmiljö, inte ett mått på fysisk mobilprestanda. Canvasmåttet räknar `clearRect`-anrop och mäter inte faktisk visuell bildfrekvens eller CPU-tid.
 
 | Kontroll | Före | Efter |
 | --- | --- | --- |
-| Canvas i Om oss utanför bild | cirka 25 målningar/s | 0 |
+| Canvas i Om oss utanför bild, `clearRect`-anrop | cirka 25 anrop/s | 0 |
 | Samtidiga synliga dekorativa mobilfilmer | 2 | 1 |
 | Samtidiga desktopfilmer | 2 | 2 |
 | `getBoundingClientRect`-läsningar vid exakt 26 behandlade scrollhändelser, desktop | 546 | 520 |
@@ -88,7 +88,7 @@ Den första mätningen med fasta scrollskrivningar gav högre sammanlagda callba
 
 Slutlayouten kontrollerades igen: 1024×768 har ingen yttre overflow med fin eller grov pekare. Tre upprepade rotationer 844×390 ↔ 1024×768 och kort desktop → 1440×900 återställer rätt höjd. Mobilen har högst en spelande film; paus och canvas utanför vyn ger 0 rAF-anrop under mätfönstret. Previewbarens höjd läses bara när dimensionscachen behöver uppdateras, inte vid varje scroll.
 
-Frysta 1440×900-bilder med reducerad rörelse från laddning jämfördes mot den godkända baslinjen. En tidigare slutkandidat (`367c675d…`) gav en pixelidentisk 1408×700 px innehållsyta: 0 ändrade pixlar, raw-RGBA-SHA256 `7370614606002eb446f2f13f6c667f3eef14e00355b96e9dc44e498523deccfb`. Den senare kandidaten `336ca23f…` hade samma geometri och visuella komposition men gav 3 respektive 307 avvikande innehållspixlar i två omkörningar, högst 0,031 procent av ytan och högst 1/255 per färgkanal. Den ska därför inte beskrivas som exakt pixelidentisk. Orsaken till variationen är inte fastställd. Slutversionens `2e9cdf0e…` desktopvy och scener granskades visuellt på nytt; datorillustrationens höjdanpassning är en avsiktlig ändring.
+Frysta 1440×900-bilder med reducerad rörelse från laddning jämfördes mot den godkända baslinjen. En tidigare slutkandidat (`367c675d…`) gav en pixelidentisk 1408×700 px innehållsyta: 0 ändrade pixlar, raw-RGBA-SHA256 `7370614606002eb446f2f13f6c667f3eef14e00355b96e9dc44e498523deccfb`. Den senare kandidaten `336ca23f…` hade samma geometri och visuella komposition men gav 3 respektive 307 avvikande innehållspixlar i två omkörningar, cirka 0,031 procent av ytan i största omkörningen och högst 1/255 per färgkanal. Den ska därför inte beskrivas som exakt pixelidentisk. Orsaken till variationen är inte fastställd. Slutversionens `2e9cdf0e…` desktopvy och scener granskades visuellt på nytt; datorillustrationens höjdanpassning är en avsiktlig ändring.
 
 Desktopens 56 px previewbar har avsiktligt fått ljus bakgrund och bättre textkontrast. Den står för 78 846 ändrade pixlar. Normal desktop med rörelse jämfördes också visuellt i funktionskontrollen.
 
