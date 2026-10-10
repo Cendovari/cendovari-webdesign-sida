@@ -1,9 +1,9 @@
 {
-  "title": "Cendovari Webdesign Sida — mobilförfining för granskning",
+  "title": "Cendovari Webdesign Sida — godkänd och publicerad mobilförfining",
   "date": "2026-10-10",
-  "status": "Arbetsbranch för granskning; main och GitHub Pages är oförändrade.",
+  "status": "Godkänd 2026-10-10 och publicerad på GitHub Pages; HTTPS-export och källa verifierade byteexakt.",
   "repository": "https://github.com/Cendovari/cendovari-webdesign-sida",
-  "branch": "codex/luminous-mobile-refinement",
+  "branch": "main",
   "baseline_commit": "6ecb3e31ad15d4636d1d607af17555788aae5a3a",
   "source": "preview-source.html",
   "export": "index.html",
@@ -68,8 +68,8 @@
     },
     "full_matrix_note": "Mellanversionens breda matris hittade layoutfel som rättades och omtestades i slutexporten. Slutresultatet avser de riktade slutkontrollerna, inte alla assertions i mellanversionen."
   },
-  "scope": "Endast den nya isolerade klonen och arbetsbranchen i detta separata repo. Produktion, Modbus Buddy, WordPress, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push.",
-  "historical_review_note": "Nedan bevaras paketets ursprungliga granskning som historiskt underlag. Dess begränsningar beskriver den dåvarande versionen, inte aktuell arbetsbranch.",
+  "scope": "Endast den nya isolerade klonen och detta separata repo, inklusive main efter användarens publiceringsgodkännande. Produktion, Modbus Buddy, WordPress, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push.",
+  "historical_review_note": "Nedan bevaras paketets ursprungliga granskning som historiskt underlag. Dess begränsningar beskriver den dåvarande versionen, inte den publicerade mobilversionen.",
   "historical_review": {
     "preview": "/workspace/cendovari-luminous-preview.html",
     "root": "cv-lumen",
@@ -98,5 +98,34 @@
       "Illustration films and temporary company names remain labeled as design concepts. No real photographs were supplied.",
       "Mobile navigation redesign remains deferred. New transition decoration is disabled below 720px."
     ]
+  },
+  "review_branch": "codex/luminous-mobile-refinement",
+  "approved_content_commit": "4f597db02a33e287f00c91d3fea55ce4ee5f3b4c",
+  "publication": {
+    "date": "2026-10-10",
+    "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+    "workflow_run": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38060677367",
+    "workflow_conclusion": "success",
+    "https_status": 200,
+    "source_and_export_match_approved": true,
+    "pages_configuration_changed": false,
+    "browser_verification": {
+      "origin": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "browser": "Chrome på Windows, isolerade profiler och desktopemulering",
+      "viewports": [
+        "320x844",
+        "390x844",
+        "1440x900",
+        "390x844 reduced-motion"
+      ],
+      "check_groups": 113,
+      "passed": true,
+      "javascript_exceptions": 0,
+      "http_errors": 0,
+      "failed_requests": 0,
+      "backend_requests": 0,
+      "unintended_overflow": 0,
+      "physical_devices_tested": false
+    }
   }
 }

@@ -1,17 +1,17 @@
-# Cendovari Webdesign Sida — granskningsversion
+# Cendovari Webdesign Sida — publicerad förhandsvisning
 
-Separat Luminous-demo för Cendovaris webbdesign. Den här arbetsbranchen innehåller en genomarbetad mobilversion och förbättrade interaktioner. Pärlemorgrunden, kristallen, silver/lila ljuset och datorversionens komposition är bevarade.
+Separat Luminous-demo för Cendovaris webbdesign. Den godkända versionen innehåller en genomarbetad mobilversion och förbättrade interaktioner. Pärlemorgrunden, kristallen, silver/lila ljuset och datorversionens komposition är bevarade.
 
-**Status: arbetsbranch för granskning. Main och GitHub Pages har inte uppdaterats i detta arbete.** Den publicerade sidan visar fortfarande den tidigare godkända versionen.
+**Status: godkänd och publicerad på GitHub Pages 2026-10-10.** Efter användarens godkännande fördes den verifierade innehållscommitten `4f597db02a33e287f00c91d3fea55ce4ee5f3b4c` till main utan force-push. Den riktiga HTTPS-länken har verifierats och exporten matchar granskningsversionen byteexakt.
 
-- [Granska arbetsbranchen](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/luminous-mobile-refinement)
-- [Hämta granskningsversionen som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/codex/luminous-mobile-refinement.zip)
-- [Tidigare publicerad förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
+- [Godkänd granskningsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/luminous-mobile-refinement)
+- [Hämta publicerad version som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
+- [Publicerad förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
 - [Ändringar, verifiering och skärmbilder](docs/mobile-review.md)
 
-## Prova granskningsversionen
+## Prova förhandsvisningen
 
-Hämta arbetsbranchens ZIP, packa upp det och öppna `index.html` i webbläsaren. Exporten är en komplett fristående webbsida; `preview-source.html` är det redigerbara fragmentet och ska inte öppnas som en hel sida. Ikoner och typsnitt kräver internetanslutning.
+Öppna den publicerade länken ovan eller hämta main-versionens ZIP, packa upp det och öppna `index.html` i webbläsaren. Exporten är en komplett fristående webbsida; `preview-source.html` är det redigerbara fragmentet och ska inte öppnas som en hel sida. Ikoner och typsnitt kräver internetanslutning.
 
 För lokal HTTP-server, kör från den uppackade projektmappen:
 
@@ -23,7 +23,7 @@ python3 -m http.server 8766 --bind 127.0.0.1
 
 ## Rätt källa
 
-Arbetsbranchen utgår från aktuell main, `6ecb3e31ad15d4636d1d607af17555788aae5a3a`, verifierad 2026-10-10. Den publicerade `preview-source.html` används som grund. Inget äldre ZIP-paket har återimporterats.
+Mobilförfiningen utgår från dåvarande main, `6ecb3e31ad15d4636d1d607af17555788aae5a3a`, verifierad 2026-10-10. Den publicerade `preview-source.html` används som grund. Inget äldre ZIP-paket har återimporterats.
 
 - Rot-ID: `cv-lumen`. Källan har 19 lokala scriptblock, inklusive den nya mobilmenyn.
 - Kontaktformulärets publicerade iframe-rättelse är bevarad: lokal knapphantering med validering och lokalt utkast, Enter i enkla fält och vanliga radbrytningar i textarea.
@@ -44,7 +44,7 @@ Kontaktformuläret visar bara ett lokalt utkast. Det skickar inte e-post och har
 
 Navigation, båda koncepten, fokus/scroll, jämförelse, kontaktutkast och medier har granskats i Chrome vid 320, 360, 390, 430, 768, 1024 och 1440 px, inklusive kort liggande vy och reducerad rörelse. Höjdändringar, rotation och touch emuleras på desktop. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats. Exakt omfattning, mätningar och skärmbilder finns i [granskningsrapporten](docs/mobile-review.md).
 
-Inga blockerande JavaScript- eller resursfel hittades. Clipboard API kan ge det dokumenterade policyfelet; manuell kopiering fungerar. Ikoner och typsnitt behöver fortsatt internetanslutning. Exporten kräver JavaScript; utan det saknas en synlig fallback.
+Efter publiceringen passerade 113 kontrollgrupper på den riktiga HTTPS-länken vid 320×844, 390×844, 1440×900 och reducerad rörelse 390×844. Export och källa var byteidentiska med den godkända versionen. Inga blockerande JavaScript- eller resursfel hittades. Clipboard API kan ge det dokumenterade policyfelet; manuell kopiering fungerar. Ikoner och typsnitt behöver fortsatt internetanslutning. Exporten kräver JavaScript; utan det saknas en synlig fallback.
 
 ## Ändra och regenerera
 
@@ -68,11 +68,11 @@ Uppdatera endast detta separata repository. Cendovari-Website, Modbus Buddy, Wor
 4. Skapa en vanlig commit och pusha arbetsbranchen utan force-push. Visa den färdiga exporten och skärmbilder för granskning.
 5. **Först efter användarens godkännande:** för den granskade versionen till main, låt det befintliga Pages-flödet bygga och verifiera den slutliga HTTPS-länken.
 
-GitHub Pages använder **Deploy from a branch**, `main` och projektets rot (`/`). GitHubs standardadress och HTTPS används. Ingen ändring av Pages-inställningar, egen domän eller DNS ingår i mobilförbättringen.
+GitHub Pages använder **Deploy from a branch**, `main` och projektets rot (`/`). GitHubs standardadress och HTTPS används. Ingen ändring av Pages-inställningar, egen domän eller DNS gjordes. [Pages-bygget för den godkända versionen](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38060677367) avslutades med success.
 
 ## Tidigare publicering — historisk arbetslogg
 
-Följande gäller den tidigare publicerade baslinjen. Aktuell arbetsbranch och dess verifiering beskrivs ovan och i granskningsrapporten.
+Följande gäller den tidigare publicerade baslinjen. Den publicerade mobilförfiningen och dess verifiering beskrivs ovan och i granskningsrapporten.
 
 
 - Användaren klargjorde att det tidigare repot endast var planerat och godkände skapandet av ett nytt separat repo med samma namn.

@@ -1,14 +1,24 @@
-# Mobilförfining — underlag för granskning
+# Mobilförfining — granskning och publicering
 
 Datum: 2026-10-10. Arbetsbranch: `codex/luminous-mobile-refinement`.
 
-Den här versionen utgår från aktuell publicerad main, `6ecb3e31ad15d4636d1d607af17555788aae5a3a`. En ren, separat klon användes. Ingen äldre ZIP-källa återimporterades. Den tidigare publicerade iframe-rättelsen för kontaktutkastet är bevarad.
+Mobilförfiningen utgår från den då publicerade main-versionen, `6ecb3e31ad15d4636d1d607af17555788aae5a3a`. En ren, separat klon användes. Ingen äldre ZIP-källa återimporterades. Den tidigare publicerade iframe-rättelsen för kontaktutkastet är bevarad.
 
-**Main och GitHub Pages visar fortfarande den tidigare versionen. Arbetsbranchen ska granskas och godkännas innan den förs till main.**
+**Användaren godkände granskningsversionen 2026-10-10. Den verifierade committen `4f597db02a33e287f00c91d3fea55ce4ee5f3b4c` fördes därefter till main utan force-push. GitHub Pages publicerar nu den godkända versionen.**
+
+[Publicerad förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/) · [Godkänd innehållscommit](https://github.com/Cendovari/cendovari-webdesign-sida/commit/4f597db02a33e287f00c91d3fea55ce4ee5f3b4c) · [Lyckat Pages-bygge](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38060677367). HTTPS-kontrollen gav HTTP 200 för både export och källa; deras SHA256 matchar den godkända exportens identitet nedan. Tidigare granskning, mätningar och före/efterbilder bevaras här som underlag.
+
+## Kontroll av den publicerade sidan
+
+Efter godkännandet kördes fyra isolerade Chrome-kontroller mot den riktiga HTTPS-länken: 320×844, 390×844, 1440×900 och 390×844 med reducerad rörelse. Samtliga svarade HTTP 200 med exportens godkända SHA256 `2e9cdf0e…`. 113 kontrollgrupper passerade utan stegfel, JavaScript-undantag, HTTP-fel, misslyckade requests, backendanrop eller oavsiktlig overflow.
+
+Navigation och mobilmeny, fokus/scroll, båda konceptens interna länkar och Tillbaka/Escape, Dator/Mobil-val, designstudio och jämförelse, ikoner/typsnitt, filmuppspelning/posters, paus/reducerad rörelse samt hela det lokala kontaktutkastet kontrollerades på den publicerade sidan. Alla 57 ikoner blev SVG. Enter i enkla fält, textarea-radbrytningar, inspiration, ändring av utkast och manuell kopiering fungerade. Clipboard-policybegränsningen är fortsatt dokumenterad.
+
+Detta är fortfarande Chrome på Windows med emulerade mobilstorlekar; inga fysiska telefoner tillkom vid publiceringen. Källan och exporten ändrades inte efter godkännandet. Endast publiceringsstatus och verifiering har därefter lagts till i dokumentationen.
 
 ## Prova resultatet
 
-[Hämta arbetsbranchens ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/codex/luminous-mobile-refinement.zip), packa upp och öppna `index.html`. Exporten fungerar fristående. Internet behövs för ikoner och typsnitt. Alternativt kör lokal HTTP-server enligt [README](../README.md).
+[Hämta den godkända granskningsversionens ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/codex/luminous-mobile-refinement.zip), packa upp och öppna `index.html`. Exporten fungerar fristående. Internet behövs för ikoner och typsnitt. Alternativt kör lokal HTTP-server enligt [README](../README.md).
 
 Prova särskilt mobilmenyn, långsam och snabb scroll i båda riktningarna, rörelseknappen, båda koncepten från startsidan och Designexempel, Dator/Mobil-val, jämförelsen samt inspiration → kontaktutkast → ändra/kopiera.
 
@@ -118,11 +128,11 @@ Bilderna efter ändringen är tagna från slutexporten `2e9cdf0e…` i desktop-C
 - Kontaktutkastet har ingen backend och skickar ingen e-post. Clipboard API kan ge ett policyrelaterat konsolmeddelande i iframe. Manuell kopieringsfallback är avsiktlig och testas separat.
 - Exporten kräver JavaScript för att bygga sin sandboxade iframe. Med JavaScript avstängt blir sidan tom; någon no-JavaScript-fallback finns ännu inte. Detta är en kvarvarande begränsning, inte ett godkänt funktionstest.
 - Källan och exporten har svenska, `cv-lumen`, lokal runtime och `noindex,nofollow`. Ikoner/typsnitt använder samma externa CDN-beroenden som baslinjen.
-- Det här arbetet skriver bara i den nya isolerade klonen och arbetsbranchen i `Cendovari/cendovari-webdesign-sida`. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push används.
+- Det här arbetet skriver bara i den nya isolerade klonen, granskningsbranchen och — efter användarens godkännande — main i `Cendovari/cendovari-webdesign-sida`. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, hosting, domän/DNS och Pages-inställningar är orörda. Ingen force-push används.
 
 ## Exportens identitet
 
 - Källans SHA256: `3f92bd30a63cb429ec6a03fce1c2384cbc9e128997093c6ab5848329894ba632`.
 - Exportens SHA256: `2e9cdf0e6e17685909514e467ccc2b550a76b3dbc1cf16d0b324810c2f9af9a0`.
-- Publicerad baslinje, oförändrad export: `a3b824e00f65f62e2112d0f9002827a3bfe7a5197cef3b63da5edc1ea20dff6e`.
+- Tidigare publicerad baslinje, historisk export: `a3b824e00f65f62e2112d0f9002827a3bfe7a5197cef3b63da5edc1ea20dff6e`.
 
