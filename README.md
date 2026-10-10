@@ -2,10 +2,11 @@
 
 Separat webbdesignförhandsvisning för Cendovari AB. Den godkända pärlemorgrunden, kristallen, silver/lila ljuset och typografin följer med i ett tydligare flöde på dator och telefon. Startsidan lämnar skärmen direkt vid scroll, följd av stora vertikala filmkort och en gemensam presentation av dator och mobil. Tjänster, arbetsprocess, FAQ och kontakt följer i normalt sidflöde.
 
-**Status: godkänd och publicerad på GitHub Pages.** Den verkliga HTTPS-sidan gav HTTP 200 och publicerad källa/export matchar den granskade versionen byteexakt.
+**Status: godkänt scrollflöde är publicerat; fullängdsfilmerna har passerat lokala kontroller och väntar på Pages-/HTTPS-verifiering.** Videorättelsen dokumenteras i rapporten nedan.
 
 - [Förhandsvisning på GitHub Pages](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/natural-scroll-preview)
+- [Videorättelsens arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/restore-10-second-videos)
+- [Fullängdsfilmer — ändring och verifiering](docs/video-review.md)
 - [Hämta projektet som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
 - [Ändringar, verifiering och skärmbilder](docs/natural-scroll-review.md)
 - [Tidigare mobilförfining — historisk rapport](docs/mobile-review.md)
@@ -22,13 +23,13 @@ Arbetet började från verifierad main, `2a9df0f071609e0485289e07ec63c673adbded1
 
 ## Material och begränsningar
 
-PB-system och Hagströms Motor är tillfälliga företagsnamn i designkoncept. Filmer och bilder är illustrationsmaterial. Samtliga inbäddade mediepayloads är oförändrade; inga nya kundresultat, omdömen eller företagsuppgifter har lagts till. De två befintliga, korta MP4-looparna är 960×540, 24 fps och utan ljud. Matchande posters, `playsinline` och filmkontrollern är bevarade. Filmerna är inte verifierat sömlösa och längre originalfilmer saknas.
+PB-system och Hagströms Motor är tillfälliga företagsnamn i designkoncept. Filmer och bilder är illustrationsmaterial. Befintliga posters och illustrationer är oförändrade; inga nya kundresultat, omdömen eller företagsuppgifter har lagts till. De två fullängdsfilmerna ligger som MP4 under `assets/video`: 10,000 sekunder, 1280×720, 24 fps, 240 bildrutor och utan ljud. De bifogade filerna har kopierats utan omkodning eller klippning. Uppspelningen sker i normal hastighet; vanlig scroll och paus återanvänder laddad resurs och befintlig position. Posters, `playsinline`, `muted`, `loop` och konceptmärkningen är bevarade. Originalmontagens kameraklipp och slut–början-klipp är kvar; filmerna är inte sömlösa. Originalbildströmsidentitet kan inte jämföras utan ursprungsfilerna.
 
 Kontaktuppgifter och inspiration behålls lokalt mellan vyerna. Clipboard API kan blockeras av iframe-policyn; en manuell fallback visar och markerar utkastet. Ikoner och typsnitt behöver internetanslutning. Exporten kräver JavaScript och saknar en synlig fallback utan det.
 
 ## Prova och ändra
 
-Öppna Pages-länken ovan eller hämta projektets ZIP och öppna `index.html`. För lokal HTTP-server, kör från projektmappen:
+Öppna Pages-länken ovan eller hämta projektets ZIP och kör en lokal HTTP-server från projektmappen. Hela `assets/video` måste följa med. Om `index.html` dubbelklickas med file:// visas posters; Chrome blockerar lokala MP4 i exportens sandbox. Använd därför följande för filmuppspelning:
 
 ```sh
 python3 -m http.server 8766 --bind 127.0.0.1
@@ -42,17 +43,19 @@ python3 -m http.server 8766 --bind 127.0.0.1
 python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webdesign Sida — Förhandsvisning' --force
 ```
 
-Behåll controllerhändelser, mobilmenyn, kontaktflödet och den inbäddade mediehanteringen. Videornas initialt tomma `src` är avsiktliga; byt inte till relativa filmadresser utan att också anpassa och verifiera kontrollern. Runtime och exportskript följer med.
+Behåll controllerhändelser, mobilmenyn, kontaktflödet och mediehanteringen. Videornas initialt tomma `src` är avsiktliga; byt inte till relativa filmadresser utan att också anpassa och verifiera kontrollern. Runtime och exportskript följer med. Använd den vanliga HTTP-servern ovan för externa filmer; `render.py --serve` serverar bara HTML.
 
 ## Verifiering och publiceringsflöde
 
-Slutversionen passerade 14 körningar av export/regenererad källa och 236 layoutprover. Sex extra kontakt-/interaktionskörningar med 106 kontrollpunkter avsåg samma controllers före en rent blankteckenmässig formatstädning. Efter publicering passerade fyra riktiga HTTPS-körningar med 67 layoutprover och tre publika kontaktkörningar med 26 kontrollpunkter. Kontroller och begränsningar dokumenteras i [granskningsrapporten](docs/natural-scroll-review.md). Telefonstorlekar, touch och rotation testas med Chrome på Windows och desktopemulering. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.
+Videorättelsen har passerat 9 lokala Chrome-körningar av källa/export samt touch- och posterfallback-kontroller. Båda filmerna mättes till 10,000 s i alla fyra filmplatser; två fulla varv verifierades på emulerad mobil och dator utan omstart vid scroll eller paus. Detaljer och kommande HTTPS-kvitto finns i [filmrapporten](docs/video-review.md).
 
-Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Den här ändringens design och publicering godkändes i förväg; arbetsbranchen är förd till main efter kontroller och den verkliga HTTPS-länken är verifierad.
+Basen med det godkända scrollflödet passerade 14 körningar av export/regenererad källa och 236 layoutprover. Sex extra kontakt-/interaktionskörningar med 106 kontrollpunkter avsåg samma controllers före en rent blankteckenmässig formatstädning. Efter publicering passerade fyra riktiga HTTPS-körningar med 67 layoutprover och tre publika kontaktkörningar med 26 kontrollpunkter. Kontroller och begränsningar dokumenteras i [granskningsrapporten](docs/natural-scroll-review.md). Telefonstorlekar, touch och rotation testas med Chrome på Windows och desktopemulering. Safari på fysisk iPhone och Chrome på fysisk Android har inte testats.
+
+Arbeta endast i detta separata repository: kontrollera remote, branch och status, bevara orelaterat arbete och Git-historiken, använd arbetsbranch och vanlig commit utan force-push. Visa väsentliga visuella avvikelser för användaren före publicering. Scrollflödets design och publicering godkändes i förväg och dess arbetsbranch fördes till main efter kontroller. Videokorrigeringens publicering är också godkänd och genomförs efter godkända kontroller.
 
 GitHub Pages behåller befintligt flöde: **Deploy from a branch**, `main`, projektets rot (`/`) och GitHubs HTTPS-standardadress. Ingen ändring av Pages-inställningar, egen domän, hosting eller DNS görs. Cendovari-Website, Modbus Buddy, WordPress och cendovari.com lämnas orörda. Lägg aldrig till lösenord, tokens, `.env`, gamla Git-mappar eller filer från andra projekt.
 
-Innehållscommit: [`691e733c…`](https://github.com/Cendovari/cendovari-webdesign-sida/commit/691e733c8c751c773bc109f32007e342dc41f408). [Godkänt Pages-bygge](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38065155829). Publicerad källa och export matchar SHA256 i `preview-review.json`.
+Scrollflödets innehållscommit: [`691e733c…`](https://github.com/Cendovari/cendovari-webdesign-sida/commit/691e733c8c751c773bc109f32007e342dc41f408). [Scrollflödets godkända Pages-bygge](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38065155829). Aktuella SHA256 och historiska kontroller finns separat i `preview-review.json`.
 
 ## Tidigare publicering — historisk arbetslogg
 

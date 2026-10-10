@@ -32,7 +32,7 @@ _FRAME_CSP = "; ".join(
         f"style-src 'unsafe-inline' {_RESOURCE_SOURCES}",
         f"img-src {_RESOURCE_SOURCES}",
         f"font-src {_RESOURCE_SOURCES}",
-        f"media-src {_RESOURCE_SOURCES}",
+        f"media-src 'self' {_RESOURCE_SOURCES}",
         "worker-src blob:",
         "connect-src blob: data:",
         "frame-src 'none'",
