@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import re
 import sys
 from html import escape
@@ -8,9 +9,16 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-_MAX_FRAGMENT_BYTES = 1_000_000
+sys.dont_write_bytecode = True
+
+_MAX_FRAGMENT_BYTES = 2_000_000
 _DOCUMENT_MARKUP = re.compile(r"<!doctype\s|<\s*(?:html|head|body)(?:\s|>)", re.I)
 _HOST_API_REFERENCE = re.compile(r"\b(?:window|globalThis)\.openai\b")
+_resource_spec = importlib.util.spec_from_file_location("cendovari_export_resources", Path(__file__).with_name("build-export.py"))
+if _resource_spec is None or _resource_spec.loader is None:
+    raise RuntimeError("cannot load the approved export resource helper")
+_resources = importlib.util.module_from_spec(_resource_spec)
+_resource_spec.loader.exec_module(_resources)
 _CSP = "; ".join((
     "default-src 'none'",
     "script-src 'self' 'unsafe-inline' https://unpkg.com",
@@ -24,29 +32,20 @@ _CSP = "; ".join((
     "base-uri 'self'",
     "form-action 'none'",
 ))
-_BASE_STYLE = ":root{--foreground:#1d212a;--muted-foreground:#4b5160;--border:#a2a7b54d}html,body{margin:0;padding:0;background:#e6e7ef;color-scheme:light}body{min-width:0}*,*::before,*::after{box-sizing:border-box}.cursor-interaction{cursor:pointer}button,input,select,textarea{font:inherit}[hidden]{display:none!important}"
-_ICON_BOOT = """<script id="cendovari-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
-<script>
-(() => {
-  const initialize = () => globalThis.lucide?.createIcons({attrs:{width:16,height:16}});
-  if (globalThis.lucide) initialize();
-  else document.getElementById('cendovari-lucide').addEventListener('load',initialize,{once:true});
-})();
-</script>"""
 
 
 def _read_fragment(source: Path) -> str:
     if source.is_symlink() or not source.is_file():
         raise ValueError(f"source must be a regular file: {source}")
     if source.stat().st_size > _MAX_FRAGMENT_BYTES:
-        raise ValueError("source fragment exceeds the 1 MB size limit")
+        raise ValueError("source fragment exceeds the 2 MB size limit")
     fragment = source.read_text(encoding="utf-8")
     if _DOCUMENT_MARKUP.search(fragment):
         raise ValueError("source must be an HTML fragment, not a complete document")
     if _HOST_API_REFERENCE.search(fragment):
         raise ValueError("the published document must not depend on a preview host API")
-    if re.search(r"<iframe\b|data:video/", fragment, re.I):
-        raise ValueError("use native document content and separate original video assets")
+    if re.search(r"<iframe\b", fragment, re.I):
+        raise ValueError("use native document content without an iframe")
     return fragment
 
 
@@ -57,31 +56,27 @@ def _default_title(source: Path) -> str:
 def _render_document(fragment: str, title: str) -> str:
     # The approved fragment owns the layout and controllers. The wrapper only
     # supplies document defaults, resource policy and the existing icon library.
-    logo = re.search(r'<img src="(data:image/svg\+xml;base64,[^"]+)"', fragment)
-    favicon = f'<link rel="icon" type="image/svg+xml" href="{logo.group(1)}">' if logo else ''
-    return f"""<!doctype html>
-<html lang="sv">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-<meta name="robots" content="noindex,nofollow">
-<meta name="referrer" content="no-referrer">
-{favicon}
-<meta http-equiv="Content-Security-Policy" content="{escape(_CSP, quote=True)}">
-<title>{escape(title)}</title>
-<style>{_BASE_STYLE}</style>
-</head>
-<body>
-{fragment}
-{_ICON_BOOT}
-<noscript><p style="padding:1rem;font:16px system-ui">Förhandsvisningen behöver JavaScript för navigation och filmkontroller.</p></noscript>
-</body>
-</html>
-"""
+    shell = Path(__file__).with_name("export-shell.html").read_text(encoding="utf-8")
+    values = {
+        "<!--EXPORT_CSP-->": escape(_CSP, quote=True),
+        "<!--EXPORT_TITLE-->": escape(title),
+        "<!--APPROVED_FRAGMENT-->": fragment,
+    }
+    for marker in values:
+        if shell.count(marker) != 1:
+            raise ValueError(f"export shell must contain exactly one {marker}")
+    for marker, value in values.items():
+        shell = shell.replace(marker, value)
+    return shell
+
+
+def prepare_export(source: Path, title: str | None = None) -> tuple[str, dict[str, bytes]]:
+    fragment, images = _resources.externalize_resources(_read_fragment(source), source.resolve().parent)
+    return _render_document(fragment, title or _default_title(source)), images
 
 
 def render(fragment_path: Path, title: str | None = None) -> str:
-    return _render_document(_read_fragment(fragment_path), title or _default_title(fragment_path))
+    return prepare_export(fragment_path, title)[0]
 
 
 def export_html(source: Path, destination: Path, *, title: str | None = None, force: bool = False) -> None:
@@ -89,14 +84,18 @@ def export_html(source: Path, destination: Path, *, title: str | None = None, fo
         raise ValueError("destination cannot be a symbolic link")
     if source.resolve() == destination.resolve() or (destination.exists() and source.samefile(destination)):
         raise ValueError("source and destination must be different files")
-    document = render(source, title)
+    if destination.exists() and not force:
+        raise FileExistsError("destination already exists; pass --force to replace it")
+    document, images = prepare_export(source, title)
     destination.parent.mkdir(parents=True, exist_ok=True)
+    _resources.write_images(destination.parent, images)
     with destination.open("w" if force else "x", encoding="utf-8", newline="\n") as output:
         output.write(document)
 
 
-def serve(document: str, port: int, directory: Path) -> None:
+def serve(document: str, port: int, directory: Path, images: dict[str, bytes] | None = None) -> None:
     encoded = document.encode("utf-8")
+    image_data = images or {}
 
     class Handler(SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):
@@ -110,7 +109,14 @@ def serve(document: str, port: int, directory: Path) -> None:
                 self.send_header("Content-Length", str(len(encoded)))
                 self.end_headers()
                 self.wfile.write(encoded)
-            elif path.startswith("/assets/video/") and ".." not in path.split("/"):
+            elif path.lstrip("/") in image_data:
+                data = image_data[path.lstrip("/")]
+                self.send_response(200)
+                self.send_header("Content-Type", self.guess_type(path))
+                self.send_header("Content-Length", str(len(data)))
+                self.end_headers()
+                self.wfile.write(data)
+            elif path.startswith(("/assets/video/", "/assets/images/")) and ".." not in path.split("/"):
                 super().do_GET()
             else:
                 self.send_error(404)
@@ -146,7 +152,8 @@ def main(argv: list[str] | None = None) -> int:
             export_html(args.fragment, args.destination, title=args.title, force=args.force)
             print(args.destination)
         elif args.serve:
-            serve(render(args.fragment, args.title), args.port, args.fragment.resolve().parent)
+            document, images = prepare_export(args.fragment, args.title)
+            serve(document, args.port, args.fragment.resolve().parent, images)
         else:
             sys.stdout.write(render(args.fragment, args.title))
     except (OSError, UnicodeError, ValueError) as exc:

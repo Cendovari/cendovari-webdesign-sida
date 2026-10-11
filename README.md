@@ -1,61 +1,58 @@
-# Cendovari Webdesign Sida — godkänd filmversion
+# Cendovari Webdesign Sida — GPPE-förhandsvisning
 
-Separat designförhandsvisning för Cendovari AB. Huvudfilmen ligger direkt under navigationen, i full 16:9 utan toning, blur, logotyp- eller textlager. Rubrik, beskrivning och kontaktknapp följer under filmen. Luminous-uttrycket och den statiska skarpa navigationsloggan är bevarade.
+Separat förhandsvisning för Cendovari AB. Den godkända Luminous-designen, pärlemorgrunden och den stora 16:9-filmen är bevarade. Starttexten är ”Vi bygger hemsidor för företag.” Tjänsteillustrationen visar en datorskärm och telefon. GPPE visas med riktig logga och skärmbild; Bilverkstad är ett tydligt märkt designförslag.
 
-**Status: publicerad och verifierad på HTTPS 2026-10-11.**
+**Status: lokalt verifierad; publiceringskontrollen pågår.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [Innehållscommit 7315d0f](https://github.com/Cendovari/cendovari-webdesign-sida/commit/7315d0f08ac8e7e564bd7ad3d8cf16963736282c)
-- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/film-first-introduction)
-- [Ändring och granskningsrapport](docs/film-first-review.md)
-- [Ladda ned main som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
+- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/gppe-portfolio)
+- [Granskning och skärmbilder](docs/gppe-review.md)
+- [Ladda ned main](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
 
-## Källa och export
+## Underlag och innehåll
 
-Utgångspunkt är main `1b476ae2aa3c29ce3dbe1068e737ee2572b8578e`. Den godkända överlämningen är `cendovari-film-first-handoff.zip` (SHA256 `48be01c96ba5e603b9d422369f74e399052de9971b7d927e8d44b906d06528b3`).
+Integreringen utgår från verifierad main `3c3ebb16f8ee0ddbd4aaea754dddc554acb1d88a` och `cendovari-gppe-handoff.zip` (SHA256 `58cdd816671e73c33e59cb00ee1974551059da33d0cb72f2a7647ec841c1f27c`). Alla 16 poster i paketets SHA256SUMS.txt är verifierade.
 
-`preview-source.html` är den redigerbara källan, rot `cv-film-first`. Paketets layout och innehåll är bevarade. Komprimerade inlinefilmer har ersatts med relativa adresser till paketets fullängdsfiler. Tekniska rättelser gäller verklig viewporthöjd, mobilmenyns dokumentlås och filmcontroller; ingen redesign.
+`preview-source.html` är den redigerbara källan, rot `cv-gppe-featured`. Godkänt innehåll, CSS och komposition är bevarade. En avgränsad teknisk rättelse återställer mobilmenyns interna scroll före första fokus när menyn återöppnas på en kort skärm. Befintliga viewport-, meny-, fokus-, projekt-, formulär- och filmfixar från main behålls.
 
-`scripts/render.py` bygger nu ett vanligt HTML-dokument med dokumentscroll. Det använder inte de historiska iframe-/host-runtimefilerna. Ingen canvas, gammal scenrenderer, tidslinje eller scrollstyrd introparallax används. Publiceringen kräver ingen ChatGPT-host eller localhost.
+Gotland Puts & Platt Entreprenad visas i ”Så kan en hemsida se ut”, efter processen och på Portfolio-sidan, med ”Byggd av Cendovari.” Alla tre GPPE-länkar är vanliga externa länkar till https://gppe.se/ och öppnar inget fiktivt projekt. Paketets separata äldre Plattsättning-exempel är fortfarande uttryckligen märkt designförslag på Portfolio och representerar inte GPPE. Bilverkstad är också ett designförslag med illustrationsmaterial. Inga nya kundresultat, omdömen eller partnerskap har lagts till.
 
-## Filmer och innehåll
+Kontakt visar bara ett lokalt utkast. Ingen e-post, backend eller formulärutskick används. Svenska, `noindex,nofollow` och tidigare CSP är bevarade.
 
-Alla tre publicerade klipp är **1280 × 720, 24 fps, 240 bildrutor, 10,000 sekunder och utan ljud**:
+## Källa och återskapningsbar export
 
-- `assets/video/cendovari-showreel-10s.mp4`
-- `assets/video/plattsattning-10s.mp4`
-- `assets/video/bilverkstad-10s.mp4`
+Källfragmentet innehåller kompakta inlinefilmer för förhandsvisningen. Publicerad `index.html` är ett vanligt komplett dokument med naturlig dokumentscroll, relativa bild- och originalfilmvägar och inga iframe-/ChatGPT-/localhost-beroenden. De historiska runtimefilerna ligger kvar i Git-historiken/projektet men används inte av exporten.
 
-Showreelens kodade videospår och timing matchar bifogat `6291.mp4` exakt, utan omkodning. Ljudspåret och den extra originalkopian publiceras inte. Exempelklippen är byteidentiska med överlämningens originalfiler.
+Bygg från projektmappen med Python 3:
 
-Filmerna laddas vid behov, spelar muted/playsinline/loop i hastighet 1 och pausar utanför synfältet, bakom menyn och i dold flik. Vanlig scroll och paus återställer inte src, load eller currentTime. Huvudfilmens Spela/Pausa visar faktisk uppspelning. Manuell paus består även när automatisk film växlas. Vid nekad autoplay finns en Spela-knapp och poster; reducerad rörelse stänger av automatisk uppspelning.
+~~~sh
+python3 scripts/build-export.py
+~~~
 
-Plattsättning och Bilverkstad är **designexempel**, med illustrationsmaterial. Inga levererade kundprojekt, resultat, omdömen eller partnerskap påstås. Kontaktformuläret visar enbart ett lokalt utkast och skickar ingen e-post eller backendrequest. Svenska och `noindex,nofollow` är bevarade. Dokumentets CSP blockerar formulärutskick, frames och backendanslutningar.
+Befintlig CLI ger samma export:
 
-## Prova och ändra
-
-Hämta hela projektmappen, inklusive de tre filmerna. Starta från projektmappen:
-
-```sh
-python3 -m http.server 8766 --bind 127.0.0.1
-```
-
-Öppna `http://127.0.0.1:8766/`. På Windows kan `python` ersätta `python3`. HTTP(S) rekommenderas för filmer och kopiering; ikoner och typsnitt hämtas från befintliga externa leverantörer och kräver internet.
-
-Ändra källan och regenerera exporten med befintlig CLI:
-
-```sh
+~~~sh
 python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webdesign Sida — Förhandsvisning' --force
-```
+~~~
 
-`--serve --port 8766` serverar också den regenererade HTML-sidan och dess videofiler från källans projektmapp. Använd relativa resursvägar som fungerar under Pages projektkatalog. Bevara controllerhändelser, fokus, lokalt utkast och explicit filmpaus.
+`scripts/export-shell.html` innehåller dokumentramen från main. Exportören extraherar sex kända bilder till `assets/images/` och ersätter källans kompakta filmdata med tre fulla originalklipp i `assets/video/`. Originalfilmerna verifieras och omkodas inte. Nya bild-/filmbytes kräver en uttrycklig uppdatering av exportörens kontrollsummor och nya tester; byt inte till okända resurser automatiskt.
+
+Alla tre klipp är 1280 × 720, 24 fps, 240 bildrutor, 10,000 sekunder och utan ljud. De spelar muted/playsinline/loop i hastighet 1. Befintlig synlighetsägare, manuell paus, reducerad rörelse och autoplay-fallback är bevarade. Vanlig scroll och paus ändrar inte src, load eller currentTime.
+
+För lokal granskning:
+
+~~~sh
+python3 -m http.server 8766 --bind 127.0.0.1
+~~~
+
+Öppna http://127.0.0.1:8766/. På Windows kan `python` ersätta `python3`. `python3 scripts/render.py preview-source.html --serve --port 8766` serverar också dokumentet och dess bilder/filmer. Ikoner och typsnitt behöver internet och använder befintliga leverantörer.
 
 ## Verifiering och publicering
 
-Detaljerade resultat, begränsningar och återställning finns i [granskningsrapporten](docs/film-first-review.md) och `preview-review.json`. Kontrollerna omfattar 320, 390, 768, 1440 px och kort liggande vy samt två hela loopar per film på startsidan och i projekten. Mobiltester sker genom desktopemulering i installerad Chrome på Windows; de ersätter inte Safari på fysisk iPhone eller Chrome på fysisk Android. Autoplay-nekande och doltillstånd testades med injektion; verklig dold flik kunde inte framkallas i testmiljön. Alla tre publika filmerna spelades i två varv vid både 390 och 1440 px. Enstaka rapporterade tappade bildrutor och en Chrome-avbruten medienedladdning är öppet kvalificerade i granskningsrapporten.
+[Granskningsrapporten](docs/gppe-review.md) och `preview-review.json` redovisar aktuell QA, kontrollerade resurser och begränsningar. Chrome på Windows har provats vid 320, 390, 768, 1440 px och kort liggande vy, med mus, tangentbord och emulerad touch. Detta är inte test på fysisk iPhone/Android eller Safari. Dold flik och nekad autoplay har kontrollerats med uttrycklig simulering/injektion.
 
-Arbeta på separat branch, kontrollera origin/main/status, bevara historik och orelaterat arbete och använd vanlig commit utan force-push. GitHub Pages fortsätter genom befintligt main/root-flöde till samma standardadress. Återställ med vanliga `git revert`-commits i omvänd ordning: eventuellt senare dokumentationskvitto först, därefter innehållscommiten. Ingen historik behöver skrivas om.
+Arbeta på separat branch, verifiera origin/main/status och bevara orelaterade ändringar. Använd vanliga commits och inga force-pushar. Befintligt GitHub Pages-flöde publicerar main/rot på samma standardadress; ingen CNAME eller domänändring används. Återställ vid behov med vanliga revert-commits i omvänd ordning, dokumentationskvitto först och därefter innehållscommit.
 
-Alla skrivningar gäller endast Cendovari/cendovari-webdesign-sida. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, produktion, hosting och domän/DNS är orörda. Pages-inställningarna ändras inte. Inga lösenord, tokens, .env, originalkopior eller filer från andra projekt läggs till.
+Alla skrivningar gäller endast Cendovari/cendovari-webdesign-sida. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, produktion, hosting och domän/DNS är orörda. Inga tokens, lösenord, .env, testuppgifter eller filer från andra projekt har lagts till.
 
-Historiska rapporter: [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobilförfining](docs/mobile-review.md). De beskriver tidigare versioner.
+Historik: [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md). Äldre rapporter beskriver respektive tidigare version, inte tester av detta paket.
