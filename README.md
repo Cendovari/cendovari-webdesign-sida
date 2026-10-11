@@ -2,9 +2,10 @@
 
 Separat designförhandsvisning för Cendovari AB. Huvudfilmen ligger direkt under navigationen, i full 16:9 utan toning, blur, logotyp- eller textlager. Rubrik, beskrivning och kontaktknapp följer under filmen. Luminous-uttrycket och den statiska skarpa navigationsloggan är bevarade.
 
-**Status: lokala funktions- och layoutkontroller godkända. Publicerad HTTPS-verifiering kompletteras efter Pages-körningen.**
+**Status: publicerad och verifierad på HTTPS 2026-10-11.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
+- [Innehållscommit 7315d0f](https://github.com/Cendovari/cendovari-webdesign-sida/commit/7315d0f08ac8e7e564bd7ad3d8cf16963736282c)
 - [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/film-first-introduction)
 - [Ändring och granskningsrapport](docs/film-first-review.md)
 - [Ladda ned main som ZIP](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
@@ -51,7 +52,7 @@ python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webd
 
 ## Verifiering och publicering
 
-Detaljerade resultat, begränsningar och återställning finns i [granskningsrapporten](docs/film-first-review.md) och `preview-review.json`. Kontrollerna omfattar 320, 390, 768, 1440 px och kort liggande vy samt två hela loopar per film på startsidan och i projekten. Mobiltester sker genom desktopemulering i installerad Chrome på Windows; de ersätter inte Safari på fysisk iPhone eller Chrome på fysisk Android. Autoplay-nekande och doltillstånd testades med injektion; verklig dold flik kunde inte framkallas i testmiljön.
+Detaljerade resultat, begränsningar och återställning finns i [granskningsrapporten](docs/film-first-review.md) och `preview-review.json`. Kontrollerna omfattar 320, 390, 768, 1440 px och kort liggande vy samt två hela loopar per film på startsidan och i projekten. Mobiltester sker genom desktopemulering i installerad Chrome på Windows; de ersätter inte Safari på fysisk iPhone eller Chrome på fysisk Android. Autoplay-nekande och doltillstånd testades med injektion; verklig dold flik kunde inte framkallas i testmiljön. Alla tre publika filmerna spelades i två varv vid både 390 och 1440 px. Enstaka rapporterade tappade bildrutor och en Chrome-avbruten medienedladdning är öppet kvalificerade i granskningsrapporten.
 
 Arbeta på separat branch, kontrollera origin/main/status, bevara historik och orelaterat arbete och använd vanlig commit utan force-push. GitHub Pages fortsätter genom befintligt main/root-flöde till samma standardadress. Återställ med vanliga `git revert`-commits i omvänd ordning: eventuellt senare dokumentationskvitto först, därefter innehållscommiten. Ingen historik behöver skrivas om.
 

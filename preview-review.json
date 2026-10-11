@@ -1,7 +1,7 @@
 {
   "title": "Cendovari Webdesign Sida — godkänd filmversion",
   "date": "2026-10-11",
-  "status": "locally_verified_publication_pending",
+  "status": "published_https_verified",
   "repository": "Cendovari/cendovari-webdesign-sida",
   "branch": "codex/film-first-introduction",
   "baseline_commit": "1b476ae2aa3c29ce3dbe1068e737ee2572b8578e",
@@ -3552,18 +3552,502 @@
       "Real document.hidden state could not be induced; visibility handler tested by injection only",
       "Autoplay denial and clipboard denial were deliberate isolated test injections",
       "Two raw callback-count thresholds remain false; loop/time/quality counters pass and short presentedFrames probe supports callback coalescing; no physical-display perfection claimed"
-    ]
+    ],
+    "public_surface": {
+      "contentCommit": "7315d0f08ac8e7e564bd7ad3d8cf16963736282c",
+      "pagesRun": 38127647445,
+      "indexSHA": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+      "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "allThreeLoadHashesMatch": true,
+      "rawSteps": {
+        "total": 61,
+        "pass": 60,
+        "fail": [
+          {
+            "id": "390x844",
+            "name": "no script errors, failed resources or backend requests",
+            "pass": false,
+            "error": "Error: [{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"wheel and keyboard document scroll\"}]"
+          }
+        ]
+      },
+      "allFunctionalStepsPass": true,
+      "firstRawAborts": [
+        {
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "repeatRawAborts": [
+        {
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4",
+          "error": "net::ERR_ABORTED",
+          "type": "media",
+          "step": "wheel and keyboard document scroll"
+        }
+      ],
+      "repeatCDPCanceled": [
+        {
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4",
+          "error": "net::ERR_ABORTED",
+          "type": "Media",
+          "canceled": true,
+          "step": "wheel and keyboard document scroll"
+        }
+      ],
+      "javascriptErrors": [],
+      "console": [],
+      "HTTPFailures": [],
+      "nonCanceledLoadingFailures": [],
+      "backendRequests": [],
+      "reopenProbe": {
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "viewport": "390x844 emulated touch",
+        "errors": [],
+        "failed": [],
+        "console": [],
+        "indexSHA": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+        "probes": [
+          {
+            "kind": "pb",
+            "first": {
+              "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4",
+              "currentTime": 0.518231,
+              "paused": false,
+              "readyState": 4,
+              "masterState": "playing",
+              "posterPresent": true,
+              "error": null,
+              "width": 1280,
+              "height": 720
+            },
+            "closed": {
+              "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4",
+              "currentTime": 0.527262,
+              "paused": true,
+              "readyState": 4,
+              "masterState": "paused",
+              "posterPresent": true,
+              "error": null,
+              "width": 1280,
+              "height": 720
+            },
+            "reopened": {
+              "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4",
+              "currentTime": 1.254181,
+              "paused": false,
+              "readyState": 4,
+              "masterState": "playing",
+              "posterPresent": true,
+              "error": null,
+              "width": 1280,
+              "height": 720
+            }
+          },
+          {
+            "kind": "motor",
+            "first": {
+              "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "currentTime": 0.51637,
+              "paused": false,
+              "readyState": 4,
+              "masterState": "playing",
+              "posterPresent": true,
+              "error": null,
+              "width": 1280,
+              "height": 720
+            },
+            "closed": {
+              "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "currentTime": 0.523293,
+              "paused": true,
+              "readyState": 4,
+              "masterState": "paused",
+              "posterPresent": true,
+              "error": null,
+              "width": 1280,
+              "height": 720
+            },
+            "reopened": {
+              "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "currentTime": 1.264205,
+              "paused": false,
+              "readyState": 4,
+              "masterState": "playing",
+              "posterPresent": true,
+              "error": null,
+              "width": 1280,
+              "height": 720
+            }
+          }
+        ],
+        "pass": true
+      },
+      "interpretation": "The repeat contains one measured CDP canceled=true Media net::ERR_ABORTED for plattsattning MP4 during native wheel/keyboard scroll and return to top. This is retained as a separate lifecycle download-cancellation category, not erased or reported as zero requestfailed. The first run bilverkstad ERR_ABORTED has no raw CDP cancel metadata, so canceled=true is not claimed as measured for that specific initial event. Both concept films were subsequently reopened with correct src, preserved poster, successful playback and no media/script/resource errors.",
+      "limitations": [
+        "Installed Chrome desktop emulation only; no physical Safari/iPhone or Android testing.",
+        "OS clipboard denial injected solely to exercise manual copy fallback; no OS clipboard writes.",
+        "Loop/hidden-tab/autoplay details are from separate film QA and not asserted by this surface artifact."
+      ]
+    },
+    "public_films": {
+      "scope": "Actual public HTTPS Chrome film subset only; no product/Git/GitHub writes.",
+      "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "contentCommit": "7315d0f08ac8e7e564bd7ad3d8cf16963736282c",
+      "startedUTC": "2026-10-11T09:15:42.352Z",
+      "completedUTC": "2026-10-11T09:17:13.882Z",
+      "verifiedIndexSHA256": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+      "sourceSHA256ExpectedAndVerifiedByParentSeparateHTTPAudit": "190d88011613425f7fef0edb4daea32457873d42fece2a07609b3b87764d5a9e",
+      "allIndexResponsesExact": true,
+      "rawPassedChecks": 107,
+      "rawTotalChecks": 109,
+      "measurementOnlyThresholdFlags": 2,
+      "functionalContractsPassed": true,
+      "fullHomeTwoLoopTrials": 6,
+      "modes": [
+        {
+          "name": "mobile390",
+          "completed": true,
+          "HTTP": 200,
+          "responseSHA": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+          "hashLocked": true,
+          "rawCheckPass": 49,
+          "rawCheckTotal": 49,
+          "rawPassed": true,
+          "measurementOnlyFlags": [],
+          "functionalFailures": [],
+          "jsErrors": [],
+          "failedRequests": [],
+          "httpErrors": [],
+          "noBackend": true,
+          "visibility": {
+            "actual": false,
+            "method": "Simulation: configurable document.hidden override + visibilitychange"
+          }
+        },
+        {
+          "name": "desktop1440",
+          "completed": true,
+          "HTTP": 200,
+          "responseSHA": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+          "hashLocked": true,
+          "rawCheckPass": 43,
+          "rawCheckTotal": 45,
+          "rawPassed": false,
+          "measurementOnlyFlags": [
+            "Two uninterrupted normal-rate loops [data-page=home] .st-featured-card[data-st-case=pb] video[data-film=pb]",
+            "Two uninterrupted normal-rate loops [data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]"
+          ],
+          "functionalFailures": [],
+          "jsErrors": [],
+          "failedRequests": [],
+          "httpErrors": [],
+          "noBackend": true,
+          "visibility": {
+            "actual": false,
+            "method": "Simulation: configurable document.hidden override + visibilitychange"
+          }
+        },
+        {
+          "name": "reduced390",
+          "completed": true,
+          "HTTP": 200,
+          "responseSHA": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+          "hashLocked": true,
+          "rawCheckPass": 8,
+          "rawCheckTotal": 8,
+          "rawPassed": true,
+          "measurementOnlyFlags": [],
+          "functionalFailures": [],
+          "jsErrors": [],
+          "failedRequests": [],
+          "httpErrors": [],
+          "noBackend": true,
+          "visibility": null
+        },
+        {
+          "name": "denied390",
+          "completed": true,
+          "HTTP": 200,
+          "responseSHA": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+          "hashLocked": true,
+          "rawCheckPass": 7,
+          "rawCheckTotal": 7,
+          "rawPassed": true,
+          "measurementOnlyFlags": [],
+          "functionalFailures": [],
+          "jsErrors": [],
+          "failedRequests": [],
+          "httpErrors": [],
+          "noBackend": true,
+          "visibility": null
+        }
+      ],
+      "loopTrials": [
+        {
+          "mode": "mobile390",
+          "normalTwoLoopContractPass": true,
+          "selector": "video[data-showreel]",
+          "wallSeconds": 22.2605,
+          "mediaSeconds": 22.234067999999997,
+          "wraps": 2,
+          "frameCallbacks": 533,
+          "droppedFrames": 0,
+          "loadCallsDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true,
+          "stalls": 0,
+          "totalVideoFrames": 533,
+          "zeroReportedDroppedFrames": true
+        },
+        {
+          "mode": "mobile390",
+          "normalTwoLoopContractPass": true,
+          "selector": "[data-page=home] .st-featured-card[data-st-case=pb] video[data-film=pb]",
+          "wallSeconds": 22.1005,
+          "mediaSeconds": 22.079638000000003,
+          "wraps": 2,
+          "frameCallbacks": 530,
+          "droppedFrames": 2,
+          "loadCallsDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true,
+          "stalls": 0,
+          "totalVideoFrames": 532,
+          "zeroReportedDroppedFrames": false
+        },
+        {
+          "mode": "mobile390",
+          "normalTwoLoopContractPass": true,
+          "selector": "[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+          "wallSeconds": 22.06920000000298,
+          "mediaSeconds": 22.047099000000006,
+          "wraps": 2,
+          "frameCallbacks": 529,
+          "droppedFrames": 0,
+          "loadCallsDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true,
+          "stalls": 0,
+          "totalVideoFrames": 529,
+          "zeroReportedDroppedFrames": true
+        },
+        {
+          "mode": "desktop1440",
+          "normalTwoLoopContractPass": true,
+          "selector": "video[data-showreel]",
+          "wallSeconds": 22.2415,
+          "mediaSeconds": 22.215026,
+          "wraps": 2,
+          "frameCallbacks": 533,
+          "droppedFrames": 0,
+          "loadCallsDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true,
+          "stalls": 0,
+          "totalVideoFrames": 532,
+          "zeroReportedDroppedFrames": true
+        },
+        {
+          "mode": "desktop1440",
+          "normalTwoLoopContractPass": true,
+          "selector": "[data-page=home] .st-featured-card[data-st-case=pb] video[data-film=pb]",
+          "wallSeconds": 22.14010000000894,
+          "mediaSeconds": 22.123073999999995,
+          "wraps": 2,
+          "frameCallbacks": 337,
+          "droppedFrames": 2,
+          "loadCallsDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true,
+          "stalls": 0,
+          "totalVideoFrames": 532,
+          "zeroReportedDroppedFrames": false
+        },
+        {
+          "mode": "desktop1440",
+          "normalTwoLoopContractPass": true,
+          "selector": "[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+          "wallSeconds": 22.09129999999702,
+          "mediaSeconds": 22.07396399999999,
+          "wraps": 2,
+          "frameCallbacks": 312,
+          "droppedFrames": 1,
+          "loadCallsDelta": 0,
+          "timeSetterDelta": 0,
+          "srcMutationDelta": 0,
+          "emptiedDelta": 0,
+          "srcUnchanged": true,
+          "currentSrcUnchanged": true,
+          "stalls": 0,
+          "totalVideoFrames": 530,
+          "zeroReportedDroppedFrames": false
+        }
+      ],
+      "publicClipMetadataContract": "ready assertions check 10 s, rate 1, 1280x720, muted, playsInline, loop, own expected relative MP4 path.",
+      "callbackQualification": "Raw >=380 rVFC callback threshold flags are retained. Local 3 s headed/headless diagnostic showed 71–73 presentedFrames and 72 total/decoded increments but 42–51 callbacks, with presentedFrames +2 hops. Callback count is not the same as presented/decoded frames. No physical-display frame-perfect claim.",
+      "limits": [
+        "Actual hidden-state behavior remains unverified: owned headless/headed/fakefocus-off local attempts stayed visible. Public test uses labelled hidden-state simulation only.",
+        "Controlled autoplay denial injects NotAllowedError for main film when native userActivation.isActive is false; retry uses a real Chrome click.",
+        "Public main/home films receive full two-loop tests at 390/1440; project films have short public play/device/back/Escape continuity checks and full local two-loop equivalence tests.",
+        "Viewport emulation is not a physical phone or Safari test.",
+        "Film positioning uses programmatic scrollIntoView; menu buttons and Escape are real Chrome UI input."
+      ],
+      "qualityCounterLegend": "Long-trial raw key decodedFrames actually records getVideoPlaybackQuality().totalVideoFrames; summary renames it totalVideoFrames. Actual webkitDecodedFrameCount and presentedFrames were sampled separately in local short diagnostic.",
+      "reportedDroppedFramesTotal": 5,
+      "totalVideoFramesAcrossTrials": 3188,
+      "zeroReportedDropsAcrossAllTrials": false,
+      "qualityQualification": "Public trials recorded 2 dropped frames for mobile Plattsättning, 2 for desktop Plattsättning, 1 for desktop Bilverkstad, and 0 in other 3 trials. Complete loops/normal media time/no source or seek reset passed; no zero-drop or physically perfect smoothness claim. Zero-drop evidence is separately false rather than classifying normal timing/continuity as a failure."
+    }
   },
   "publication": {
     "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "status": "pending_existing_main_root_pages",
-    "configuration_changed": false
+    "status": "verified",
+    "content_commit": "7315d0f08ac8e7e564bd7ad3d8cf16963736282c",
+    "content_commit_url": "https://github.com/Cendovari/cendovari-webdesign-sida/commit/7315d0f08ac8e7e564bd7ad3d8cf16963736282c",
+    "pages_run": {
+      "id": 38127647445,
+      "head_sha": "7315d0f08ac8e7e564bd7ad3d8cf16963736282c",
+      "conclusion": "success",
+      "completed_utc": "2026-10-11T09:14:42Z",
+      "url": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38127647445"
+    },
+    "https_checked_utc": "2026-10-11T09:15:28.117227+00:00",
+    "all_content_files_match": true,
+    "video_range_206_verified": true,
+    "content_files": [
+      {
+        "path": "index.html",
+        "status": 200,
+        "bytes": 506345,
+        "sha256": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+        "expected_sha256": "783ec4351e923e7769cf304cb6fdc2aa02f29ede236890473d2fae811e07443f",
+        "matches": true,
+        "https": true,
+        "content_type": "text/html; charset=utf-8",
+        "etag": "\"6acb537d-7b9e9\""
+      },
+      {
+        "path": "preview-source.html",
+        "status": 200,
+        "bytes": 499841,
+        "sha256": "190d88011613425f7fef0edb4daea32457873d42fece2a07609b3b87764d5a9e",
+        "expected_sha256": "190d88011613425f7fef0edb4daea32457873d42fece2a07609b3b87764d5a9e",
+        "matches": true,
+        "https": true,
+        "content_type": "text/html; charset=utf-8",
+        "etag": "\"6acb537d-7a081\""
+      },
+      {
+        "path": "scripts/render.py",
+        "status": 200,
+        "bytes": 6711,
+        "sha256": "a1f6a7b00b8d9ba4cf7b3e2b0c0d26192fb3e235a300e9b74abb14e2170bf9ff",
+        "expected_sha256": "a1f6a7b00b8d9ba4cf7b3e2b0c0d26192fb3e235a300e9b74abb14e2170bf9ff",
+        "matches": true,
+        "https": true,
+        "content_type": "application/octet-stream",
+        "etag": "\"6acb537d-1a37\""
+      },
+      {
+        "path": "assets/video/cendovari-showreel-10s.mp4",
+        "status": 200,
+        "bytes": 1948527,
+        "sha256": "d922ae051f24d92e0fbc2916eb2149942ee88dc3e6e68d6cbb8408ac5392cd83",
+        "expected_sha256": "d922ae051f24d92e0fbc2916eb2149942ee88dc3e6e68d6cbb8408ac5392cd83",
+        "matches": true,
+        "https": true,
+        "content_type": "video/mp4",
+        "etag": "\"6acb537d-1dbb6f\"",
+        "range": {
+          "status": 206,
+          "content_range": "bytes 0-1023/1948527",
+          "bytes": 1024,
+          "matches": true
+        }
+      },
+      {
+        "path": "assets/video/plattsattning-10s.mp4",
+        "status": 200,
+        "bytes": 3211270,
+        "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+        "expected_sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+        "matches": true,
+        "https": true,
+        "content_type": "video/mp4",
+        "etag": "\"6acb537d-310006\"",
+        "range": {
+          "status": 206,
+          "content_range": "bytes 0-1023/3211270",
+          "bytes": 1024,
+          "matches": true
+        }
+      },
+      {
+        "path": "assets/video/bilverkstad-10s.mp4",
+        "status": 200,
+        "bytes": 3384000,
+        "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+        "expected_sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+        "matches": true,
+        "https": true,
+        "content_type": "video/mp4",
+        "etag": "\"6acb537d-33a2c0\"",
+        "range": {
+          "status": 206,
+          "content_range": "bytes 0-1023/3384000",
+          "bytes": 1024,
+          "matches": true
+        }
+      }
+    ],
+    "configuration_changed": false,
+    "documentation_receipt": {
+      "changed_paths": [
+        "README.md",
+        "preview-review.json",
+        "docs/film-first-review.md"
+      ],
+      "source_export_media_unchanged": true
+    }
   },
   "scope": {
     "only_repository": "Cendovari/cendovari-webdesign-sida",
     "production_modbus_wordpress_hosting_domain_dns_untouched": true,
     "force_push": false,
-    "source_original_duplicate_published": false
+    "source_original_duplicate_published": false,
+    "independent_tree_check": {
+      "changed_paths": [
+        "preview-source.html",
+        "index.html",
+        "scripts/render.py",
+        "assets/video/cendovari-showreel-10s.mp4",
+        "assets/video/plattsattning-10s.mp4",
+        "assets/video/bilverkstad-10s.mp4",
+        "README.md",
+        "preview-review.json",
+        "docs/film-first-review.md"
+      ],
+      "preserved_existing_leaf_blobs_and_modes": 34,
+      "deletions": 0,
+      "new_leaf_files": 4,
+      "configuration_files_unchanged": true
+    }
   },
   "historical_crystal_publication": {
     "title": "Cendovari — godkänd kristallintroduktion",

@@ -4,7 +4,7 @@
 
 Godkänd överlämning: `cendovari-film-first-handoff.zip`, SHA256 `48be01c96ba5e603b9d422369f74e399052de9971b7d927e8d44b906d06528b3`. Utgångspunkt: main `1b476ae2aa3c29ce3dbe1068e737ee2572b8578e`. Arbetsbranch: `codex/film-first-introduction`. Origin verifierades som enbart Cendovari/cendovari-webdesign-sida; arbetskatalogen var ren. Ingen force-push eller ändring av publiceringsinställningar.
 
-Den godkända filmversionen är implementerad och lokalt verifierad. Publicerad HTTPS-verifiering återstår i denna innehållscommit; kvittot kompletteras efter befintliga Pages-flödets körning.
+Den godkända filmversionen är implementerad, publicerad och verifierad på den verkliga HTTPS-adressen. Se publiceringskvittot nedan.
 
 Huvudfilmen visas direkt efter navigationen i hel 16:9. Rubrik, text och kontaktknapp ligger under filmen. Paketets innehåll, layout och CSS är bevarade, med teknisk anpassning av mobilmenyns höjdmätning. Ingen redesign, filmtoning, blur eller ny dekorativ effekt är tillagd. Plattsättning och Bilverkstad är fortsatt designexempel med illustrationsmaterial.
 
@@ -61,3 +61,21 @@ Safari på fysisk iPhone, Chrome på fysisk Android, verkligt mobiladressfält o
 Återställning sker med vanliga git revert-commits i omvänd ordning: först ett eventuellt senare dokumentationskvitto, sedan innehållscommiten för filmversionen. Bevara efterföljande orelaterade ändringar och verifiera återställningen innan push; aldrig reset/force-push.
 
 Endast det separata webbdesignprojektet ändras. Produktion, Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, övrig hosting och domän/DNS är orörda. Inga lösenord, tokens, .env eller andra projekts filer publiceras.
+
+## Publiceringskvitto
+
+Innehållscommit: [7315d0f08ac8e7e564bd7ad3d8cf16963736282c](https://github.com/Cendovari/cendovari-webdesign-sida/commit/7315d0f08ac8e7e564bd7ad3d8cf16963736282c). Befintliga [Pages-körningen 38127647445](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38127647445) avslutades med success 2026-10-11 09:14:42 UTC.
+
+Den verkliga [HTTPS-förhandsvisningen](https://cendovari.github.io/cendovari-webdesign-sida/) verifierades 2026-10-11 09:15:28 UTC: exporterad HTML, källa, exporterare och de tre filmerna matchade exakta SHA256-hashar, HTTP 200. Alla tre MP4-adresser gav även HTTP 206 för bytes 0–1023 med rätt innehåll. Ingen Pages-inställning, domän eller DNS ändrades.
+
+Den publicerade sidan granskades även i installerad Chrome vid 390 × 844, 1440 × 900 och reducerad rörelse vid 390 × 844: navigation, meny/fokus/scroll, projekt, Tillbaka/Escape och kontaktutkast. Exporthashen var exakt den verifierade 783ec4351… i alla sessioner.
+
+Filmproven på HTTPS kördes 09:15:42–09:17:13 UTC: alla tre startsidesfilmer spelades genom två hela varv vid både 390 och 1440 px (sex prov), med normal hastighet och utan src/load/seek/emptied-reset eller uppmätta stall. Projektfilmerna fick dessutom korta publika uppspelnings-/Dator/Mobil/Tillbaka/Escape-prov; deras två hela varv är testade lokalt i båda bredderna. Paus/återkomst, reducerad rörelse och kontrollerad autoplayfallback passerade. Inga JavaScript-, HTTP-status-, resurs- eller backendfel i dessa filmsessioner.
+
+Publik mätbegränsning: två råa desktop-callbacktrösklar kvarstår, samma kategori som lokalt. Kvalitetsräknaren rapporterade sammanlagt 5 tappade av 3188 rutor: Plattsättning 2/532 vid 390 och 2/532 vid 1440; Bilverkstad 1/530 vid 1440; övriga tre prov 0. Detta är cirka 0,16 procent, med korrekt filmtid och fulla loopar. Ingen noll-drop eller fysisk pixelperfekt uppspelning påstås. Faktisk dold flik är fortsatt overifierad; enbart simulerat doltillstånd passerade.
+
+Den separata offentliga layoutmatrisen hade 60 av 61 råa steg godkända, med alla funktionstester godkända. Den breda nätverksasserten flaggade en Plattsättning-MP4-request vid hjul-/tangentbordsscroll, uttryckligen CDP canceled:true och net::ERR_ABORTED. Inga HTTP-status-, JavaScript-, konsol-, icke-canceled-loading- eller backendfel uppstod. En första körning noterade också Bilverkstad ERR_ABORTED utan sparad CDP-cancelmetadata; canceled:true påstås inte för just den första händelsen. Båda råa körningarna bevaras i lokalt QA-underlag.
+
+Båda filmerna återöppnades därefter på den verkliga HTTPS-sidan: rätt 1280×720 originalsrc, paus vid stängning, bevarad poster, sedan playing/readyState 4 och fortsatt filmposition cirka 0,52→1,25 s utan resurs- eller scriptfel. Avbrutna medienedladdningar är därför redovisade separat från otillgängliga/felaktiga resurser.
+
+Scope verifierades oberoende: exakt nio ändrade projektvägar, 34 tidigare leafblobs och modes oförändrade, inga borttagningar. Denna följande dokumentationscommit ändrar endast README.md, preview-review.json och denna rapport; verifierad kod och filmer är oförändrade.
