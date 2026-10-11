@@ -2,9 +2,10 @@
 
 Separat förhandsvisning för Cendovari AB. Den godkända Luminous-designen, pärlemorgrunden och den stora 16:9-filmen är bevarade. Starttexten är ”Vi bygger hemsidor för företag.” Tjänsteillustrationen visar en datorskärm och telefon. GPPE visas med riktig logga och skärmbild; Bilverkstad är ett tydligt märkt designförslag.
 
-**Status: lokalt verifierad; publiceringskontrollen pågår.**
+**Status: publicerad och verifierad på HTTPS 2026-10-11.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
+- [Innehållscommit 6cc9621](https://github.com/Cendovari/cendovari-webdesign-sida/commit/6cc9621bdbeb52624e8fe867964b0bebeb53ac41)
 - [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/gppe-portfolio)
 - [Granskning och skärmbilder](docs/gppe-review.md)
 - [Ladda ned main](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
@@ -49,7 +50,7 @@ python3 -m http.server 8766 --bind 127.0.0.1
 
 ## Verifiering och publicering
 
-[Granskningsrapporten](docs/gppe-review.md) och `preview-review.json` redovisar aktuell QA, kontrollerade resurser och begränsningar. Chrome på Windows har provats vid 320, 390, 768, 1440 px och kort liggande vy, med mus, tangentbord och emulerad touch. Detta är inte test på fysisk iPhone/Android eller Safari. Dold flik och nekad autoplay har kontrollerats med uttrycklig simulering/injektion.
+[Granskningsrapporten](docs/gppe-review.md) och `preview-review.json` redovisar aktuell QA, kontrollerade resurser och begränsningar. Chrome på Windows har provats vid 320, 390, 768, 1440 px och kort liggande vy, med mus, tangentbord och emulerad touch. Detta är inte test på fysisk iPhone/Android eller Safari. Dold flik och nekad autoplay har kontrollerats med uttrycklig simulering/injektion. Både lokal och publicerad sida har genomgått tvåvarvsprov. Enstaka avbrutna Chrome-mediehämtningar utan uppspelningsfel samt testomprov redovisas öppet i rapporten. Pages-bygge, HTTPS 200 och originalresursernas kontrollsummor är verifierade.
 
 Arbeta på separat branch, verifiera origin/main/status och bevara orelaterade ändringar. Använd vanliga commits och inga force-pushar. Befintligt GitHub Pages-flöde publicerar main/rot på samma standardadress; ingen CNAME eller domänändring används. Återställ vid behov med vanliga revert-commits i omvänd ordning, dokumentationskvitto först och därefter innehållscommit.
 

@@ -27,7 +27,15 @@ Filmkontrollerna provades med manuell/global paus, scroll ut/tillbaka, meny, red
 
 ## Publicering
 
-Kontrollen på den verkliga Pages-adressen återstår i denna innehållscommit. Ett efterföljande dokumentationskvitto redovisar lyckat bygge, HTTPS-/hashkontroller och faktisk publicerad webbläsargranskning. Samma main/rot-flöde och standardadress används; inga Pages-/domäninställningar ändras.
+Publicerad och verifierad på [GitHub Pages](https://cendovari.github.io/cendovari-webdesign-sida/) 2026-10-11. [Innehållscommit 6cc9621](https://github.com/Cendovari/cendovari-webdesign-sida/commit/6cc9621bdbeb52624e8fe867964b0bebeb53ac41) är en vanlig child-commit från main; arbetsbranchen och main uppdaterades utan force. [Pages-bygge 38139244404](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38139244404) slutförde build och deploy med success för samma commit.
+
+HTTPS 200 och byteidentiska kontrollsummor verifierades för 24 filer, inklusive index/källa, sex bilder, tre originalfilmer, exportscript, dokumentation och skärmbilder. Alla MP4 gav dessutom korrekt Range 206. Ingen Pages-, CNAME-, hosting- eller domäninställning ändrades.
+
+En separat Chrome-granskning av den verkliga HTTPS-sidan körde hela sexvymatrisen. Alla funktionella flöden, GPPE-länkar, meny/fokus/Tillbaka/Escape och kontaktutkast passerar; separata GPPE-prov 12/12 och menyprov 7/7 passerar. Rå yta-QA är 152/154: två strikta nätassertioner registrerade tre Bilverkstad-ERR_ABORTED vid snabba sektionshopp. Matchande CDP visar Media/canceled:true. Återspelning på 320 och liggande vy fungerar med rätt original, utan reset; inga JS-, HTTP-, konsol- eller backendfel.
+
+Den publicerade sidan genomgick **åtta ytterligare tvåvarvsprov** vid 390/1440: 4246 avkodade/totalramar, 0 rapporterade drops/stopp/reset och inga src/load/currentTime-ändringar. Alla 113/113 funktionsassertioner passerar. Rå film-QA är 115/117 eftersom tre showreel-ERR_ABORTED flaggade två kombinerade resursassertioner. Exakt orsak till dessa avbrott är inte styrkt; separat livscykel- och Range-diagnostik passerade 43/43 och 44/44 utan reproduktion. Ursprungliga observationer redovisas och ska inte beskrivas som noll requestfailed. Första mobilstartens för korta 7-sekunders networkidle-timeout var ett testuppstartsproblem; separat längre omprov på samma export slutförde alla kontroller.
+
+Ett efterföljande dokumentationskvitto uppdaterar endast README, denna rapport och preview-review.json. Sidans källa, export, bilder och filmer är oförändrade jämfört med den testade innehållscommiten.
 
 ## Skärmbilder
 

@@ -1,7 +1,7 @@
 {
   "title": "Cendovari Webdesign Sida — GPPE-förhandsvisning",
   "date": "2026-10-11",
-  "status": "local_verified_publication_pending",
+  "status": "published_https_verified",
   "repository": "Cendovari/cendovari-webdesign-sida",
   "branch": "codex/gppe-portfolio",
   "baseline_commit": "3c3ebb16f8ee0ddbd4aaea754dddc554acb1d88a",
@@ -360,16 +360,659 @@
   ],
   "publication": {
     "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "status": "pending",
+    "status": "https_browser_verified_with_documented_media_observations",
+    "content_commit": "6cc9621bdbeb52624e8fe867964b0bebeb53ac41",
+    "pages": {
+      "id": 38139244404,
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "6cc9621bdbeb52624e8fe867964b0bebeb53ac41",
+      "url": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38139244404"
+    },
     "existing_main_root_workflow_preserved": true,
-    "custom_domain": false
+    "custom_domain": false,
+    "http": {
+      "checked_utc": "2026-10-11T12:27:49.428922+00:00",
+      "files_checked": 24,
+      "all_match": true,
+      "ranges_pass": true,
+      "resources": [
+        {
+          "path": "preview-source.html",
+          "status": 200,
+          "bytes": 991420,
+          "sha256": "965a082180304d9b1951d91b4167eba1265097381b582c31a14244ea207f9a21",
+          "expected_sha256": "965a082180304d9b1951d91b4167eba1265097381b582c31a14244ea207f9a21",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acb8074-f20bc\""
+        },
+        {
+          "path": "index.html",
+          "status": 200,
+          "bytes": 396716,
+          "sha256": "e1b495018cda03cb147c6b5c7ca1744d286e9cbad6f275fc480d2e9760c0ab28",
+          "expected_sha256": "e1b495018cda03cb147c6b5c7ca1744d286e9cbad6f275fc480d2e9760c0ab28",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acb8074-60dac\""
+        },
+        {
+          "path": "scripts/render.py",
+          "status": 200,
+          "bytes": 7006,
+          "sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "expected_sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acb8074-1b5e\""
+        },
+        {
+          "path": "scripts/build-export.py",
+          "status": 200,
+          "bytes": 5155,
+          "sha256": "29d81206be72a406bd7ad7937dea18b738f450ec522192aeef452bf31b5f98c6",
+          "expected_sha256": "29d81206be72a406bd7ad7937dea18b738f450ec522192aeef452bf31b5f98c6",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acb8074-1423\""
+        },
+        {
+          "path": "scripts/export-shell.html",
+          "status": 200,
+          "bytes": 6035,
+          "sha256": "1c8e2185aabee5c54430cd935988c1e7d9bc3d5aba5342427df7b3469206d366",
+          "expected_sha256": "1c8e2185aabee5c54430cd935988c1e7d9bc3d5aba5342427df7b3469206d366",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acb8074-1793\""
+        },
+        {
+          "path": "assets/images/bilverkstad-poster.jpg",
+          "status": 200,
+          "bytes": 13614,
+          "sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "expected_sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acb8074-352e\""
+        },
+        {
+          "path": "assets/images/cendovari-logo.svg",
+          "status": 200,
+          "bytes": 3513,
+          "sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "expected_sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "matches": true,
+          "https": true,
+          "content_type": "image/svg+xml",
+          "etag": "\"6acb8074-db9\""
+        },
+        {
+          "path": "assets/images/cendovari-showreel-poster.jpg",
+          "status": 200,
+          "bytes": 16001,
+          "sha256": "4d323bfe9a22aa951c745dcca7a248929a12ab34bc66aa18c23725909b9441b5",
+          "expected_sha256": "4d323bfe9a22aa951c745dcca7a248929a12ab34bc66aa18c23725909b9441b5",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acb8074-3e81\""
+        },
+        {
+          "path": "assets/images/gppe-logo.webp",
+          "status": 200,
+          "bytes": 15558,
+          "sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "expected_sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "matches": true,
+          "https": true,
+          "content_type": "image/webp",
+          "etag": "\"6acb8074-3cc6\""
+        },
+        {
+          "path": "assets/images/gppe-startsida.webp",
+          "status": 200,
+          "bytes": 58012,
+          "sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "expected_sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "matches": true,
+          "https": true,
+          "content_type": "image/webp",
+          "etag": "\"6acb8074-e29c\""
+        },
+        {
+          "path": "assets/images/plattsattning-poster.jpg",
+          "status": 200,
+          "bytes": 10073,
+          "sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "expected_sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acb8074-2759\""
+        },
+        {
+          "path": "docs/screenshots/gppe-mobile-start.png",
+          "status": 200,
+          "bytes": 121768,
+          "sha256": "35b9f0e72d237e2f89ea5ccdc45b44ef30dea2ec899844d338622f517c045400",
+          "expected_sha256": "35b9f0e72d237e2f89ea5ccdc45b44ef30dea2ec899844d338622f517c045400",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-1dba8\""
+        },
+        {
+          "path": "docs/screenshots/gppe-desktop-start.png",
+          "status": 200,
+          "bytes": 406251,
+          "sha256": "1d4c2178a15e225be35afece8c0fb2aa2d76ade70877c683dcadbe6a934e16ce",
+          "expected_sha256": "1d4c2178a15e225be35afece8c0fb2aa2d76ade70877c683dcadbe6a934e16ce",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-632eb\""
+        },
+        {
+          "path": "docs/screenshots/gppe-desktop-headline.png",
+          "status": 200,
+          "bytes": 24111,
+          "sha256": "b0ca2096dcf90497dc3194ab151f55eb187b286a4390fd1f2bbb0a17d6a2b326",
+          "expected_sha256": "b0ca2096dcf90497dc3194ab151f55eb187b286a4390fd1f2bbb0a17d6a2b326",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-5e2f\""
+        },
+        {
+          "path": "docs/screenshots/gppe-mobile-services.png",
+          "status": 200,
+          "bytes": 50983,
+          "sha256": "9f0256207f366f5479ec9021e9ab686889cb30b1700d52fba0d25cf07e488184",
+          "expected_sha256": "9f0256207f366f5479ec9021e9ab686889cb30b1700d52fba0d25cf07e488184",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-c727\""
+        },
+        {
+          "path": "docs/screenshots/gppe-mobile-portfolio.png",
+          "status": 200,
+          "bytes": 91806,
+          "sha256": "c9da88283800ef36d5e6f25b07e6dc7267c6425b755798f2fa71cd351bffa99d",
+          "expected_sha256": "c9da88283800ef36d5e6f25b07e6dc7267c6425b755798f2fa71cd351bffa99d",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-1669e\""
+        },
+        {
+          "path": "docs/screenshots/gppe-desktop-portfolio.png",
+          "status": 200,
+          "bytes": 244200,
+          "sha256": "137192476476ddcb0fdd084eec02b13bcda3adda9bcb4830d86a9c888690f65e",
+          "expected_sha256": "137192476476ddcb0fdd084eec02b13bcda3adda9bcb4830d86a9c888690f65e",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-3b9e8\""
+        },
+        {
+          "path": "docs/screenshots/gppe-desktop-featured.png",
+          "status": 200,
+          "bytes": 89199,
+          "sha256": "73e560f5a58b865d4c25edf6b744f8c2dfc5ca3e7b1935d0329905ff9bc0cc2f",
+          "expected_sha256": "73e560f5a58b865d4c25edf6b744f8c2dfc5ca3e7b1935d0329905ff9bc0cc2f",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acb8074-15c6f\""
+        },
+        {
+          "path": "assets/video/cendovari-showreel-10s.mp4",
+          "status": 200,
+          "bytes": 1948527,
+          "sha256": "d922ae051f24d92e0fbc2916eb2149942ee88dc3e6e68d6cbb8408ac5392cd83",
+          "expected_sha256": "d922ae051f24d92e0fbc2916eb2149942ee88dc3e6e68d6cbb8408ac5392cd83",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acb8074-1dbb6f\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/1948527",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/video/plattsattning-10s.mp4",
+          "status": 200,
+          "bytes": 3211270,
+          "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "expected_sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acb8074-310006\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/3211270",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/video/bilverkstad-10s.mp4",
+          "status": 200,
+          "bytes": 3384000,
+          "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "expected_sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acb8074-33a2c0\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/3384000",
+            "bytes": 1024,
+            "matches": true
+          }
+        }
+      ]
+    },
+    "browser": {
+      "surface": {
+        "matrix": {
+          "views": [
+            "320x844",
+            "390x844",
+            "768x1024",
+            "1440x900",
+            "844x390",
+            "390x844-reduced"
+          ],
+          "raw_checks": 154,
+          "raw_passes": 152,
+          "raw_failed_assertions_preserved": [
+            {
+              "id": "320x844",
+              "name": "no script errors, failed resources or backend requests",
+              "pass": false,
+              "error": "Error: [{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"}]"
+            },
+            {
+              "id": "844x390",
+              "name": "no script errors, failed resources or backend requests",
+              "pass": false,
+              "error": "Error: [{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"},{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"}]"
+            }
+          ],
+          "functional_flows": "All navigation, native scroll/keyboard/touch, mobile menu, GPPE external links, Portfolio content, image/logo proportions, projects/Back/Escape/focus/position, local draft/newline/Enter/manual-copy fallback, noindex and width checks passed. Two strict network assertions counted the three explicitly canceled media requests; no other failed assertions."
+        },
+        "canceled_media_requests": {
+          "count": 3,
+          "by_view": {
+            "320x844": 1,
+            "844x390": 2
+          },
+          "raw_events": [
+            {
+              "viewport": "320x844",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Chrome explicitly canceled an outstanding media download while the home-section navigation moved away from the film; classified separately from HTTP/JS/resource failures. Raw requestfailed event and count preserved."
+            },
+            {
+              "viewport": "844x390",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Chrome explicitly canceled an outstanding media download while the home-section navigation moved away from the film; classified separately from HTTP/JS/resource failures. Raw requestfailed event and count preserved."
+            },
+            {
+              "viewport": "844x390",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Chrome explicitly canceled an outstanding media download while the home-section navigation moved away from the film; classified separately from HTTP/JS/resource failures. Raw requestfailed event and count preserved."
+            }
+          ],
+          "ordinary_requestfailed_count_is_not_zero": true
+        },
+        "observed_actionable_errors": {
+          "javascript": [],
+          "http_400_plus": [],
+          "console_warning_error": [],
+          "cdp_non_canceled_loading_failure": [],
+          "non_get_head_requests": []
+        },
+        "content": {
+          "checks": 12,
+          "pass": true,
+          "all_three_links_verified": "Full matrix clicked featured card and Portfolio page; independent probe clicked home Portfolio visit. All opened https://gppe.se/ as ordinary external tabs while internal pb panel remained closed. Correct full company name and credit, screenshot1348x926 and logo160x160 retained."
+        },
+        "menu": {
+          "checks": 7,
+          "pass": true,
+          "coverage": "Published320/390/844 landscape reopened menu resets panel0 and shows focused close button; Y600 preserved, wheel/PageDown background lock, Escape focus return, 390->844 rotation unlock and visible reopened focus."
+        },
+        "playback_after_navigation": "Both original films on320 and Bilverkstad on844 played with correct source,1280x720,readyState4,poster present,no media error. Escape paused; route away/back then reopen resumed about0.52->1.25seconds rather than reset. These short probes had zero JS/console/requestfailed events.",
+        "physical_devices": false
+      },
+      "film": {
+        "all_four_responses_exact": true,
+        "functional_pass": true,
+        "raw_pass": 115,
+        "raw_total": 117,
+        "non_resource_pass": 113,
+        "non_resource_total": 113,
+        "full_two_loop_trials": 8,
+        "all_two_wraps": true,
+        "decoded_frames": 4246,
+        "total_video_frames": 4246,
+        "frame_callbacks": 4240,
+        "presented_frames_delta": 4240,
+        "dropped_frames": 0,
+        "stalls": 0,
+        "zero_source_load_time_setter_emptied_delta": true,
+        "loops": [
+          {
+            "mode": "mobile390",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "video[data-showreel]",
+            "wallSeconds": 22.06620000000298,
+            "mediaSeconds": 22.04406000000001,
+            "wraps": 2,
+            "frameCallbacks": 529,
+            "decodedFrames": 530,
+            "totalVideoFrames": 530,
+            "presentedFramesDelta": 529,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "mobile390",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+            "wallSeconds": 22.0535,
+            "mediaSeconds": 22.032769000000002,
+            "wraps": 2,
+            "frameCallbacks": 528,
+            "decodedFrames": 529,
+            "totalVideoFrames": 529,
+            "presentedFramesDelta": 528,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "mobile390",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "[data-pj-panel=pb] video[data-film=pb]",
+            "wallSeconds": 22.12220000000298,
+            "mediaSeconds": 22.103039999999993,
+            "wraps": 2,
+            "frameCallbacks": 530,
+            "decodedFrames": 531,
+            "totalVideoFrames": 531,
+            "presentedFramesDelta": 530,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "mobile390",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "[data-pj-panel=motor] video[data-film=motor]",
+            "wallSeconds": 22.152800000011922,
+            "mediaSeconds": 22.122587000000003,
+            "wraps": 2,
+            "frameCallbacks": 531,
+            "decodedFrames": 531,
+            "totalVideoFrames": 531,
+            "presentedFramesDelta": 531,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "desktop1440",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "video[data-showreel]",
+            "wallSeconds": 22.19760000000894,
+            "mediaSeconds": 22.176536000000006,
+            "wraps": 2,
+            "frameCallbacks": 532,
+            "decodedFrames": 533,
+            "totalVideoFrames": 533,
+            "presentedFramesDelta": 532,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "desktop1440",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+            "wallSeconds": 22.16220000000298,
+            "mediaSeconds": 22.14377199999999,
+            "wraps": 2,
+            "frameCallbacks": 531,
+            "decodedFrames": 531,
+            "totalVideoFrames": 531,
+            "presentedFramesDelta": 531,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "desktop1440",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "[data-pj-panel=pb] video[data-film=pb]",
+            "wallSeconds": 22.12629999999702,
+            "mediaSeconds": 22.104524,
+            "wraps": 2,
+            "frameCallbacks": 530,
+            "decodedFrames": 531,
+            "totalVideoFrames": 531,
+            "presentedFramesDelta": 530,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "desktop1440",
+            "functionalTwoLoopTimingContinuityPass": true,
+            "selector": "[data-pj-panel=motor] video[data-film=motor]",
+            "wallSeconds": 22.09110000000894,
+            "mediaSeconds": 22.064697000000002,
+            "wraps": 2,
+            "frameCallbacks": 529,
+            "decodedFrames": 530,
+            "totalVideoFrames": 530,
+            "presentedFramesDelta": 529,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          }
+        ],
+        "js_errors": false,
+        "http_errors": false,
+        "backend_requests": false,
+        "zero_requestfailed_claim": false,
+        "requestfailed_observations": [
+          {
+            "mode": "mobile390",
+            "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "mode": "desktop1440",
+            "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "mode": "desktop1440",
+            "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "requestfailed_qualification": "Three showreel net::ERR_ABORTED observations (desktop two, mobile one) caused two strict combined resource assertions to fail. Exact cancellation timing/cause in those original runs was not recorded and is not proven. Neither diagnostic reproduced the aborts. Thus there is no claim that original aborts were specifically caused by DOM detach, visibility, navigation, or benign Range cancellation, and no zero-requestfailed claim. Actual complete playback, timing, pause/resume and reset checks passed; no HTTP or page-JS errors occurred.",
+        "initial_mobile_startup_timeout": {
+          "rawFile": "gppe-film-public-result.json",
+          "timeoutMS": 7000,
+          "waitUntil": "networkidle",
+          "completed": false,
+          "checkpointsExecuted": 0,
+          "classification": "QA navigation timeout before test checkpoints; preserved. Separate unchanged-page 45000ms-start-timeout retry completed all mobile checks."
+        },
+        "diagnostic": {
+          "shortLifecycleFile": "gppe-film-public-resource-diagnostic-result.json",
+          "shortLifecyclePassed": true,
+          "shortLifecycleChecks": 43,
+          "RangeTraceFile": "gppe-film-public-range-diagnostic-result.json",
+          "startedUTC": "2026-10-11T12:33:35.268Z",
+          "completedUTC": "2026-10-11T12:34:17.844Z",
+          "passed": true,
+          "checks": 44,
+          "additionalShowreelTwoLoopTrial": [
+            {
+              "selector": "video[data-showreel]",
+              "wallSeconds": 22.11079999999702,
+              "mediaSeconds": 22.084008000000008,
+              "wraps": 2,
+              "frameCallbacks": 530,
+              "decodedFrames": 530,
+              "totalVideoFrames": 530,
+              "presentedFramesDelta": 530,
+              "droppedFrames": 0,
+              "loadCallsDelta": 0,
+              "timeSetterDelta": 0,
+              "srcMutationDelta": 0,
+              "emptiedDelta": 0,
+              "srcUnchanged": true,
+              "currentSrcUnchanged": true,
+              "stalls": 0
+            }
+          ],
+          "threeMedia206Responses": [
+            {
+              "id": "31016.30",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+              "Range": "bytes=0-",
+              "stage": "navigation",
+              "UTC": "2026-10-11T12:33:36.485Z",
+              "status": 206,
+              "responseStage": "navigation",
+              "contentRange": "bytes 0-1948526/1948527",
+              "finishedStage": "navigation",
+              "encodedDataLength": 1949853
+            },
+            {
+              "id": "31016.31",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "Range": "bytes=0-",
+              "stage": "move:[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+              "UTC": "2026-10-11T12:34:03.425Z",
+              "status": 206,
+              "responseStage": "move:[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+              "contentRange": "bytes 0-3383999/3384000",
+              "finishedStage": "short-resource-probe:[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+              "encodedDataLength": 3386196
+            },
+            {
+              "id": "31016.32",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/plattsattning-10s.mp4",
+              "Range": "bytes=0-",
+              "stage": "nav:examples",
+              "UTC": "2026-10-11T12:34:06.691Z",
+              "status": 206,
+              "responseStage": "nav:examples",
+              "contentRange": "bytes 0-3211269/3211270",
+              "finishedStage": "short-resource-probe:[data-pj-panel=pb] video[data-film=pb]",
+              "encodedDataLength": 3213262
+            }
+          ],
+          "requestFailures": [],
+          "qualification": "One extra full showreel two-loop trial and short lifecycle samples in remaining placements. All three media Range bytes=0- responses were 206 with complete Content-Range and loadingFinished; no cancellation reproduced. These are separate diagnostics, not extra full two-loop trials for all placements."
+        },
+        "limitations": [
+          "No physical phone/Safari or physical-display frame-perfect testing.",
+          "Actual background-hidden state was unavailable in prior owned headed/headless/fakefocus-off Chrome attempts; this run tests explicit document.hidden/visibilitychange simulation only. Real hidden-window behavior remains unverified.",
+          "Autoplay denial is injected NotAllowedError while native userActivation.isActive=false; retry uses actual Chrome locator.click.",
+          "Film placement is programmatic scrollIntoView; menu buttons and Escape are actual Chrome input. Other agent owns native touch/wheel/contact/surface checks.",
+          "Late-promise race reinjects exact live controller in ephemeral browser DOM only; no source/project write.",
+          "Initial mobile navigation timeout and three original showreel ERR_ABORTED observations remain preserved; exact original abort causality is unproven."
+        ]
+      }
+    },
+    "receipt": "Documentation-only ordinary child commit; code and media remain byte-identical to tested content commit"
   },
   "limitations": [
     "Mobile widths and DevTools touch are desktop emulation, no physical iPhone/Safari/Android test",
     "Actual hidden background tab behavior not verified; explicit simulation only",
     "Autoplay denial injected",
     "Existing external fonts/icons require network",
-    "Four inherited cosmetic whitespace diff-check warnings preserved"
+    "Four inherited cosmetic whitespace diff-check warnings preserved",
+    "Published surface tests recorded three explicitly canceled Bilverkstad downloads during navigation; playback rechecks passed",
+    "Published film tests recorded three showreel ERR_ABORTED requests without playback failure; original cause not proven, diagnostic43/43+44/44 passed",
+    "Initial public mobile test startup networkidle7s timeout preserved; separate longer retry on exact export completed"
   ],
   "scope": {
     "only_repository": "Cendovari/cendovari-webdesign-sida",
