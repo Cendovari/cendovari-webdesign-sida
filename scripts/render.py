@@ -4,46 +4,35 @@ import argparse
 import re
 import sys
 from html import escape
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
-_SKILL_DIRECTORY = Path(__file__).resolve().parents[1]
-_FRAGMENT_PLACEHOLDER = "<!--__INLINE_VISUALIZATION_FRAGMENT__-->"
 _MAX_FRAGMENT_BYTES = 1_000_000
-_DOCUMENT_MARKUP = re.compile(r"<!doctype\s|<\s*(?:html|head|body)(?:\s|>)", re.IGNORECASE)
+_DOCUMENT_MARKUP = re.compile(r"<!doctype\s|<\s*(?:html|head|body)(?:\s|>)", re.I)
 _HOST_API_REFERENCE = re.compile(r"\b(?:window|globalThis)\.openai\b")
-_RESOURCE_SOURCES = " ".join(
-    (
-        "blob:",
-        "data:",
-        "https://cdnjs.cloudflare.com",
-        "https://cdn.jsdelivr.net",
-        "https://esm.sh",
-        "https://fonts.bunny.net",
-        "https://fonts.googleapis.com",
-        "https://fonts.gstatic.com",
-        "https://unpkg.com",
-    ),
-)
-_FRAME_CSP = "; ".join(
-    (
-        "default-src 'none'",
-        f"script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' {_RESOURCE_SOURCES}",
-        f"style-src 'unsafe-inline' {_RESOURCE_SOURCES}",
-        f"img-src {_RESOURCE_SOURCES}",
-        f"font-src {_RESOURCE_SOURCES}",
-        f"media-src 'self' {_RESOURCE_SOURCES}",
-        "worker-src blob:",
-        "connect-src blob: data:",
-        "frame-src 'none'",
-        "object-src 'none'",
-        "base-uri 'none'",
-        "form-action 'none'",
-    ),
-)
-# A srcdoc frame inherits the shell CSP, so the shell must permit resources
-# which the stricter inner frame policy may load.
-_SHELL_CSP = _FRAME_CSP.replace("frame-src 'none'", "frame-src 'self'")
+_CSP = "; ".join((
+    "default-src 'none'",
+    "script-src 'self' 'unsafe-inline' https://unpkg.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.bunny.net",
+    "img-src 'self' data: blob:",
+    "font-src https://fonts.gstatic.com https://fonts.bunny.net data:",
+    "media-src 'self'",
+    "connect-src 'none'",
+    "frame-src 'none'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'none'",
+))
+_BASE_STYLE = ":root{--foreground:#1d212a;--muted-foreground:#4b5160;--border:#a2a7b54d}html,body{margin:0;padding:0;background:#e6e7ef;color-scheme:light}body{min-width:0}*,*::before,*::after{box-sizing:border-box}.cursor-interaction{cursor:pointer}button,input,select,textarea{font:inherit}[hidden]{display:none!important}"
+_ICON_BOOT = """<script id="cendovari-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script>
+(() => {
+  const initialize = () => globalThis.lucide?.createIcons({attrs:{width:16,height:16}});
+  if (globalThis.lucide) initialize();
+  else document.getElementById('cendovari-lucide').addEventListener('load',initialize,{once:true});
+})();
+</script>"""
 
 
 def _read_fragment(source: Path) -> str:
@@ -54,78 +43,38 @@ def _read_fragment(source: Path) -> str:
     fragment = source.read_text(encoding="utf-8")
     if _DOCUMENT_MARKUP.search(fragment):
         raise ValueError("source must be an HTML fragment, not a complete document")
+    if _HOST_API_REFERENCE.search(fragment):
+        raise ValueError("the published document must not depend on a preview host API")
+    if re.search(r"<iframe\b|data:video/", fragment, re.I):
+        raise ValueError("use native document content and separate original video assets")
     return fragment
 
 
 def _default_title(source: Path) -> str:
-    words = source.stem.replace("-", " ").replace("_", " ").split()
-    return " ".join(word.capitalize() for word in words) or "Visualization"
-
-
-def calendar_script(fragment: str) -> str:
-    """Register the bundled element before a fragment uses it in HTML or JavaScript."""
-    if re.search(r"\bviz-calendar\b", fragment, re.IGNORECASE) is None:
-        return ""
-    source = (_SKILL_DIRECTORY / "assets" / "calendar.js").read_text(encoding="utf-8")
-    return "<script>" + source.replace("</script", "<\\/script") + "</script>"
+    return "Cendovari Webdesign Sida — Förhandsvisning"
 
 
 def _render_document(fragment: str, title: str) -> str:
-    stylesheet = (_SKILL_DIRECTORY / "assets" / "visualize.css").read_text(
-        encoding="utf-8",
-    )
-    inner_kit = (_SKILL_DIRECTORY / "assets" / "visualize.html").read_text(
-        encoding="utf-8",
-    )
-    host_bridge = (
-        (_SKILL_DIRECTORY / "assets" / "standalone-host-bridge.js")
-        .read_text(
-            encoding="utf-8",
-        )
-        .replace("</script", r"<\/script")
-    )
-    shell = (
-        (_SKILL_DIRECTORY / "assets" / "standalone-shell.js")
-        .read_text(
-            encoding="utf-8",
-        )
-        .replace("</script", r"<\/script")
-    )
-    inner_html = inner_kit.replace(_FRAGMENT_PLACEHOLDER, calendar_script(fragment) + fragment)
-    document_title = escape(title)
-    frame_html = f"""<!doctype html>
-<html lang="sv" data-visualize-standalone>
-<head>
-<meta charset="utf-8">
-<meta name="robots" content="noindex,nofollow">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-<meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="{_FRAME_CSP}">
-<title>{document_title}</title>
-<style>{stylesheet}
-html>body{{padding:0}}</style>
-</head>
-<body>
-<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__</script>
-<script>{host_bridge}</script>
-{inner_html}
-</body>
-</html>
-"""
+    # The approved fragment owns the layout and controllers. The wrapper only
+    # supplies document defaults, resource policy and the existing icon library.
+    logo = re.search(r'<img src="(data:image/svg\+xml;base64,[^"]+)"', fragment)
+    favicon = f'<link rel="icon" type="image/svg+xml" href="{logo.group(1)}">' if logo else ''
     return f"""<!doctype html>
-<html lang="sv" data-visualize-standalone>
+<html lang="sv">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="{_SHELL_CSP}">
-<title>{document_title}</title>
-<style>:root{{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}}html,body{{margin:0}}body{{box-sizing:border-box;padding:1rem;background:inherit}}iframe{{display:block;width:100%;height:calc(var(--cv-visible-height,100dvh) - 2rem);max-height:calc(var(--cv-visible-height,100dvh) - 2rem);margin:0 auto;border:0}}@media(max-width:820px),(max-width:1024px) and (max-height:500px){{html,body{{height:100%;overflow:hidden;background:#f0f1f6;color-scheme:light}}body{{height:var(--cv-visible-height,100dvh);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}}iframe{{height:100%!important;max-height:none;max-width:100%;margin:0}}}}</style>
+{favicon}
+<meta http-equiv="Content-Security-Policy" content="{escape(_CSP, quote=True)}">
+<title>{escape(title)}</title>
+<style>{_BASE_STYLE}</style>
 </head>
 <body>
-<iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="{document_title}" data-srcdoc="{escape(frame_html)}"></iframe>
-<script>{shell}</script>
+{fragment}
+{_ICON_BOOT}
+<noscript><p style="padding:1rem;font:16px system-ui">Förhandsvisningen behöver JavaScript för navigation och filmkontroller.</p></noscript>
 </body>
 </html>
 """
@@ -135,43 +84,38 @@ def render(fragment_path: Path, title: str | None = None) -> str:
     return _render_document(_read_fragment(fragment_path), title or _default_title(fragment_path))
 
 
-def export_html(
-    source: Path,
-    destination: Path,
-    *,
-    title: str | None = None,
-    force: bool = False,
-) -> bool:
+def export_html(source: Path, destination: Path, *, title: str | None = None, force: bool = False) -> None:
     if destination.is_symlink():
-        raise ValueError(f"destination cannot be a symbolic link: {destination}")
-    if source.resolve() == destination.resolve() or (
-        destination.exists() and source.samefile(destination)
-    ):
+        raise ValueError("destination cannot be a symbolic link")
+    if source.resolve() == destination.resolve() or (destination.exists() and source.samefile(destination)):
         raise ValueError("source and destination must be different files")
-
-    fragment = _read_fragment(source)
-    document = _render_document(fragment, title or _default_title(source))
+    document = render(source, title)
     destination.parent.mkdir(parents=True, exist_ok=True)
     with destination.open("w" if force else "x", encoding="utf-8", newline="\n") as output:
         output.write(document)
-    return _HOST_API_REFERENCE.search(fragment) is not None
 
 
-def serve(document: str, port: int) -> None:
-    encoded_document = document.encode("utf-8")
+def serve(document: str, port: int, directory: Path) -> None:
+    encoded = document.encode("utf-8")
 
-    class Handler(BaseHTTPRequestHandler):
-        def do_GET(self) -> None:
-            if self.path not in ("/", "/index.html"):
+    class Handler(SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=str(directory), **kwargs)
+
+        def do_GET(self):
+            path = unquote(urlsplit(self.path).path)
+            if path in ("/", "/index.html"):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(encoded)))
+                self.end_headers()
+                self.wfile.write(encoded)
+            elif path.startswith("/assets/video/") and ".." not in path.split("/"):
+                super().do_GET()
+            else:
                 self.send_error(404)
-                return
-            self.send_response(200)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.send_header("Content-Length", str(len(encoded_document)))
-            self.end_headers()
-            self.wfile.write(encoded_document)
 
-        def log_message(self, format: str, *args: object) -> None:
+        def log_message(self, format, *args):
             pass
 
     server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
@@ -180,66 +124,31 @@ def serve(document: str, port: int) -> None:
         server.serve_forever()
     except KeyboardInterrupt:
         pass
+    finally:
+        server.server_close()
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(
-        description="Render an inline visualization fragment as standalone HTML.",
-    )
-    parser.add_argument("fragment", type=Path, help="absolute fragment HTML path")
-    parser.add_argument(
-        "destination",
-        type=Path,
-        nargs="?",
-        help="optional output HTML path",
-    )
-    parser.add_argument(
-        "--title",
-        help="document title; defaults to the fragment file name",
-    )
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="replace the destination if it already exists",
-    )
-    parser.add_argument(
-        "--serve",
-        action="store_true",
-        help="serve the rendered visualization locally",
-    )
-    parser.add_argument(
-        "--port",
-        type=int,
-        default=0,
-        help="local serve port; defaults to any free port",
-    )
+    parser = argparse.ArgumentParser(description="Export the Cendovari fragment as a native-scroll document.")
+    parser.add_argument("fragment", type=Path)
+    parser.add_argument("destination", type=Path, nargs="?")
+    parser.add_argument("--title")
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument("--serve", action="store_true")
+    parser.add_argument("--port", type=int, default=0)
     args = parser.parse_args(argv)
-    if args.serve and args.destination is not None:
+    if args.serve and args.destination:
         parser.error("destination cannot be used with --serve")
-    if args.destination is not None and args.destination.exists() and not args.force:
+    if args.destination and args.destination.exists() and not args.force:
         parser.error("destination already exists; pass --force to replace it")
-
     try:
-        if args.destination is not None:
-            references_host_api = export_html(
-                args.fragment,
-                args.destination,
-                title=args.title,
-                force=args.force,
-            )
-            if references_host_api:
-                print(
-                    "warning: the source references window.openai; verify APIs beyond "
-                    "widgetState/setWidgetState before hosting",
-                    file=sys.stderr,
-                )
+        if args.destination:
+            export_html(args.fragment, args.destination, title=args.title, force=args.force)
             print(args.destination)
+        elif args.serve:
+            serve(render(args.fragment, args.title), args.port, args.fragment.resolve().parent)
         else:
-            document = render(args.fragment, args.title)
-            if args.serve:
-                serve(document, args.port)
-            else:
-                sys.stdout.write(document)
+            sys.stdout.write(render(args.fragment, args.title))
     except (OSError, UnicodeError, ValueError) as exc:
         parser.error(str(exc))
     return 0
@@ -247,4 +156,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
