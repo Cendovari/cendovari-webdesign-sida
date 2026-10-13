@@ -1,7 +1,7 @@
 {
   "project": "Cendovari/cendovari-webdesign-sida",
   "date": "2026-10-13",
-  "status": "locally_verified_pending_Pages_HTTPS",
+  "status": "published_verified_HTTPS",
   "base_commit": "9ba066f6c26e5fe4e28e0d3bfdcad2ff2d3cf2b3",
   "zip_sha256": "8887d53b8cbc2a3af10473f3683b4e759bf919eb2e6a76015f06c90a51c2061e",
   "manifest_files": 22,
@@ -111,7 +111,296 @@
       "sha256": "8c4e6b80cdb360c1d9cf0b6b589de5757134c358f293b97de0f7c976b6835832"
     }
   ],
-  "public_verification": null,
+  "public_verification": {
+    "pages_run": {
+      "id": 38361056205,
+      "conclusion": "success",
+      "url": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38361056205"
+    },
+    "https": {
+      "checked_utc": "2026-10-13T07:12:00.501015+00:00",
+      "canonical": {
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "status": 200,
+        "sha256": "c585a7497e42f33a4ec5e01da92e796e4ebc50bbd590f40afb4249e969758d92",
+        "matches": true
+      },
+      "total_files_verified": 28,
+      "ranges_206": true,
+      "immutable_files": [
+        {
+          "path": "preview-source.html",
+          "status": 200,
+          "sha256": "21fdf2006c9803dd863fa0da2d93b90c6829b9fbabf171aa1107a9decfbced6a",
+          "bytes": 1525005
+        },
+        {
+          "path": "index.html",
+          "status": 200,
+          "sha256": "c585a7497e42f33a4ec5e01da92e796e4ebc50bbd590f40afb4249e969758d92",
+          "bytes": 409296
+        },
+        {
+          "path": "scripts/build-export.py",
+          "status": 200,
+          "sha256": "584443abb0968f39a6f6b37b77f2bb4314da26fc8a72cb291c1cd3e28a155b86",
+          "bytes": 5869
+        },
+        {
+          "path": "scripts/sculpture-art.js",
+          "status": 200,
+          "sha256": "f82ed3cdd02111a70a40bf1e6781d13dc1f8e572cd458813623d92a0e54fd81c",
+          "bytes": 4577
+        },
+        {
+          "path": "scripts/render-sculpture.cjs",
+          "status": 200,
+          "sha256": "549a79e9368387313087bef08e1e17b99437bc4b42fe0cb78c9d82157de7b226",
+          "bytes": 2754
+        },
+        {
+          "path": "assets/images/cendovari-sculpture.png",
+          "status": 200,
+          "sha256": "da3d70edf3f27d95306a89defe97b92e54a8a689e4fd93dcfecf3c5063d7bbcc",
+          "bytes": 466103
+        },
+        {
+          "path": "docs/screenshots/smooth-art-final-1440-background-idle.png",
+          "status": 200,
+          "sha256": "64f06c4d0c7579e26fc31439c80d548e3fefae4a45acf346e985266d823c7c28",
+          "bytes": 390314
+        },
+        {
+          "path": "docs/screenshots/smooth-art-final-1440-background-moving.png",
+          "status": 200,
+          "sha256": "d5676631db1f1883bb9319f369948722e9a3f8b3423aab29b671204eecaf80ab",
+          "bytes": 406857
+        },
+        {
+          "path": "docs/screenshots/smooth-art-1440-white-workshop.png",
+          "status": 200,
+          "sha256": "471617d97eca6ea68f6b6430c6f3a69d7f73a31531c9a6e9c64b08be14ec3e64",
+          "bytes": 353534
+        },
+        {
+          "path": "docs/screenshots/smooth-art-390-contact-clean.png",
+          "status": 200,
+          "sha256": "9930b4e60e76d6c11d5882c3c5267f947ed1a1efc1c2802de2d39198791d771a",
+          "bytes": 151865
+        },
+        {
+          "path": "docs/screenshots/smooth-art-390-process-clean.png",
+          "status": 200,
+          "sha256": "b4116bf2c505134c7ec7e7f4f8037119a45f77bff20d53f3adb54c8b7bcd38f4",
+          "bytes": 152361
+        },
+        {
+          "path": "docs/screenshots/smooth-art-390-gppe-project.png",
+          "status": 200,
+          "sha256": "1f394306d4703b43b061209387def28f26ef3d063ce5da1b334c58025bd65cb0",
+          "bytes": 73653
+        },
+        {
+          "path": "docs/screenshots/smooth-art-final-844-landscape-menu-focus.png",
+          "status": 200,
+          "sha256": "8c4e6b80cdb360c1d9cf0b6b589de5757134c358f293b97de0f7c976b6835832",
+          "bytes": 87285
+        },
+        {
+          "path": "assets/video/cendovari-showreel-10s.mp4",
+          "status": 200,
+          "sha256": "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b",
+          "bytes": 1284401
+        },
+        {
+          "path": "assets/video/plattsattning-10s.mp4",
+          "status": 200,
+          "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "bytes": 3211270
+        },
+        {
+          "path": "assets/video/bilverkstad-10s.mp4",
+          "status": 200,
+          "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "bytes": 3384000
+        },
+        {
+          "path": "assets/images/cendovari-showreel-poster.jpg",
+          "status": 200,
+          "sha256": "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb",
+          "bytes": 63090
+        },
+        {
+          "path": "assets/images/bilverkstad-poster.jpg",
+          "status": 200,
+          "sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "bytes": 13614
+        },
+        {
+          "path": "assets/images/plattsattning-poster.jpg",
+          "status": 200,
+          "sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "bytes": 10073
+        },
+        {
+          "path": "assets/images/gppe-logo.webp",
+          "status": 200,
+          "sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "bytes": 15558
+        },
+        {
+          "path": "assets/images/gppe-startsida.webp",
+          "status": 200,
+          "sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "bytes": 58012
+        },
+        {
+          "path": "assets/images/cendovari-logo.svg",
+          "status": 200,
+          "sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "bytes": 3513
+        },
+        {
+          "path": "scripts/render.py",
+          "status": 200,
+          "sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "bytes": 7006
+        },
+        {
+          "path": "scripts/export-shell.html",
+          "status": 200,
+          "sha256": "1c8e2185aabee5c54430cd935988c1e7d9bc3d5aba5342427df7b3469206d366",
+          "bytes": 6035
+        },
+        {
+          "path": ".nojekyll",
+          "status": 200,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ],
+      "qualification": "Own receipt/README/review hashes are excluded here to avoid self-reference. Final documentation Pages deployment is verified separately."
+    },
+    "browser": {
+      "index_sha256": "c585a7497e42f33a4ec5e01da92e796e4ebc50bbd590f40afb4249e969758d92",
+      "source_sha256": "21fdf2006c9803dd863fa0da2d93b90c6829b9fbabf171aa1107a9decfbced6a",
+      "renderer_checks": 50,
+      "renderer_pass": true,
+      "surface": {
+        "checks": 191,
+        "pass": 187,
+        "resourceRowsFalse": 4,
+        "canceledMediaRequests": 6,
+        "allCDPCanceled": true,
+        "javascriptErrors": 0,
+        "otherFailures": 0
+      },
+      "films": {
+        "checks": 151,
+        "pass": 149,
+        "twoLoopTrials": 8,
+        "allTwoWraps": true,
+        "decodedFrames": 4246,
+        "frameCallbacks": 4245,
+        "droppedFrames": 0,
+        "stalls": 0,
+        "injectedOldOwnerRaceAborts": 2,
+        "otherFailures": 0
+      },
+      "functional_points_pass": true,
+      "qualified_media_aborts": {
+        "surface": 6,
+        "film_injected_old_owner_race": 2,
+        "classification": "CDP canceled:true Media net::ERR_ABORTED when leaving view/scroll or intentionally re-injecting video owner; no mediaerror, other-network, JS/HTTP/backend errors; full files and subsequent 2-loop playback verified."
+      },
+      "strict_zero_resource_aborts_pass": false,
+      "emulated_mobile": true,
+      "physical_phones_Safari": false,
+      "performance_followup": {
+        "callback_cadence_not_compositor_FPS": true,
+        "public_active_scroll_max_ms": 199.9,
+        "public_active_mouse_max_ms": 41.1,
+        "isolated_no_screenshot_scroll_max_ms": 346.7,
+        "isolated_timed_screenshot_scroll_max_ms": 320,
+        "background_on_then_off": [
+          {
+            "stage": "background-on",
+            "globalIntervals": {
+              "n": 188,
+              "median": 13.300000000000182,
+              "p95": 13.5,
+              "max": 306.5,
+              "over50": [
+                79.99999999999955,
+                199.89999999999964,
+                306.5
+              ]
+            },
+            "rectCalls": 23,
+            "maxRectMs": 0.09999999403953552,
+            "artTicks": 189,
+            "longTasks": []
+          },
+          {
+            "stage": "background-off",
+            "globalIntervals": {
+              "n": 400,
+              "median": 13.300000000001091,
+              "p95": 13.5,
+              "max": 80,
+              "over50": [
+                80
+              ]
+            },
+            "rectCalls": 21,
+            "maxRectMs": 0.10000002384185791,
+            "artTicks": 0,
+            "longTasks": []
+          }
+        ],
+        "background_off_then_on": [
+          {
+            "stage": "background-off",
+            "globalIntervals": {
+              "n": 183,
+              "median": 13.300000000000182,
+              "p95": 13.5,
+              "max": 373.5,
+              "over50": [
+                186.69999999999982,
+                373.5
+              ]
+            },
+            "rectCalls": 21,
+            "maxRectMs": 0.10000002384185791,
+            "artTicks": 0,
+            "longTasks": []
+          },
+          {
+            "stage": "background-on",
+            "globalIntervals": {
+              "n": 409,
+              "median": 13.300000000001091,
+              "p95": 13.5,
+              "max": 53.30000000000018,
+              "over50": [
+                53.30000000000018
+              ]
+            },
+            "rectCalls": 23,
+            "maxRectMs": 0.10000002384185791,
+            "artTicks": 247,
+            "longTasks": []
+          }
+        ],
+        "active_longtasks_over50": 0,
+        "geometry_rect_max_ms": 0.1,
+        "trace_paint_max_ms": 1.584,
+        "trace_raster_max_ms": 2.086,
+        "conclusion": "Variation occurs in independent global Chrome RAF, including background fully removed. Cold-first-scroll/test order confounded. No recurring SA Canvas/JS/layout bottleneck established; exact underlying browser/GPU cause not determined. No physical/compositor FPS guarantee."
+      }
+    }
+  },
   "limits": [
     "Automated Chrome154 on Windows; emulated viewports/touch, no physical phones or Safari.",
     "Fine-primary mouse plus native CDP touch tested; no native primary-coarse secondary-fine hybrid device available.",
@@ -124,5 +413,6 @@
     "local_contact_demo": true,
     "noindex_nofollow": true,
     "no_force_push": true
-  }
+  },
+  "content_commit": "e0726e5b73f1431372d9d12d73a083ee8a90423d"
 }
