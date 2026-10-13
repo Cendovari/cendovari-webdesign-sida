@@ -6,7 +6,9 @@ Separat Luminous-förhandsvisning för Cendovari AB. Den godkända pärlemorbakg
 
 Arbetet utgår från ren main `69e7659754db3f93066a2ed8487e9ac758823752` på rätt origin. Fem bekräftade fel rättas: tomma kontaktuppgifter som bara innehåller blanktecken, rubrikfragment bakom headern, interna projekthopp bakom en extra fast projektrad, saknade ikoner när den externa leverantören inte svarar och toppfilmens höjdhopp vid initial laddning. Touchdrag över jämförelseikonen har också säkrats efter integrationen. Ingen redesign, ny backend eller medieändring ingår.
 
-**Status: lokalt verifierad; publicering och HTTPS-kontroll återstår.**
+**Status: publicerad och verifierad på HTTPS den 13 oktober 2026.**
+
+[Publicerad kodcommit 0ac89b2](https://github.com/Cendovari/cendovari-webdesign-sida/commit/0ac89b22dba96f2383e3261c4a91e7ecc6a3cbb0). Pages-bygget lyckades, canonical HTTPS gav 200 och 27 filhashar matchade, inklusive alla bilder och originalfilmer samt tre MP4 Range 206.
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
 - [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/stability-review)
@@ -64,6 +66,12 @@ node scripts/render-sculpture.cjs --output sculpture-check.png --chrome "PATH_TO
 ~~~
 
 Kontrollera bilden mot rapportens pixelhash innan källans inbäddade PNG och hashmappning uppdateras. PNG-kodning kan variera mellan webbläsarversioner. Verktyget skriver bara uttryckligt angivna bild- och eventuella metadatafiler. Det används inte på webbplatsen. Den vanliga Python-exporten behöver ingen webbläsare eller nya paket.
+
+## Genomförda offentliga kontroller
+
+Chrome 154 och Edge 155 på Windows: navigation 186/186, kontakt/touch/zoom 153/153 och ankartest 65/65. Alla tester låstes till slutexportens SHA-256. Filmer: åtta tvåvarvsprov och 153/153 funktionella kontroller; råresultat 155/157 eftersom två hämtningar avbröts i ett avsiktligt kontrollbytestest. Kontaktmatrisen har dessutom tre bevarade mediaavbrott utan tillräcklig telemetri för säker orsaksbestämning. Inga JS- eller HTTP-fel noterades i navigations-/filmproven. Typsnitt CSS/WOFF2 200 och Manrope 400/500 loaded verifierades separat.
+
+Mobil/touch, rotation och ändrad skärmhöjd är emulerade. Ingen fysisk telefon eller Safari testades. Små font-/knappskiften kan förekomma vid laddning; ingen garanti om CLS0 eller fysisk FPS lämnas. Se rapporten för exakta testgränser.
 
 ## Regressionstester
 

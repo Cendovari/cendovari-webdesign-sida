@@ -45,7 +45,15 @@ Befintlig build-export och render-CLI ger exakt samma index. 18 JavaScript-block
 
 ## Publicering
 
-Lokal preview öppnades före publicering. Alla berörda lokala tester har passerat. Vanlig commit/push och fast-forward till main sker genom det befintliga Pages-flödet. Inga Pages-, domän- eller DNS-inställningar ändras. HTTPS- och offentlig browserkontroll återstår i detta första granskningskvitto.
+Lokal förhandsvisning öppnades före publicering. [Fixcommit 3b65dc5](https://github.com/Cendovari/cendovari-webdesign-sida/commit/3b65dc59a21a8c0a19ee492283d4a139d194ea2c) följdes av [film-CSS-commit 0ac89b2](https://github.com/Cendovari/cendovari-webdesign-sida/commit/0ac89b22dba96f2383e3261c4a91e7ecc6a3cbb0), med vanlig fast-forward till main. [Pages-bygge 38374087081](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38374087081) lyckades. [Canonical HTTPS](https://cendovari.github.io/cendovari-webdesign-sida/) gav 200 och exakt slutindex aa75d054… . Alla 27 kontrollerade filbytes matchade lokalt; alla tre MP4 gav korrekta Range 206. Samtliga film-/bildresurser ingår. Pages-/domän-/DNS-inställningarna är oförändrade.
+
+Den offentliga Chrome-/Edge-matrisen passerade 186/186 över 13 färska vyer, med alla indexSHA exakt AA75. Chrome 320/360/390/768/1024/1440/844×390/reduced390 plus separat layoutemulering; Edge 320/768/1440/844×390. Menyer, snabb navigation, fokus, native fragment/reload/history, projekt/Escape/Back, återställning och textinfadning passerade. Inga JS-, HTTP-, requestfailed-, CDP- eller mediaerror-händelser noterades i just denna matris. Offentliga ankartest 65/65 och faktisk Chrome 200 % zoom 8/8 passerade.
+
+Offentliga kontakt-/touch-/zoomprov passerade 153/153: Chrome-matris 120, faktisk browserzoom 7 och kontakt/touch 13 per browser i både Chrome och Edge. Inga JS- eller icke-GET-anrop. Tre showreel ERR_ABORTED i 320/768/1440 finns kvar i rådata; den kontakt-harness som användes registrerade inte tidpunkt, CDP eller mediaerror-events. Orsaken tillskrivs därför inte säkert och dessa prov beskrivs inte som noll resursavbrott. Det lilla separata font-/medieprovet verifierade Google CSS 200, gstatic Manrope WOFF2 200, faktiska Manrope 400/500 loaded och video readyState 4/error null, utan misslyckade begäranden i det provet.
+
+Publicerade filmer: åtta prov med två kompletta loopar, 16 omslag och 4 249 avkodade frames/frame-callbacks. Inga rapporterade droppedframes eller återställningar av src/load/currentTime/emptied i normal scroll/paus. Samtliga 153 funktionella icke-resurskontroller passerade. Råresultat 155/157: två showreel Range-strömmar avbröts av testets uttryckliga gamla-kontroller-injektion, båda 206 och CDP canceled:true. Inga native media-, JS-, HTTP- eller backendfel i filmprovet. Dessa två råfel bevaras; ingen noll-requestfailed-garanti lämnas.
+
+Slutdokumentationen publiceras i en vanlig efterföljande commit. Den ändrar enbart README, denna rapport och preview-review.json; kod och resurser är exakt samma som i de låsta offentliga testerna.
 
 ## Begränsningar och kvarstående risker
 

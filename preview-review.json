@@ -1,7 +1,7 @@
 {
   "project": "Cendovari/cendovari-webdesign-sida",
   "date": "2026-10-13",
-  "status": "local_verified_publication_pending",
+  "status": "published_verified_HTTPS",
   "base_commit": "69e7659754db3f93066a2ed8487e9ac758823752",
   "source_sha256": "3503898d9455f80420b52553843a9b84c3ef1c8bea9e3f1a46b57fd7a619ae45",
   "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
@@ -271,5 +271,799 @@
     "no_force_push": true
   },
   "screenshots_index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
-  "screenshots_reduced_motion": true
+  "screenshots_reduced_motion": true,
+  "content_commit": "3b65dc59a21a8c0a19ee492283d4a139d194ea2c",
+  "published_code_commit": "0ac89b22dba96f2383e3261c4a91e7ecc6a3cbb0",
+  "publication": {
+    "pages": {
+      "run_id": 38374087081,
+      "status": "completed",
+      "conclusion": "success",
+      "commit": "0ac89b22dba96f2383e3261c4a91e7ecc6a3cbb0"
+    },
+    "https": {
+      "checked_utc": "2026-10-13T09:08:51.581334+00:00",
+      "base": "https://cendovari.github.io/cendovari-webdesign-sida/",
+      "files": [
+        {
+          "path": "index.html",
+          "status": 200,
+          "bytes": 414121,
+          "sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+          "expected_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acdf4ec-651a9\""
+        },
+        {
+          "path": "preview-source.html",
+          "status": 200,
+          "bytes": 1530195,
+          "sha256": "3503898d9455f80420b52553843a9b84c3ef1c8bea9e3f1a46b57fd7a619ae45",
+          "expected_sha256": "3503898d9455f80420b52553843a9b84c3ef1c8bea9e3f1a46b57fd7a619ae45",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acdf4ec-175953\""
+        },
+        {
+          "path": "assets/images/cendovari-logo.svg",
+          "status": 200,
+          "bytes": 3513,
+          "sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "expected_sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "matches": true,
+          "https": true,
+          "content_type": "image/svg+xml",
+          "etag": "\"6acdf4ec-db9\""
+        },
+        {
+          "path": "assets/images/plattsattning-poster.jpg",
+          "status": 200,
+          "bytes": 10073,
+          "sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "expected_sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acdf4ec-2759\""
+        },
+        {
+          "path": "assets/images/bilverkstad-poster.jpg",
+          "status": 200,
+          "bytes": 13614,
+          "sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "expected_sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acdf4ec-352e\""
+        },
+        {
+          "path": "assets/images/gppe-startsida.webp",
+          "status": 200,
+          "bytes": 58012,
+          "sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "expected_sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "matches": true,
+          "https": true,
+          "content_type": "image/webp",
+          "etag": "\"6acdf4ec-e29c\""
+        },
+        {
+          "path": "assets/images/gppe-logo.webp",
+          "status": 200,
+          "bytes": 15558,
+          "sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "expected_sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "matches": true,
+          "https": true,
+          "content_type": "image/webp",
+          "etag": "\"6acdf4ec-3cc6\""
+        },
+        {
+          "path": "assets/video/plattsattning-10s.mp4",
+          "status": 200,
+          "bytes": 3211270,
+          "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "expected_sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acdf4ec-310006\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/3211270",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/video/bilverkstad-10s.mp4",
+          "status": 200,
+          "bytes": 3384000,
+          "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "expected_sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acdf4ec-33a2c0\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/3384000",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/video/cendovari-showreel-10s.mp4",
+          "status": 200,
+          "bytes": 1284401,
+          "sha256": "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b",
+          "expected_sha256": "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acdf4ec-139931\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/1284401",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/images/cendovari-showreel-poster.jpg",
+          "status": 200,
+          "bytes": 63090,
+          "sha256": "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb",
+          "expected_sha256": "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acdf4ec-f672\""
+        },
+        {
+          "path": "assets/images/cendovari-sculpture.png",
+          "status": 200,
+          "bytes": 466103,
+          "sha256": "da3d70edf3f27d95306a89defe97b92e54a8a689e4fd93dcfecf3c5063d7bbcc",
+          "expected_sha256": "da3d70edf3f27d95306a89defe97b92e54a8a689e4fd93dcfecf3c5063d7bbcc",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdf4ec-71cb7\""
+        },
+        {
+          "path": "scripts/build-export.py",
+          "status": 200,
+          "bytes": 5869,
+          "sha256": "584443abb0968f39a6f6b37b77f2bb4314da26fc8a72cb291c1cd3e28a155b86",
+          "expected_sha256": "584443abb0968f39a6f6b37b77f2bb4314da26fc8a72cb291c1cd3e28a155b86",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acdf4ec-16ed\""
+        },
+        {
+          "path": "scripts/render.py",
+          "status": 200,
+          "bytes": 7006,
+          "sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "expected_sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acdf4ec-1b5e\""
+        },
+        {
+          "path": "scripts/export-shell.html",
+          "status": 200,
+          "bytes": 5670,
+          "sha256": "b9cdbe1d374722195e6ce467da2c3f777811c4492e087e862cb07d8e5037dadb",
+          "expected_sha256": "b9cdbe1d374722195e6ce467da2c3f777811c4492e087e862cb07d8e5037dadb",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acdf4ec-1626\""
+        },
+        {
+          "path": ".nojekyll",
+          "status": 200,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acdf4ec-0\""
+        },
+        {
+          "path": "licenses/lucide.txt",
+          "status": 200,
+          "bytes": 3208,
+          "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+          "expected_sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+          "matches": true,
+          "https": true,
+          "content_type": "text/plain; charset=utf-8",
+          "etag": "\"6acdf4ec-c88\""
+        },
+        {
+          "path": "tests/anchor-regression.cjs",
+          "status": 200,
+          "bytes": 7249,
+          "sha256": "9cb9c619d3a1e7f126ee150a7ada7a2f74e38cc9754140781988a8fc69f9de6f",
+          "expected_sha256": "9cb9c619d3a1e7f126ee150a7ada7a2f74e38cc9754140781988a8fc69f9de6f",
+          "matches": true,
+          "https": true,
+          "content_type": "application/node",
+          "etag": "\"6acdf4ec-1c51\""
+        },
+        {
+          "path": "tests/contact-regression.cjs",
+          "status": 200,
+          "bytes": 4634,
+          "sha256": "f181f18793609abffce29b45fcf8cf47b5d847afc54b78972cbf0ae39d6a9680",
+          "expected_sha256": "f181f18793609abffce29b45fcf8cf47b5d847afc54b78972cbf0ae39d6a9680",
+          "matches": true,
+          "https": true,
+          "content_type": "application/node",
+          "etag": "\"6acdf4ec-121a\""
+        },
+        {
+          "path": "tests/comparison-regression.cjs",
+          "status": 200,
+          "bytes": 6482,
+          "sha256": "96c39d3c7c231b942991e5e05b933eb7c5479c7b63b07d09069965e1ec413065",
+          "expected_sha256": "96c39d3c7c231b942991e5e05b933eb7c5479c7b63b07d09069965e1ec413065",
+          "matches": true,
+          "https": true,
+          "content_type": "application/node",
+          "etag": "\"6acdf4ec-1952\""
+        },
+        {
+          "path": "tests/icons-regression.cjs",
+          "status": 200,
+          "bytes": 3555,
+          "sha256": "58ab60e26de1ffc5c9a221279627c5be6af61f0fd52d919a648fd9d52ae72b39",
+          "expected_sha256": "58ab60e26de1ffc5c9a221279627c5be6af61f0fd52d919a648fd9d52ae72b39",
+          "matches": true,
+          "https": true,
+          "content_type": "application/node",
+          "etag": "\"6acdf4ec-de3\""
+        },
+        {
+          "path": "docs/screenshots/stability-1440-home.png",
+          "status": 200,
+          "bytes": 438662,
+          "sha256": "a533fadcb8b85eb74d3101f6a75e31e9bf651489dd37d939e8bbd62071f9594a",
+          "expected_sha256": "a533fadcb8b85eb74d3101f6a75e31e9bf651489dd37d939e8bbd62071f9594a",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdf4ec-6b186\""
+        },
+        {
+          "path": "docs/screenshots/stability-390-home.png",
+          "status": 200,
+          "bytes": 164804,
+          "sha256": "90b48589605d49d05d7ba2f1e776ec9db832e0407a2ce5e2b95c116b2e6a3949",
+          "expected_sha256": "90b48589605d49d05d7ba2f1e776ec9db832e0407a2ce5e2b95c116b2e6a3949",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdf4ec-283c4\""
+        },
+        {
+          "path": "docs/screenshots/stability-390-project-section.png",
+          "status": 200,
+          "bytes": 207137,
+          "sha256": "37c514c960a51afddf06a8d30dee9ff28c84c39fc404429a96f2bca422796d0a",
+          "expected_sha256": "37c514c960a51afddf06a8d30dee9ff28c84c39fc404429a96f2bca422796d0a",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdf4ec-32921\""
+        },
+        {
+          "path": "docs/screenshots/stability-390-contact-empty.png",
+          "status": 200,
+          "bytes": 137113,
+          "sha256": "146c3f2923e4ad67c55c2bf2127baac56e3cd19a76b5c06a0816a63e9f5c00f9",
+          "expected_sha256": "146c3f2923e4ad67c55c2bf2127baac56e3cd19a76b5c06a0816a63e9f5c00f9",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdf4ec-21799\""
+        },
+        {
+          "path": "docs/screenshots/stability-844-menu.png",
+          "status": 200,
+          "bytes": 67668,
+          "sha256": "05b3c217aa4f3f7c7ca4cca4c98f891987e492d5b6a681aee8608074034a9d16",
+          "expected_sha256": "05b3c217aa4f3f7c7ca4cca4c98f891987e492d5b6a681aee8608074034a9d16",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdf4ec-10854\""
+        },
+        {
+          "path": "tests/startup-regression.cjs",
+          "status": 200,
+          "bytes": 2891,
+          "sha256": "0c31d2398fc671e6967f68d09cd70bf578b8ff5642853ae17657f7360e2657be",
+          "expected_sha256": "0c31d2398fc671e6967f68d09cd70bf578b8ff5642853ae17657f7360e2657be",
+          "matches": true,
+          "https": true,
+          "content_type": "application/node",
+          "etag": "\"6acdf4ec-b4b\""
+        }
+      ],
+      "all_match": true,
+      "ranges_pass": true,
+      "canonical": {
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "status": 200,
+        "sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+        "matches": true
+      }
+    },
+    "live_browser_tests": "completed_functional_checks_pass_with_explicit_resource_qualifications",
+    "browser_media": {
+      "scope": "Actual public demo Pages browser QA; read-only HTTPS access, private QA scratch writes only.",
+      "contentCommit": "0ac89b22dba96f2383e3261c4a91e7ecc6a3cbb0",
+      "PagesRunProvidedByRoot": "38374087081/success",
+      "URL": "https://cendovari.github.io/cendovari-webdesign-sida/?v=0ac89b2",
+      "startedUTC": "2026-10-13T09:09:41.813Z",
+      "completedUTC": "2026-10-13T09:13:46.216Z",
+      "lockedIndexSHA256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+      "sourceSHA256FromApprovedLock": "3503898d9455f80420b52553843a9b84c3ef1c8bea9e3f1a46b57fd7a619ae45",
+      "actualChromeExecutableVersion": "154.0.8037.98",
+      "versionEvidence": "Windows ProductVersion/FileVersion metadata of the exact Chrome executable used in this run.",
+      "rawChecks": 157,
+      "rawPassed": 155,
+      "rawFailedLabels": [
+        "no-JS-resource-backend-errors",
+        "no-JS-resource-backend-errors"
+      ],
+      "allActualIndexHashesMatch": true,
+      "byMode": [
+        {
+          "name": "mobile390",
+          "completed": true,
+          "actualHTTP": 200,
+          "actualIndexSHA256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+          "checks": 66,
+          "passed": 65,
+          "metadata": {
+            "robots": "noindex,nofollow",
+            "iframes": 0,
+            "icons": 56,
+            "placeholders": 0
+          },
+          "failedLabels": [
+            "no-JS-resource-backend-errors"
+          ]
+        },
+        {
+          "name": "desktop1440",
+          "completed": true,
+          "actualHTTP": 200,
+          "actualIndexSHA256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+          "checks": 62,
+          "passed": 61,
+          "metadata": {
+            "robots": "noindex,nofollow",
+            "iframes": 0,
+            "icons": 56,
+            "placeholders": 0
+          },
+          "failedLabels": [
+            "no-JS-resource-backend-errors"
+          ]
+        },
+        {
+          "name": "reduced390",
+          "completed": true,
+          "actualHTTP": 200,
+          "actualIndexSHA256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+          "checks": 15,
+          "passed": 15,
+          "metadata": {
+            "robots": "noindex,nofollow",
+            "iframes": 0,
+            "icons": 56,
+            "placeholders": 0
+          },
+          "failedLabels": []
+        },
+        {
+          "name": "denied390",
+          "completed": true,
+          "actualHTTP": 200,
+          "actualIndexSHA256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+          "checks": 14,
+          "passed": 14,
+          "metadata": {
+            "robots": "noindex,nofollow",
+            "iframes": 0,
+            "icons": 56,
+            "placeholders": 0
+          },
+          "failedLabels": []
+        }
+      ],
+      "twoLoopTrials": 8,
+      "totalWraps": 16,
+      "loops": [
+        {
+          "selector": "video[data-showreel]",
+          "wraps": 2,
+          "mediaSeconds": 22.18007999999999,
+          "wallSeconds": 22.198,
+          "decodedFrames": 533,
+          "totalVideoFrames": 533,
+          "frameCallbacks": 532,
+          "presentedFramesDelta": 532,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+          "wraps": 2,
+          "mediaSeconds": 22.264577999999997,
+          "wallSeconds": 22.286099999964236,
+          "decodedFrames": 534,
+          "totalVideoFrames": 534,
+          "frameCallbacks": 534,
+          "presentedFramesDelta": 534,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "[data-pj-panel=pb] video[data-film=pb]",
+          "wraps": 2,
+          "mediaSeconds": 22.064691000000007,
+          "wallSeconds": 22.085599999964238,
+          "decodedFrames": 529,
+          "totalVideoFrames": 529,
+          "frameCallbacks": 530,
+          "presentedFramesDelta": 530,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "[data-pj-panel=motor] video[data-film=motor]",
+          "wraps": 2,
+          "mediaSeconds": 22.19084299999999,
+          "wallSeconds": 22.204799999952318,
+          "decodedFrames": 532,
+          "totalVideoFrames": 532,
+          "frameCallbacks": 532,
+          "presentedFramesDelta": 532,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "video[data-showreel]",
+          "wraps": 2,
+          "mediaSeconds": 22.110883,
+          "wallSeconds": 22.12819999998808,
+          "decodedFrames": 531,
+          "totalVideoFrames": 531,
+          "frameCallbacks": 531,
+          "presentedFramesDelta": 531,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "[data-page=home] .st-featured-card[data-st-case=motor] video[data-film=motor]",
+          "wraps": 2,
+          "mediaSeconds": 22.105293,
+          "wallSeconds": 22.135899999976157,
+          "decodedFrames": 531,
+          "totalVideoFrames": 531,
+          "frameCallbacks": 530,
+          "presentedFramesDelta": 530,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "[data-pj-panel=pb] video[data-film=pb]",
+          "wraps": 2,
+          "mediaSeconds": 22.150204999999996,
+          "wallSeconds": 22.197,
+          "decodedFrames": 531,
+          "totalVideoFrames": 531,
+          "frameCallbacks": 532,
+          "presentedFramesDelta": 532,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        },
+        {
+          "selector": "[data-pj-panel=motor] video[data-film=motor]",
+          "wraps": 2,
+          "mediaSeconds": 22.007132,
+          "wallSeconds": 22.036100000023843,
+          "decodedFrames": 528,
+          "totalVideoFrames": 528,
+          "frameCallbacks": 528,
+          "presentedFramesDelta": 528,
+          "reportedDroppedFrames": 0,
+          "loadCallsDelta": 0,
+          "srcMutationDelta": 0,
+          "timeSetterDelta": 0,
+          "emptiedDelta": 0
+        }
+      ],
+      "decodedFrames": 4249,
+      "totalVideoFrames": 4249,
+      "frameCallbacks": 4249,
+      "presentedFramesDelta": 4249,
+      "reportedDroppedFrames": 0,
+      "normalLoadCallsDelta": 0,
+      "normalSrcMutationDelta": 0,
+      "normalTimeSetterDelta": 0,
+      "normalEmptiedDelta": 0,
+      "JSerrors": [],
+      "HTTPerrors": [],
+      "rawRequestFailures": [
+        {
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+          "error": "net::ERR_ABORTED",
+          "resourceType": "media",
+          "stage": "injected-old-owner-race",
+          "UTC": "2026-10-13T09:11:37.131Z",
+          "mode": "mobile390"
+        },
+        {
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+          "error": "net::ERR_ABORTED",
+          "resourceType": "media",
+          "stage": "injected-old-owner-race",
+          "UTC": "2026-10-13T09:13:32.385Z",
+          "mode": "desktop1440"
+        }
+      ],
+      "CDPFailedMediaRequests": [
+        {
+          "id": "39868.34",
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+          "Range": "bytes=0-",
+          "stage": "nav:home",
+          "UTC": "2026-10-13T09:11:36.042Z",
+          "status": 206,
+          "contentRange": "bytes 0-1284400/1284401",
+          "failure": "net::ERR_ABORTED",
+          "canceled": true,
+          "failureStage": "injected-old-owner-race",
+          "failureUTC": "2026-10-13T09:11:37.129Z",
+          "mode": "mobile390"
+        },
+        {
+          "id": "36876.34",
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+          "Range": "bytes=0-",
+          "stage": "nav:home",
+          "UTC": "2026-10-13T09:13:31.283Z",
+          "status": 206,
+          "contentRange": "bytes 0-1284400/1284401",
+          "failure": "net::ERR_ABORTED",
+          "canceled": true,
+          "failureStage": "injected-old-owner-race",
+          "failureUTC": "2026-10-13T09:13:32.385Z",
+          "mode": "desktop1440"
+        }
+      ],
+      "nativeMediaErrorEvents": [],
+      "rawFailureClassification": {
+        "allRequestsMatchDeliberateOwnershipCancellation": true,
+        "explanation": "Two showreel206 Range requests began during home return and were explicitly cancelled about1.1s later during the test-only old-owner cleanup/reinitialization. Both CDP records report canceled=true in that injected stage. All normal film loops, pause/nav/source continuity and retry checks passed, and native media/JS/HTTP error counters arezero. These remain real raw request failures; no zero-requestfailed or raw-all-green claim."
+      },
+      "functionalNonResourceChecks": {
+        "checks": 153,
+        "passed": 153
+      },
+      "screenshots": [
+        "stability-film-public-mobile390-home.png",
+        "stability-film-public-mobile390-main-playing.png",
+        "stability-film-public-mobile390-motor-home.png",
+        "stability-film-public-mobile390-pb-project.png",
+        "stability-film-public-mobile390-motor-project.png",
+        "stability-film-public-desktop1440-home.png",
+        "stability-film-public-desktop1440-main-playing.png",
+        "stability-film-public-desktop1440-motor-home.png",
+        "stability-film-public-desktop1440-pb-project.png",
+        "stability-film-public-desktop1440-motor-project.png",
+        "stability-film-public-reduced390-home.png",
+        "stability-film-public-reduced390-reduced-manual.png",
+        "stability-film-public-denied390-home.png",
+        "stability-film-public-denied390-denied-retry.png"
+      ],
+      "limitations": [
+        "390px touch/mobile and1440px desktop are actual Chrome browser runs with viewport/mobile emulation, not physical-device testing.",
+        "No physical phone/Safari/confirmed coarse-primary plus fine-secondary hybrid device.",
+        "Hidden/visibility behavior is explicitly simulated using document.hidden override and visibilitychange; actual OS-hidden tab remains unverified.",
+        "Autoplay denial is a controlled NotAllowedError injection, followed by native Chrome click retry.",
+        "Project/media placement scrolling uses programmatic scrollIntoView; buttons and Escape are actual Chrome input.",
+        "Old-owner cleanup/play-race and root detach are deliberate runtime injections, not ordinary visitor actions.",
+        "Decoded/quality/rVFC counters are separately reported and do not guarantee physical-display frame presentation."
+      ],
+      "evidence": [
+        "stability-film-public.cjs",
+        "public-stability-film-lock.json",
+        "stability-film-public-result.json"
+      ]
+    },
+    "browser_navigation": {
+      "browser_versions": {
+        "chrome": "154.0.8037.98",
+        "edge": "155.0.4283.45"
+      },
+      "runs": 13,
+      "passes": 186,
+      "checks": 186,
+      "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+      "JSerrors": 0,
+      "HTTPerrors": 0,
+      "requestFailures": 0,
+      "CDPFailures": 0,
+      "consoleErrorsWarnings": 0,
+      "backendRequests": 0,
+      "mediaErrors": 0,
+      "actual_browser_zoom200": {
+        "passes": 8,
+        "checks": 8
+      },
+      "portable_anchors": {
+        "passes": 65,
+        "checks": 65
+      }
+    },
+    "browser_contact": {
+      "passes": 153,
+      "checks": 153,
+      "Chrome_matrix": {
+        "passes": 120,
+        "checks": 120
+      },
+      "actual_Chrome_browser_zoom200": {
+        "passes": 7,
+        "checks": 7
+      },
+      "Chrome_Edge_contact_touch_regressions": {
+        "checks_per_browser": 13,
+        "all_pass": true
+      },
+      "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+      "JSerrors": 0,
+      "nonGETRequests": 0,
+      "raw_matrix_requestFailures": 3,
+      "qualification": "Three showreel media ERR_ABORTED at320/768/1440. This original contact harness did not record timing/CDP or mediaerror events; no definite cause or canceled:true/zero-mediaerror claim is made for those contexts. Separate full-film QA and font/media telemetry passed.",
+      "font_media_telemetry": {
+        "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+        "fonts": {
+          "ready": "loaded",
+          "rootFamily": "Manrope, Arial, Helvetica, sans-serif",
+          "faces": [
+            {
+              "family": "Manrope",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "Manrope",
+              "weight": "500",
+              "status": "loaded"
+            }
+          ],
+          "usedManrope400": true,
+          "usedManrope500": true
+        },
+        "media": [
+          {
+            "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+            "error": null,
+            "readyState": 4,
+            "paused": true,
+            "currentTime": 0.737939
+          }
+        ],
+        "responses": [
+          {
+            "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap",
+            "status": 200
+          },
+          {
+            "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/images/cendovari-showreel-poster.jpg",
+            "status": 200
+          },
+          {
+            "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2",
+            "status": 200
+          },
+          {
+            "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/cendovari-showreel-10s.mp4",
+            "status": 206
+          }
+        ],
+        "failedRequests": 0,
+        "CDPFailures": 0
+      }
+    },
+    "receipt_self_reference_qualification": "Own README/review/receipt hashes excluded from this JSON; their final documentation deployment is verified separately. No runtime/source changes in that documentation commit."
+  }
 }
