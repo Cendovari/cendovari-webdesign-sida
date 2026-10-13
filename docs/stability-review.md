@@ -10,6 +10,7 @@ Avgränsning: endast Cendovari/cendovari-webdesign-sida. Ren aktuell main och or
 | Direktlänk till services-rubriken placerade texten bakom sticky header, även efter omladdning. | Befintlig scrollmarginal omfattade sektioner men inte rubriker med ID. Samma dynamiska headeroffset används nu för dessa rubriker. Navigations-/historikmodellen ändras inte. | Färsk Home-fragmentlänk och reload på fem vyer; heading fri från header. |
 | Projektens Services/Contact-genvägar klippte 32–45 px av rubriken på mobil; tangentbordsfokus låg kvar ovanför vyn. | Scrollmålet räknade bara huvudheadern. Ankaret mäter nu även aktuell sticky projektrad och fokuserar mål-rubriken utan extra scroll. Desktopens statiska rad räknas inte som sticky. | Båda koncept, services/contact, kort landskap, mål-fokus samt exakt opener/scroll vid Back. |
 | Pilar och andra symboler försvann vid långsam eller blockerad ikonleverantör. | Exporten hämtade Lucide från CDN. Exakt godkänd geometri finns nu lokalt i källan/exporten med ISC-licens. Inga nya nätberoenden eller listeners. | Blockerad ikon/fontresurs: 56 SVG, fungerande meny/Escape, inga tomma symboler. Alla 14 befintliga geometrier och storlekar jämförda med basen. |
+| Toppfilmens ram gick från cirka 155–157 px till full 16:9 efter första paint. | Filmens korrekta CSS kom sent i den strömmade HTML-filen. Exakt samma två godkända frame-/videoregler ligger nu före innehållet och reserverar utrymmet tidigt. Ingen beskärning eller slutlayout ändras. | Progressiv HTML-laddning 180 kB/s: bas 0/2, slut 2/2. Första filmramen har rätt 16:9 redan medan dokumentet laddas; noll felproportionerade observerade frames. |
 | Touchdrag över den nyinfogade SVG-ikonen avbröts efter första steget. | Implicit pekarfångst på SVG-barnet flyttades till handtaget. Barnets lostpointercapture bubblade och nollställde dragningen. Endast förlust på själva handtaget avbryter nu dragningen. | Verkliga emulerade CDP-touchhändelser över målad SVG och handtagsyta, horisontellt drag, vertikalscroll och cancel. |
 
 ## Lokal verifiering
@@ -32,10 +33,10 @@ Efter 50 sid-/meny-/projektcykler växte inte registrerade listeners, observers 
 
 Alla tre originalfilmer, posterbilder, GPPE-material och skulptur-PNG är byteidentiska med basen. Filmcontrollers och bakgrundskod är byteidentiska. Åtta prov spelar två kompletta loopar: huvudfilm och övriga filmer på mobil/desktop och i projektvyer. Vanlig scroll, paus/återuppta och sidbyte nollställer inte src/load/currentTime; manuell paus består. Reducerad rörelse, simulerad dold flik och injicerad autoplay-nekning kontrolleras.
 
-Den sista minimala touchguarden infördes efter att delar av den breda matrisen laddat kandidat 981c2ff1…/18ab2603…. Dessa råresultat behålls med verklig hash; berörda oförändrade controllers jämförs byte för byte och den slutliga exporten får riktade omprov. Gamla resultat märks aldrig om som nya.
+Den sista minimala touchguarden infördes efter att delar av den breda matrisen laddat kandidat 981c2ff1…/18ab2603…. Dessa råresultat behålls med verklig hash; berörda oförändrade controllers jämförs byte för byte och den slutliga exporten får riktade omprov. Gamla resultat märks aldrig om som nya. Sista uppföljningen lägger endast två identiska kritiska film-CSS-regler före innehållet. Alla skript är byteidentiska med dfd354811…; berörda laddnings-/layoutprov körs igen och offentlig kontroll låses till sista aa75d054…-exporten.
 
-Slutlig källa SHA-256: c06a332afae885be5c772c2fc73678bd64746bc6fef62d02cef16a14457ef800.
-Slutlig index SHA-256: dfd354811ab643448d217641e6f8ed7b95192c3464b6f99347aa0543f81bd3c1.
+Slutlig källa SHA-256: 3503898d9455f80420b52553843a9b84c3ef1c8bea9e3f1a46b57fd7a619ae45.
+Slutlig index SHA-256: aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a.
 Befintlig build-export och render-CLI ger exakt samma index. 18 JavaScript-block och JSON-metadata passerar syntax/parsing. noindex,nofollow, vanlig dokumentscroll utan iframe och lokalt demoläge bevaras.
 
 ## Skärmbilder
@@ -52,6 +53,6 @@ Inga fysiska telefoner, Safari eller Firefox finns tillgängliga här. Tangentbo
 
 Bakgrundens tidsbaserade tillstånd jämfördes vid simulerade 30/60/75 Hz; det är inte faktisk compositor-FPS. Tidigare scrollprov har varierande kalla browser-rAF-gap. Ingen ny återkommande flaskhals i bakgrundens JS/canvas/layout konstaterades; underliggande browser/GPU-variation är inte förklarad eller en garanti om felfri FPS.
 
-Tidiga layout-shift-poster sågs under parsning/font-/style-init i både bas och kandidat. Den uppmätta stabila layoutpariteten är inte ett CLS0-påstående eller en isolerad Core Web Vitals-mätning.
+Tidiga layout-shift-poster sågs under parsning/font-/style-init i både bas och kandidat. Den konkreta filmramens höjdändring rättas med tidig identisk CSS. I det interaktionsfria desktopprovet sjönk rå layout-shift-summa från 0,564 till 0,0409; det är ett kontrollerat initprov och inte en fältmätt CWV-siffra. Sex bredders slutlayout-/ikonparitet passerade 12/12 och slutlig hashsmoke 24/24. mindre font-/knapptextskiften kan fortfarande förekomma. Den uppmätta stabila layoutpariteten är inte ett CLS0-påstående eller en isolerad Core Web Vitals-mätning.
 
 Ingen design-, innehålls-, medie- eller produktionsförändring ingår. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, hosting och DNS är orörda. Historik och orelaterade filer bevaras; ingen force-push eller hard reset.

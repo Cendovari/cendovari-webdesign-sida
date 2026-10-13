@@ -4,7 +4,7 @@ Separat Luminous-förhandsvisning för Cendovari AB. Den godkända pärlemorbakg
 
 ## Stabilitetsgranskning 13 oktober 2026
 
-Arbetet utgår från ren main `69e7659754db3f93066a2ed8487e9ac758823752` på rätt origin. Fyra bekräftade fel rättas: tomma kontaktuppgifter som bara innehåller blanktecken, rubrikfragment bakom headern, interna projekthopp bakom en extra fast projektrad och saknade ikoner när den externa leverantören inte svarar. Touchdrag över jämförelseikonen har också säkrats efter integrationen. Ingen redesign, ny backend eller medieändring ingår.
+Arbetet utgår från ren main `69e7659754db3f93066a2ed8487e9ac758823752` på rätt origin. Fem bekräftade fel rättas: tomma kontaktuppgifter som bara innehåller blanktecken, rubrikfragment bakom headern, interna projekthopp bakom en extra fast projektrad, saknade ikoner när den externa leverantören inte svarar och toppfilmens höjdhopp vid initial laddning. Touchdrag över jämförelseikonen har också säkrats efter integrationen. Ingen redesign, ny backend eller medieändring ingår.
 
 **Status: lokalt verifierad; publicering och HTTPS-kontroll återstår.**
 
@@ -74,6 +74,7 @@ node tests/anchor-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_
 node tests/icons-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
 node tests/contact-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
 node tests/comparison-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
+node tests/startup-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
 ~~~
 
 Valfri `--output PATH` sparar testresultat. Ingen beständig användarprofil används. Testuppgifter är fiktiva och utkast skapas bara lokalt; inga riktiga mejl eller backendanrop görs. Mobila mått, touch, rotation och ändrad skärmhöjd emuleras på Windows. Fysisk telefon och Safari har inte testats.

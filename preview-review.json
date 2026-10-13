@@ -3,14 +3,15 @@
   "date": "2026-10-13",
   "status": "local_verified_publication_pending",
   "base_commit": "69e7659754db3f93066a2ed8487e9ac758823752",
-  "source_sha256": "c06a332afae885be5c772c2fc73678bd64746bc6fef62d02cef16a14457ef800",
-  "index_sha256": "dfd354811ab643448d217641e6f8ed7b95192c3464b6f99347aa0543f81bd3c1",
+  "source_sha256": "3503898d9455f80420b52553843a9b84c3ef1c8bea9e3f1a46b57fd7a619ae45",
+  "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
   "fixes": [
     "whitespace-only required draft fields",
     "native heading fragments under sticky header",
     "project sticky toolbar anchor offset and destination focus",
     "CDN-independent approved Lucide icons",
-    "SVG-child pointer capture guard for comparison touch"
+    "SVG-child pointer capture guard for comparison touch",
+    "early approved top-film aspect ratio prevents 155px-to-16:9 startup height jump"
   ],
   "local": {
     "anchor_regression": {
@@ -217,7 +218,35 @@
       "checks": 7,
       "index_sha256": "dfd354811ab643448d217641e6f8ed7b95192c3464b6f99347aa0543f81bd3c1"
     },
-    "startup_layout_qualification": "Initial parsing/font/style-init layout-shift entries observed in baseline and candidate. Bbox parity is not a CLS0 or CWV measurement."
+    "startup_layout_qualification": "Initial parsing/font/style-init layout-shift entries observed in baseline and candidate. Bbox parity is not a CLS0 or CWV measurement.",
+    "css_only_followup": {
+      "previous_index_sha256": "dfd354811ab643448d217641e6f8ed7b95192c3464b6f99347aa0543f81bd3c1",
+      "current_index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+      "script_blocks_unchanged": true,
+      "media_unchanged": true,
+      "exact_previous_source_index_after_removing_critical_block": true,
+      "two_rules_match_approved_late_css": true,
+      "startup_regression": {
+        "baseline_passes": 0,
+        "final_passes": 2,
+        "runs": 2,
+        "download_bytes_per_second": 180000,
+        "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+        "bad_frame_count": 0,
+        "first_mobile_height": 219.375,
+        "first_desktop_height": 810
+      },
+      "final_hash_smoke": {
+        "passes": 24,
+        "checks": 24,
+        "index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a"
+      },
+      "visual_parity": {
+        "passes": 12,
+        "checks": 12,
+        "final_geometry_unchanged": true
+      }
+    }
   },
   "screenshots": [
     "docs/screenshots/stability-1440-home.png",
@@ -240,5 +269,7 @@
     "local_contact_demo": true,
     "noindex_nofollow": true,
     "no_force_push": true
-  }
+  },
+  "screenshots_index_sha256": "aa75d054105cf45aa2ff0e19c2c4426535e73c369e80d25b49118b0c5622fb9a",
+  "screenshots_reduced_motion": true
 }
