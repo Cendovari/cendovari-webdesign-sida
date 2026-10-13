@@ -1,28 +1,30 @@
-# Cendovari Webdesign Sida — GPPE-förhandsvisning
+# Cendovari Webdesign Sida — toppfilm och lugna sidbyten
 
-Separat förhandsvisning för Cendovari AB. Den godkända Luminous-designen, pärlemorgrunden och den stora 16:9-filmen är bevarade. Starttexten är ”Vi bygger hemsidor för företag.” Tjänsteillustrationen visar en datorskärm och telefon. GPPE visas med riktig logga och skärmbild; Bilverkstad är ett tydligt märkt designförslag.
+Separat Luminous-förhandsvisning för Cendovari AB. Den godkända toppfilmen från `cendovari-film-navigation-handoff.zip` ersätter föregående showreel. GPPE, texter, illustrationer, designförslag, övriga filmer och kontaktutkast är bevarade.
 
-**Status: publicerad och verifierad på HTTPS 2026-10-11.**
+**Status: lokalt verifierad; publiceringskontrollen återstår.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [Innehållscommit 6cc9621](https://github.com/Cendovari/cendovari-webdesign-sida/commit/6cc9621bdbeb52624e8fe867964b0bebeb53ac41)
-- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/gppe-portfolio)
-- [Granskning och skärmbilder](docs/gppe-review.md)
+- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/film-navigation)
+- [Granskning och skärmbilder](docs/film-navigation-review.md)
 - [Ladda ned main](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
 
-## Underlag och innehåll
+## Underlag och ändring
 
-Integreringen utgår från verifierad main `3c3ebb16f8ee0ddbd4aaea754dddc554acb1d88a` och `cendovari-gppe-handoff.zip` (SHA256 `58cdd816671e73c33e59cb00ee1974551059da33d0cb72f2a7647ec841c1f27c`). Alla 16 poster i paketets SHA256SUMS.txt är verifierade.
+Aktuell ren main och origin verifierades före arbetet: `9fe6de943811da098d235db6d32e0c2b1d32d2ad`, https://github.com/Cendovari/cendovari-webdesign-sida.git. Alla fem poster i paketets SHA256SUMS.txt matchar. ZIP-SHA256 är `5102492bb007c7c0c22b9118f68566693a4b59558853fe0c5428c1c4f58d0a0b`. Paketet innehåller enbart film, poster och instruktioner; ingen äldre helsida importerades.
 
-`preview-source.html` är den redigerbara källan, rot `cv-gppe-featured`. Godkänt innehåll, CSS och komposition är bevarade. En avgränsad teknisk rättelse återställer mobilmenyns interna scroll före första fokus när menyn återöppnas på en kort skärm. Befintliga viewport-, meny-, fokus-, projekt-, formulär- och filmfixar från main behålls.
+- Ny toppfilm: `assets/video/cendovari-showreel-10s.mp4`, SHA256 `9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b`.
+- Matchande poster: `assets/images/cendovari-showreel-poster.jpg`, SHA256 `0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb`.
 
-Gotland Puts & Platt Entreprenad visas i ”Så kan en hemsida se ut”, efter processen och på Portfolio-sidan, med ”Byggd av Cendovari.” Alla tre GPPE-länkar är vanliga externa länkar till https://gppe.se/ och öppnar inget fiktivt projekt. Paketets separata äldre Plattsättning-exempel är fortfarande uttryckligen märkt designförslag på Portfolio och representerar inte GPPE. Bilverkstad är också ett designförslag med illustrationsmaterial. Inga nya kundresultat, omdömen eller partnerskap har lagts till.
+Film och poster är byteidentiska med paketet. H264, 1280 × 720, 24 fps, 240 bildrutor, 10,000 sekunder, inget ljud och faststart verifierades med MP4-parser och full FFmpeg-avkodning. Originalfilen `gemini_generated_video_4b466908.mp4` finns inte lokalt; originalspårets överensstämmelse är paketets uppgift, ingen ny egen originaljämförelse påstås. Ingen omkodning eller AI-redigering gjordes i detta arbete.
 
-Kontakt visar bara ett lokalt utkast. Ingen e-post, backend eller formulärutskick används. Svenska, `noindex,nofollow` och tidigare CSP är bevarade.
+Det stora övergångslagret och dess ”Cendovari.”-mellanbild/wipe-CSS är borttagna. Endast inkommande innehåll får en diskret opacity 0,94→1 över 140 ms efter ett sidbyte nästa task, utan utgående blankbild eller transform. Reducerad/pausad rörelse ger direkt innehållsbyte utan animation. Gamla timers/animationer avbryts, senaste giltiga klick vinner och samma menyval kan väljas upprepade gånger. Navigationshändelser, pendingflagga, menyfokus, sektionhopp och projektåtergång är bevarade.
 
-## Källa och återskapningsbar export
+Headerns befintliga desktopgenvägar till startsidans sektioner finns kvar mellan alla huvudvyer. Därmed hoppar inte headerhöjden när startsidan lämnas. Genvägarna leder tillbaka till rätt startsidessektion. Mobilmenyn och den fasta loggan är bevarade. På smala vyer ligger samma filmknapp i nedre vänstra delen så att telefonbilden blir fri.
 
-Källfragmentet innehåller kompakta inlinefilmer för förhandsvisningen. Publicerad `index.html` är ett vanligt komplett dokument med naturlig dokumentscroll, relativa bild- och originalfilmvägar och inga iframe-/ChatGPT-/localhost-beroenden. De historiska runtimefilerna ligger kvar i Git-historiken/projektet men används inte av exporten.
+## Källa och export
+
+`preview-source.html` är redigerbar källa med rot `cv-gppe-featured`. Toppfilmen refererar nu direkt till den nya fulla relativa filmadressen; ingen gammal kompakt showreel finns kvar. Övriga två exempelklipp har sina tidigare kompakta förhandsvisningskopior. Exporten använder de tre hela originalfilmerna och sex relativa bilder.
 
 Bygg från projektmappen med Python 3:
 
@@ -36,24 +38,26 @@ Befintlig CLI ger samma export:
 python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webdesign Sida — Förhandsvisning' --force
 ~~~
 
-`scripts/export-shell.html` innehåller dokumentramen från main. Exportören extraherar sex kända bilder till `assets/images/` och ersätter källans kompakta filmdata med tre fulla originalklipp i `assets/video/`. Originalfilmerna verifieras och omkodas inte. Nya bild-/filmbytes kräver en uttrycklig uppdatering av exportörens kontrollsummor och nya tester; byt inte till okända resurser automatiskt.
+`scripts/build-export.py` innehåller uttryckliga bild-, preview- och originalfilmhashar. De tre showreel/postervärdena är uppdaterade; gamla film-/posterversioner avvisas. `render.py` och dokumentramen `export-shell.html` är oförändrade. Vid framtida byte av media behöver källans resursvärden, originalfiler och godkända hashmappningar ändras tillsammans och verifieras på nytt.
 
-Alla tre klipp är 1280 × 720, 24 fps, 240 bildrutor, 10,000 sekunder och utan ljud. De spelar muted/playsinline/loop i hastighet 1. Befintlig synlighetsägare, manuell paus, reducerad rörelse och autoplay-fallback är bevarade. Vanlig scroll och paus ändrar inte src, load eller currentTime.
+Exporten är ett fristående HTML-dokument med vanlig dokumentscroll, ingen iframe/ChatGPT-/localhost-runtime. Filmbilden behåller full 16:9 med contain, utan beskärning eller dekorativ toning. Muted, playsinline, loop, normal hastighet, bestående manuell paus, reducerad rörelse, poster/Spela vid nekad autoplay och synlighetskontroller bevaras. Scroll och vanlig paus ändrar inte src/load/currentTime.
 
-För lokal granskning:
+Starta lokalt:
 
 ~~~sh
 python3 -m http.server 8766 --bind 127.0.0.1
 ~~~
 
-Öppna http://127.0.0.1:8766/. På Windows kan `python` ersätta `python3`. `python3 scripts/render.py preview-source.html --serve --port 8766` serverar också dokumentet och dess bilder/filmer. Ikoner och typsnitt behöver internet och använder befintliga leverantörer.
+Öppna http://127.0.0.1:8766/. På Windows kan `python` ersätta `python3`. Alternativt `python3 scripts/render.py preview-source.html --serve --port 8766`. Hämta hela projektet inklusive bilder/filmer; ikoner och typsnitt använder befintliga externa leverantörer och behöver internet.
 
 ## Verifiering och publicering
 
-[Granskningsrapporten](docs/gppe-review.md) och `preview-review.json` redovisar aktuell QA, kontrollerade resurser och begränsningar. Chrome på Windows har provats vid 320, 390, 768, 1440 px och kort liggande vy, med mus, tangentbord och emulerad touch. Detta är inte test på fysisk iPhone/Android eller Safari. Dold flik och nekad autoplay har kontrollerats med uttrycklig simulering/injektion. Både lokal och publicerad sida har genomgått tvåvarvsprov. Enstaka avbrutna Chrome-mediehämtningar utan uppspelningsfel samt testomprov redovisas öppet i rapporten. Pages-bygge, HTTPS 200 och originalresursernas kontrollsummor är verifierade.
+Aktuella resultat och begränsningar finns i [granskningsrapporten](docs/film-navigation-review.md) och `preview-review.json`. Mobil/touch är Chrome-emulering på Windows, inte fysiska iPhone-/Android-/Safari-tester. Dold flik och nekad autoplay testas med tydligt angiven simulering/injektion.
 
-Arbeta på separat branch, verifiera origin/main/status och bevara orelaterade ändringar. Använd vanliga commits och inga force-pushar. Befintligt GitHub Pages-flöde publicerar main/rot på samma standardadress; ingen CNAME eller domänändring används. Återställ vid behov med vanliga revert-commits i omvänd ordning, dokumentationskvitto först och därefter innehållscommit.
+Kontaktformuläret skapar enbart ett lokalt utkast. Svenska, `noindex,nofollow` och tidigare CSP är bevarade. Inga mejltester, formulärutskick eller backend används. GPPE-länkar går till den riktiga externa sidan, och separata Plattsättning/Bilverkstad-projekt är tydligt märkta designförslag.
 
-Alla skrivningar gäller endast Cendovari/cendovari-webdesign-sida. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, produktion, hosting och domän/DNS är orörda. Inga tokens, lösenord, .env, testuppgifter eller filer från andra projekt har lagts till.
+Publicera genom befintligt main/rot-flöde på samma GitHub Pages-adress efter verifiering. Bevara andra ändringar och historiken med vanliga commits på arbetsbranch; inga hard resets eller force-pushar. Återställ vid behov med vanliga revert-commits, senare dokumentationskvitto före innehållscommiten.
 
-Historik: [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md). Äldre rapporter beskriver respektive tidigare version, inte tester av detta paket.
+Alla skrivningar gäller endast Cendovari/cendovari-webdesign-sida. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, produktionshosting och domän/DNS är orörda. Inga tokens, lösenord, .env, privata QA-profiler eller inmatade testkontaktuppgifter publiceras.
+
+Historiska rapporter: [GPPE](docs/gppe-review.md), [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md). De beskriver tidigare versioner.

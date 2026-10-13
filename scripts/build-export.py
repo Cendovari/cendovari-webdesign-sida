@@ -15,17 +15,17 @@ IMAGE_ASSETS = {
     "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b": "bilverkstad-poster.jpg",
     "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f": "gppe-startsida.webp",
     "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6": "gppe-logo.webp",
-    "4d323bfe9a22aa951c745dcca7a248929a12ab34bc66aa18c23725909b9441b5": "cendovari-showreel-poster.jpg",
+    "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb": "cendovari-showreel-poster.jpg",
 }
 PREVIEW_VIDEOS = {
     "199901b271fcc2abc3d9092f4344c6bc95d775bdfdd90a7fed48639220a29a74": "plattsattning-10s.mp4",
     "cc4304a9d9a334cb970905d07650cf3e23bd96d94c6931a38e3d66a29bf4b3e2": "bilverkstad-10s.mp4",
-    "bb6669391d164cb8856ad26815b9a09a564cc222a422f5dbfaa7d9b24da49c8c": "cendovari-showreel-10s.mp4",
+    "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b": "cendovari-showreel-10s.mp4",
 }
 ORIGINAL_VIDEOS = {
     "plattsattning-10s.mp4": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
     "bilverkstad-10s.mp4": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
-    "cendovari-showreel-10s.mp4": "d922ae051f24d92e0fbc2916eb2149942ee88dc3e6e68d6cbb8408ac5392cd83",
+    "cendovari-showreel-10s.mp4": "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b",
 }
 _IMAGE_URI = re.compile(r"data:image/[^;\s]+;base64,[A-Za-z0-9+/=]+")
 _VIDEO_URI = re.compile(r"data:video/mp4;base64,[A-Za-z0-9+/=]+")

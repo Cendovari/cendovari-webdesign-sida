@@ -573,7 +573,6 @@
       <div class="rf-footer-bottom"><span>Cendovari AB · Hemsidor för företag</span><button type="button" class="cursor-interaction" data-sg-top>Till toppen <i data-lucide="arrow-up" aria-hidden="true"></i></button></div>
     </footer>
 
-    <div class="ni-transition" aria-hidden="true"><span>Cendovari.</span></div>
   </div></div>
 </div>
 <style>
@@ -738,15 +737,11 @@
 #cv-gppe-featured .ni-form-result h2{font-size:20px;line-height:1.2;letter-spacing:-.03em;margin-bottom:16px}
 #cv-gppe-featured .ni-form-result p{font-size:14px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
 #cv-gppe-featured .ni-form-result .ni-result-note{font-size:12px;color:var(--ni-muted);margin-top:14px}
-#cv-gppe-featured .ni-transition{position:absolute;inset:0;background:#edeef4;transform:scaleY(0);transform-origin:top;z-index:20;pointer-events:none}
-#cv-gppe-featured .ni-transition>span{display:block;position:absolute;top:190px;left:32px;font-size:60px;line-height:1;letter-spacing:-.055em;color:var(--ni-ink)}
-#cv-gppe-featured.ni-changing .ni-transition{animation:ni-page-wipe .64s cubic-bezier(.65,0,.35,1) forwards}
 @keyframes ni-atmosphere-a{from{transform:translate(-3%,0) scale(1.04)}to{transform:translate(7%,2%) scale(1.08)}}
 @keyframes ni-atmosphere-b{from{transform:translate(5%,1%) scale(1.06)}to{transform:translate(-7%,-2%) scale(1.03)}}
 @keyframes ni-device-bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
 @keyframes ni-shard-float{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -20px;rotate:6deg}}
 @keyframes ni-card-marquee{from{transform:translateX(-80px)}to{transform:translateX(-684px)}}
-@keyframes ni-page-wipe{0%{transform:scaleY(0);transform-origin:top}40%{transform:scaleY(1);transform-origin:top}59%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media(max-width:760px){
  #cv-gppe-featured .ni-header{padding:22px 23px;align-items:flex-start;gap:18px;flex-wrap:wrap}
  #cv-gppe-featured .ni-header nav{gap:18px}
@@ -845,7 +840,6 @@
  #cv-gppe-featured .ni-contact-page h1{font-size:52px}
  #cv-gppe-featured .ni-contact-form{padding-top:35px}
  #cv-gppe-featured .ni-contact-form label{margin-bottom:24px}
- #cv-gppe-featured .ni-transition>span{left:20px;font-size:48px;top:190px}
 }
 @media(pointer:coarse){#cv-gppe-featured .ni-header nav button,#cv-gppe-featured .ni-preview-bar button,#cv-gppe-featured .ni-brand,#cv-gppe-featured .ni-device-controls button{min-height:44px}}
 @media(prefers-reduced-motion:reduce){#cv-gppe-featured *,#cv-gppe-featured *::before,#cv-gppe-featured *::after{animation:none!important;transition:none!important}}
@@ -3150,6 +3144,21 @@
   let motion=!media.matches,page='home',changing=false,frame=0,disposed=false;
   let metrics=null, measureDirty=true, stableWidth=0, stableHeight=0;
   let routeTimer=0, finishTimer=0, previewHeight=0;
+  let routeGeneration=0, pageAnimation=null;
+  function clearPageAnimation(){
+    if(pageAnimation)pageAnimation.cancel();
+    pageAnimation=null;
+  }
+  function finishNavigation(generation){
+    if(disposed||generation!==routeGeneration)return;
+    clearTimeout(finishTimer);finishTimer=0;
+    clearPageAnimation();root.classList.remove('ni-changing');changing=false;
+  }
+  function cancelNavigation(){
+    routeGeneration+=1;
+    clearTimeout(routeTimer);clearTimeout(finishTimer);routeTimer=0;finishTimer=0;
+    clearPageAnimation();root.classList.remove('ni-changing');changing=false;
+  }
   function dimensions(){
     const viewportBox=root.__niNativeRect(),headerHeight=header.getBoundingClientRect().height;
     root.style.setProperty('--cv-visible-height',viewportBox.height.toFixed(2)+'px');
@@ -3170,6 +3179,10 @@
   function setMotion(){
     // The composition is static; changing motion never selects a scroll phase.
     const active=motion&&!media.matches;
+    if(!active){
+      clearPageAnimation();
+      if(!routeTimer&&changing)finishNavigation(routeGeneration);
+    }
     root.classList.toggle('ni-motion',active);
     root.classList.remove('ni-cinematic');
     measureDirty=true;dimensions();
@@ -3189,16 +3202,24 @@
     queueScroll();root.dispatchEvent(new CustomEvent('ni-page-change',{detail:{page:next}}));
   }
   function navigate(next){
-    root.__niCloseMenu?.({restoreFocus:false});
-    clearTimeout(routeTimer);clearTimeout(finishTimer);
     const target=next;
-    if(!['home','examples','about','contact'].includes(target))return;
-    if(target===page){root.classList.remove('ni-changing');changing=false;root.scrollIntoView({block:'start',behavior:'auto'});queueScroll();root.dispatchEvent(new CustomEvent('ni-page-change',{detail:{page:target}}));return;}
-    changing=true;root.scrollIntoView({block:'start',behavior:'auto'});
-    const animate=motion&&!media.matches;
-    if(animate)root.classList.add('ni-changing');
-    routeTimer=setTimeout(()=>{routeTimer=0;if(disposed)return;applyPage(target);},animate?180:0);
-    finishTimer=setTimeout(()=>{finishTimer=0;root.classList.remove('ni-changing');changing=false;},animate?440:1);
+    if(disposed||!root.isConnected||!['home','examples','about','contact'].includes(target))return;
+    root.__niCloseMenu?.({restoreFocus:false});
+    cancelNavigation();
+    const generation=routeGeneration;
+    if(target===page){root.scrollIntoView({block:'start',behavior:'auto'});queueScroll();root.dispatchEvent(new CustomEvent('ni-page-change',{detail:{page:target}}));return;}
+    changing=true;root.classList.add('ni-changing');root.scrollIntoView({block:'start',behavior:'auto'});
+    routeTimer=setTimeout(()=>{
+      if(disposed||generation!==routeGeneration)return;
+      routeTimer=0;applyPage(target);
+      if(disposed||generation!==routeGeneration)return;
+      const view=q('[data-page="'+target+'"]');
+      if(motion&&!media.matches&&typeof view?.animate==='function'){
+        pageAnimation=view.animate([{opacity:.94},{opacity:1}],{duration:140,easing:'ease-out'});
+      }
+      if(pageAnimation)finishTimer=setTimeout(()=>finishNavigation(generation),140);
+      else finishNavigation(generation);
+    },0);
   }
   root.addEventListener('click',event=>{
     const button=event.target.closest('button');if(!button||!root.contains(button))return;
@@ -3260,7 +3281,7 @@
   if(typeof ResizeObserver==='function'){sizeObserver=new ResizeObserver(resize);sizeObserver.observe(viewport);sizeObserver.observe(header);sizeObserver.observe(previewBar);}
   const detachObserver=new MutationObserver(()=>{
     if(root.isConnected)return;
-    disposed=true;if(frame)cancelAnimationFrame(frame);clearTimeout(routeTimer);clearTimeout(finishTimer);
+    disposed=true;if(frame)cancelAnimationFrame(frame);cancelNavigation();
     root.removeEventListener('toggle',queueScroll,true);root.removeEventListener('ni-menu-change',queueScroll);window.removeEventListener('resize',resize);window.visualViewport?.removeEventListener('resize',resize);document.removeEventListener('visibilitychange',visibility);media.removeEventListener('change',setMotion);
     form.removeEventListener('invalid',invalid,true);form.removeEventListener('input',input);form.removeEventListener('focusin',revealField);
     if(sizeObserver)sizeObserver.disconnect();detachObserver.disconnect();
@@ -3547,8 +3568,9 @@
   let pending = null, frame = 0, jumpFrame = 0, jumpFrameNext = 0, disposed = false;
   let observer = null, resize = null;
   function syncVisibility() {
-    nav.hidden = home.hidden;
-    nav.inert = nav.hidden;
+    // Keep the existing desktop shortcuts available on every view so the header stays stable.
+    nav.hidden = false;
+    nav.inert = false;
   }
   function update() {
     frame = 0;
@@ -4517,7 +4539,7 @@
 }
 @media(max-width:640px) {
  #cv-gppe-featured .fh-film-label {padding:13px 20px;font-size:10px;letter-spacing:.09em;}
- #cv-gppe-featured .fh-film-control {right:12px;bottom:12px;min-height:44px;min-width:100px;padding:11px 16px;font-size:12px;}
+ #cv-gppe-featured .fh-film-control {left:12px;right:auto;bottom:12px;min-height:44px;min-width:100px;padding:11px 16px;font-size:12px;}
  #cv-gppe-featured .ni-scene .fh-editorial {display:block;padding:33px 20px 39px!important;}
  #cv-gppe-featured .ni-scene .fh-editorial h1 {font-size:clamp(40px,10.5vw,60px);margin-top:14px;}
  #cv-gppe-featured .ni-scene .fh-editorial .ni-hero-bottom {margin-top:24px!important;}
