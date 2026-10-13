@@ -1,16 +1,22 @@
-# Cendovari Webdesign Sida — skulptural pärlemorbakgrund
+# Cendovari Webdesign Sida
 
-Separat Luminous-förhandsvisning för Cendovari AB. Den godkända versionen från `cendovari-smooth-art-handoff.zip` har stora silver- och pärlemorformer med diskret lila, mjuk musbelysning, ett vitt Bilverkstad-koncept och tydligare process- och kontakttexter. GPPE, navigation, mobilmeny och kontaktutkast är bevarade.
+Separat Luminous-förhandsvisning för Cendovari AB. Den godkända pärlemorbakgrunden, filmerna, GPPE-portfoliot, det vita Bilverkstad-förslaget och det lokala kontaktutkastet bevaras.
 
-**Status: publicerad och verifierad på HTTPS den 13 oktober 2026.**
+## Stabilitetsgranskning 13 oktober 2026
+
+Arbetet utgår från ren main `69e7659754db3f93066a2ed8487e9ac758823752` på rätt origin. Fyra bekräftade fel rättas: tomma kontaktuppgifter som bara innehåller blanktecken, rubrikfragment bakom headern, interna projekthopp bakom en extra fast projektrad och saknade ikoner när den externa leverantören inte svarar. Touchdrag över jämförelseikonen har också säkrats efter integrationen. Ingen redesign, ny backend eller medieändring ingår.
+
+**Status: lokalt verifierad; publicering och HTTPS-kontroll återstår.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [Innehållscommit e0726e5](https://github.com/Cendovari/cendovari-webdesign-sida/commit/e0726e5b73f1431372d9d12d73a083ee8a90423d)
-- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/smooth-art)
-- [Granskning och skärmbilder](docs/smooth-art-review.md)
-- [Ladda ned main](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
+- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/stability-review)
+- [Fel, tester och skärmbilder](docs/stability-review.md)
+- [Maskinläsbart granskningskvitto](preview-review.json)
+- [Tidigare godkänd bakgrundsgranskning](docs/smooth-art-review.md)
 
-## Underlag och integration
+`preview-source.html` är verklig redigerbar källa. Exporten återskapas med befintlig Python-export nedan. Vanlig dokumentscroll, intern navigation, menyfokus, Tillbaka/Escape, noindex,nofollow och kontaktens demoläge bevaras.
+
+## Godkänt designunderlag (historik)
 
 Repots origin verifierades som `https://github.com/Cendovari/cendovari-webdesign-sida.git`. Ren aktuell `main` var `9ba066f6c26e5fe4e28e0d3bfdcad2ff2d3cf2b3`. Paketets baskälla matchade den exakt, SHA-256 `3091138d1ec7f5773722fec1e5248951674e1b47ee2197d7ef181742d86c6566`. Inga senare källfixar behövde väljas bort. Alla 22 poster i `SHA256SUMS.txt` matchade. ZIP-filens SHA-256 är `8887d53b8cbc2a3af10473f3683b4e759bf919eb2e6a76015f06c90a51c2061e`.
 
@@ -49,7 +55,7 @@ Starta lokalt:
 python3 -m http.server 8766 --bind 127.0.0.1
 ~~~
 
-Öppna `http://127.0.0.1:8766/`. På Windows kan `python` ersätta `python3`. Hela projektet behövs. Befintliga externa typsnitt och ikoner behöver internet.
+Öppna `http://127.0.0.1:8766/`. På Windows kan `python` ersätta `python3`. Hela projektet behövs. De befintliga typsnitten laddas externt och har systemreserv. Ikonerna ingår lokalt i källan och exporten; ISC-licens finns i `licenses/lucide.txt`.
 
 Skulpturens godkända algoritm finns i `scripts/sculpture-art.js`. Det valfria offlineverktyget `scripts/render-sculpture.cjs` använder Chrome och Playwright:
 
@@ -59,18 +65,23 @@ node scripts/render-sculpture.cjs --output sculpture-check.png --chrome "PATH_TO
 
 Kontrollera bilden mot rapportens pixelhash innan källans inbäddade PNG och hashmappning uppdateras. PNG-kodning kan variera mellan webbläsarversioner. Verktyget skriver bara uttryckligt angivna bild- och eventuella metadatafiler. Det används inte på webbplatsen. Den vanliga Python-exporten behöver ingen webbläsare eller nya paket.
 
-## Verifiering och publicering
+## Regressionstester
 
-Pages-bygget lyckades. Den riktiga HTTPS-adressen gav 200 och alla 28 kontrollerade filhashar matchade. Offentlig Chrome-granskning omfattar 320, 390, 768 och 1440 pixlars bredd samt kort landskap: navigation, meny, projekt, GPPE, kontaktutkast, fokus, bakgrund och åtta prov med två hela filmvarv.
+De avgränsade webbläsartesterna ligger i `tests/`. De använder en redan installerad Playwright och Chrome eller Edge; inga nya runtimeberoenden läggs till. Starta den lokala HTTP-servern och kör varje test:
 
-Bakgrunden passerade 50/50 kontroller. Den breda matrisens råresultat var 187/191, med sex avbrutna mediebegäranden som CDP markerade `canceled:true`. Filmtesternas råresultat var 149/151; de funktionella kontrollerna passerade 147/147. Två showreel-begäranden avbröts i den avsiktliga stressfasen. Totalt observerades 4 246 avkodade frames och 4 245 videoframe-callbacks, utan dropped frames. Inga JS-, HTTP- eller backendfel observerades. Avbrotten och mätgränserna redovisas i [granskningsrapporten](docs/smooth-art-review.md).
+~~~sh
+node tests/anchor-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
+node tests/icons-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
+node tests/contact-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
+node tests/comparison-regression.cjs --url http://127.0.0.1:8766/ --chrome "PATH_TO_BROWSER" --playwright "PATH_TO_PLAYWRIGHT"
+~~~
 
-Under samtidiga QA-körningar nådde ett aktivt scroll-callbackgap 199,9 ms och musprovet som mest 41,1 ms. Medianen var 13,3 ms och P95 13,5 ms. Detta mäter callback-takt; det är ingen garanti för perfekt FPS eller compositor-prestanda. Mobil och touch är Chrome-emulering på Windows. Inga fysiska telefoner eller Safari testades. Dold flik och nekad autoplay provas genom uttryckliga simuleringar och injektioner.
+Valfri `--output PATH` sparar testresultat. Ingen beständig användarprofil används. Testuppgifter är fiktiva och utkast skapas bara lokalt; inga riktiga mejl eller backendanrop görs. Mobila mått, touch, rotation och ändrad skärmhöjd emuleras på Windows. Fysisk telefon och Safari har inte testats.
 
-Kontaktformuläret skapar enbart ett lokalt utkast. Svenska, `noindex,nofollow`, GPPE:s externlänkar och designförslagens märkning är bevarade. Inga mejltester, formulärutskick eller backend används.
+## Publicering och avgränsning
 
-Publiceringen följer befintligt flöde från `main`, projektets rot och samma Pages-adress. Vanliga commits bevarar historik och orelaterade filer; inga hard resets eller force-pushar används. Återställ vid behov med vanliga revert-commits, en senare dokumentationscommit före innehållscommiten.
+Befintligt Pages-flöde från main, projektets rot och samma HTTPS-adress används. Historiken bevaras med vanliga commits; ingen hard reset eller force-push. Återställ med en vanlig revert-commit om det behövs.
 
-Alla skrivningar gäller endast `Cendovari/cendovari-webdesign-sida`. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, produktionshosting och domän/DNS är orörda. Inga tokens, lösenord, `.env`, privata QA-profiler eller inmatade testkontaktuppgifter publiceras.
+Alla skrivningar gäller enbart `Cendovari/cendovari-webdesign-sida`. Produktion, Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, hosting och domän/DNS lämnas orörda. Inga hemligheter, privata QA-profiler eller verkliga kontaktuppgifter publiceras.
 
-Historiska rapporter: [film/navigation](docs/film-navigation-review.md), [GPPE](docs/gppe-review.md), [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md). De beskriver tidigare versioner.
+Historiska rapporter: [film/navigation](docs/film-navigation-review.md), [GPPE](docs/gppe-review.md), [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md).

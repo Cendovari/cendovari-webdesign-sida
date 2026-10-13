@@ -1,0 +1,57 @@
+# Stabilitetsgranskning — 13 oktober 2026
+
+Avgränsning: endast Cendovari/cendovari-webdesign-sida. Ren aktuell main och origin verifierades före arbetet. Utgångscommit: 69e7659754db3f93066a2ed8487e9ac758823752. Arbetsbranch: codex/stability-review. Tidigare rapporter och befintligt byggflöde granskades; inget äldre paket importerades.
+
+## Bekräftade fel och rättningar
+
+| Fel och reproduktion | Grundorsak och avgränsad rättning | Verifiering |
+| --- | --- | --- |
+| Namn eller meddelande med enbart mellanslag gav ett utkast med tomma uppgifter. | HTML required accepterar blanktecken, medan sammanfattningen trimmar dem. Namn och meddelande får nu trimmedveten custom validity; originalinmatningen bevaras och felet rensas när texten rättas. | Separata mellanslags-, NBSP/tab- och rättningsprov, Enter och befintliga ARIA-fel. |
+| Direktlänk till services-rubriken placerade texten bakom sticky header, även efter omladdning. | Befintlig scrollmarginal omfattade sektioner men inte rubriker med ID. Samma dynamiska headeroffset används nu för dessa rubriker. Navigations-/historikmodellen ändras inte. | Färsk Home-fragmentlänk och reload på fem vyer; heading fri från header. |
+| Projektens Services/Contact-genvägar klippte 32–45 px av rubriken på mobil; tangentbordsfokus låg kvar ovanför vyn. | Scrollmålet räknade bara huvudheadern. Ankaret mäter nu även aktuell sticky projektrad och fokuserar mål-rubriken utan extra scroll. Desktopens statiska rad räknas inte som sticky. | Båda koncept, services/contact, kort landskap, mål-fokus samt exakt opener/scroll vid Back. |
+| Pilar och andra symboler försvann vid långsam eller blockerad ikonleverantör. | Exporten hämtade Lucide från CDN. Exakt godkänd geometri finns nu lokalt i källan/exporten med ISC-licens. Inga nya nätberoenden eller listeners. | Blockerad ikon/fontresurs: 56 SVG, fungerande meny/Escape, inga tomma symboler. Alla 14 befintliga geometrier och storlekar jämförda med basen. |
+| Touchdrag över den nyinfogade SVG-ikonen avbröts efter första steget. | Implicit pekarfångst på SVG-barnet flyttades till handtaget. Barnets lostpointercapture bubblade och nollställde dragningen. Endast förlust på själva handtaget avbryter nu dragningen. | Verkliga emulerade CDP-touchhändelser över målad SVG och handtagsyta, horisontellt drag, vertikalscroll och cancel. |
+
+## Lokal verifiering
+
+Faktiska installerade webbläsare: Google Chrome 154.0.8037.98 och Microsoft Edge 155.0.4283.45 på Windows. Automationen använder isolerade QA-kontexter. Mobil/touch är emulering, inte fysisk telefon.
+
+Navigationsmatrisen passerade 186/186 kontroller. Slutlig faktisk browserzoom passerade 8/8 navigationskontroller. Layout-/ikonparitet mot basen passerade 12/12 prov inom 0,6 px. Slutkontaktmatrisen passerade 120/120 kontroller och faktisk kontaktzoom 7/7. En separat slutlig hashsmoke passerade 24/24.
+
+I de åtta sandboxade Chrome-kontaktkontexterna nekades Google Fonts CSS av nätmiljön (net::ERR_NETWORK_ACCESS_DENIED). Systemtypsnittet fungerade; testerna visar inte noll misslyckade nätbegäranden. Inga JS-fel eller icke-GET-anrop observerades där. Avsiktliga resursfelsprov redovisas också separat från normal laddning.
+
+Chrome: 320, 360, 390, 768, 1024 och 1440 px, 844×390 landskap och reducerad rörelse. Edge används som separat browserkontroll. Faktisk 200 procent browserzoom har också provats via en isolerad Chrome-profil; separat DPR/layoutemulering redovisas inte som samma test.
+
+Kontroller omfattar alla huvudvyer, meny och fokus, upprepade/snabba sidbyten och dubbelklick, båda projekt, Tillbaka/Escape, interna sektionshopp, GPPE-externlänkar, återställning av scroll, textinfadning, långa svenska inmatningar, lokalt utkast, validering, inspiration och blockerad Clipboard med manuell fallback. Horisontell overflow, dolda fokusmål och konsolfel kontrolleras. Ingen riktig post/epost skickas.
+
+Repotesterna reproducerar verkliga fel, inte bara syntax: ankartest 19/65 på basen och 65/65 på slutexporten; ikontest 4/6 på basen och 6/6 på slutexporten. Kontaktregression 4/4 och touchregression 9/9 passerar i slutversionen i både Chrome och Edge. De portabla repotesterna använder tillfälliga browserkontexter utan beständig QA-profil. QA-profiler och inmatade testuppgifter stannar utanför Git.
+
+Blockerade bilder ger alt-text och stabila grundfunktioner. Blockerad film behåller poster; Spela fungerar när resursen återställs. Blockerade typsnitt ger systemreserv. Under Slow 3G (400 ms, 50 KB/s) tog DOMContentLoaded cirka 12,3 sekunder i mätprovet, men alla 56 lokala ikoner fanns redan då, jämfört med noll tidigare.
+
+Efter 50 sid-/meny-/projektcykler växte inte registrerade listeners, observers eller bakgrundslager: 124 listeners, 23 observers, en bas och en lins. Ingen återkommande canvasmålning, kvarvarande timeout/interval eller extra bakgrundsrAF konstaterades. Paus, reducerad rörelse, dold flik och borttagen rot stannar kontrollerna. Dessa mått bevisar inte frånvaro av alla minnesläckor eller fysisk skärm-FPS.
+
+Alla tre originalfilmer, posterbilder, GPPE-material och skulptur-PNG är byteidentiska med basen. Filmcontrollers och bakgrundskod är byteidentiska. Åtta prov spelar två kompletta loopar: huvudfilm och övriga filmer på mobil/desktop och i projektvyer. Vanlig scroll, paus/återuppta och sidbyte nollställer inte src/load/currentTime; manuell paus består. Reducerad rörelse, simulerad dold flik och injicerad autoplay-nekning kontrolleras.
+
+Den sista minimala touchguarden infördes efter att delar av den breda matrisen laddat kandidat 981c2ff1…/18ab2603…. Dessa råresultat behålls med verklig hash; berörda oförändrade controllers jämförs byte för byte och den slutliga exporten får riktade omprov. Gamla resultat märks aldrig om som nya.
+
+Slutlig källa SHA-256: c06a332afae885be5c772c2fc73678bd64746bc6fef62d02cef16a14457ef800.
+Slutlig index SHA-256: dfd354811ab643448d217641e6f8ed7b95192c3464b6f99347aa0543f81bd3c1.
+Befintlig build-export och render-CLI ger exakt samma index. 18 JavaScript-block och JSON-metadata passerar syntax/parsing. noindex,nofollow, vanlig dokumentscroll utan iframe och lokalt demoläge bevaras.
+
+## Skärmbilder
+
+[Desktop 1440](screenshots/stability-1440-home.png) · [Mobil 390](screenshots/stability-390-home.png) · [Rättat projekthopp på mobil](screenshots/stability-390-project-section.png) · [Kontakt utan testuppgifter](screenshots/stability-390-contact-empty.png) · [Liggande meny](screenshots/stability-844-menu.png).
+
+## Publicering
+
+Lokal preview öppnades före publicering. Alla berörda lokala tester har passerat. Vanlig commit/push och fast-forward till main sker genom det befintliga Pages-flödet. Inga Pages-, domän- eller DNS-inställningar ändras. HTTPS- och offentlig browserkontroll återstår i detta första granskningskvitto.
+
+## Begränsningar och kvarstående risker
+
+Inga fysiska telefoner, Safari eller Firefox finns tillgängliga här. Tangentbord/adressfält/rotation simuleras med viewportändringar och är inte ett test av en riktig mobil-OS-webbläsare. Primärt grovpekande enhet med sekundär fin mus kunde inte verifieras genom CDP-mediaoverride; mus och touch provades var för sig. Dold flik/autoplay-nekning och resursfel är uttryckliga testinjektioner.
+
+Bakgrundens tidsbaserade tillstånd jämfördes vid simulerade 30/60/75 Hz; det är inte faktisk compositor-FPS. Tidigare scrollprov har varierande kalla browser-rAF-gap. Ingen ny återkommande flaskhals i bakgrundens JS/canvas/layout konstaterades; underliggande browser/GPU-variation är inte förklarad eller en garanti om felfri FPS.
+
+Tidiga layout-shift-poster sågs under parsning/font-/style-init i både bas och kandidat. Den uppmätta stabila layoutpariteten är inte ett CLS0-påstående eller en isolerad Core Web Vitals-mätning.
+
+Ingen design-, innehålls-, medie- eller produktionsförändring ingår. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, hosting och DNS är orörda. Historik och orelaterade filer bevaras; ingen force-push eller hard reset.
