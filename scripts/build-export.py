@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 IMAGE_ASSETS = {
+    "da3d70edf3f27d95306a89defe97b92e54a8a689e4fd93dcfecf3c5063d7bbcc": "cendovari-sculpture.png",
     "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa": "cendovari-logo.svg",
     "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de": "plattsattning-poster.jpg",
     "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b": "bilverkstad-poster.jpg",
@@ -17,10 +18,16 @@ IMAGE_ASSETS = {
     "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6": "gppe-logo.webp",
     "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb": "cendovari-showreel-poster.jpg",
 }
+PREVIEW_IMAGES = {
+    "b41305339679f7dbb9fb7d3314fa9484955a48c02c77960908c8a4942e848f6d": (
+        "cendovari-showreel-poster.jpg",
+        "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb",
+    ),
+}
 PREVIEW_VIDEOS = {
     "199901b271fcc2abc3d9092f4344c6bc95d775bdfdd90a7fed48639220a29a74": "plattsattning-10s.mp4",
     "cc4304a9d9a334cb970905d07650cf3e23bd96d94c6931a38e3d66a29bf4b3e2": "bilverkstad-10s.mp4",
-    "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b": "cendovari-showreel-10s.mp4",
+    "db99e2a002969e7bd1c44f1957b4a81e58473fd313ef514b0c71f7da3bd1e701": "cendovari-showreel-10s.mp4",
 }
 ORIGINAL_VIDEOS = {
     "plattsattning-10s.mp4": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
@@ -47,12 +54,19 @@ def externalize_resources(fragment: str, asset_root: Path) -> tuple[str, dict[st
     images: dict[str, bytes] = {}
     for uri in dict.fromkeys(_IMAGE_URI.findall(fragment)):
         data = _decode(uri)
-        name = IMAGE_ASSETS.get(_sha(data))
-        if name is None:
+        digest = _sha(data)
+        name = IMAGE_ASSETS.get(digest)
+        preview = PREVIEW_IMAGES.get(digest)
+        if preview is not None:
+            name, expected = preview
+            original = asset_root / "assets/images" / name
+            if original.is_symlink() or not original.is_file() or _sha(original.read_bytes()) != expected:
+                raise ValueError(f"missing or modified original poster: {name}")
+        elif name is not None:
+            images["assets/images/" + name] = data
+        else:
             raise ValueError("unrecognized embedded image; update the approved allowlist first")
-        relative = "assets/images/" + name
-        images[relative] = data
-        fragment = fragment.replace(uri, relative)
+        fragment = fragment.replace(uri, "assets/images/" + name)
     if re.search(r"data:image/", fragment, re.I):
         raise ValueError("the standalone fragment cannot retain embedded image data")
     clips = list(dict.fromkeys(_VIDEO_URI.findall(fragment)))

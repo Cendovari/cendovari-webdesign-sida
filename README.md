@@ -1,31 +1,28 @@
-# Cendovari Webdesign Sida — toppfilm och lugna sidbyten
+# Cendovari Webdesign Sida — skulptural pärlemorbakgrund
 
-Separat Luminous-förhandsvisning för Cendovari AB. Den godkända toppfilmen från `cendovari-film-navigation-handoff.zip` ersätter föregående showreel. GPPE, texter, illustrationer, designförslag, övriga filmer och kontaktutkast är bevarade.
+Separat Luminous-förhandsvisning för Cendovari AB. Den godkända versionen från `cendovari-smooth-art-handoff.zip` har stora silver-/pärlemorformer med diskret lila, mjuk musbelysning, vitt Bilverkstad-koncept och tydligare process-/kontakttexter. GPPE, navigation, mobilmeny och kontaktutkast är bevarade.
 
-**Status: publicerad och verifierad på HTTPS 2026-10-13.**
+**Status: lokalt kontrollerad; publicerings- och HTTPS-kvitto följer efter Pages-bygget.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
-- [Innehållscommit 13a4fc6](https://github.com/Cendovari/cendovari-webdesign-sida/commit/13a4fc629bce1f6cca0c4e2f646ff82dd3ef7a93)
-- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/film-navigation)
-- [Granskning och skärmbilder](docs/film-navigation-review.md)
+- Innehållscommit länkas i publiceringskvittot efter integration.
+- [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/smooth-art)
+- [Granskning och skärmbilder](docs/smooth-art-review.md)
 - [Ladda ned main](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
 
-## Underlag och ändring
+## Underlag och integration
 
-Aktuell ren main och origin verifierades före arbetet: `9fe6de943811da098d235db6d32e0c2b1d32d2ad`, https://github.com/Cendovari/cendovari-webdesign-sida.git. Alla fem poster i paketets SHA256SUMS.txt matchar. ZIP-SHA256 är `5102492bb007c7c0c22b9118f68566693a4b59558853fe0c5428c1c4f58d0a0b`. Paketet innehåller enbart film, poster och instruktioner; ingen äldre helsida importerades.
+Origin verifierades som https://github.com/Cendovari/cendovari-webdesign-sida.git. Ren aktuell main var `9ba066f6c26e5fe4e28e0d3bfdcad2ff2d3cf2b3`. Paketets baskälla matchade den exakt (SHA256 `3091138d1ec7f5773722fec1e5248951674e1b47ee2197d7ef181742d86c6566`), så inga senare källfixar behövde väljas bort. Alla 22 poster i SHA256SUMS.txt matchade; ZIP-SHA256 `8887d53b8cbc2a3af10473f3683b4e759bf919eb2e6a76015f06c90a51c2061e`.
 
-- Ny toppfilm: `assets/video/cendovari-showreel-10s.mp4`, SHA256 `9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b`.
-- Matchande poster: `assets/images/cendovari-showreel-poster.jpg`, SHA256 `0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb`.
+Den gamla bakgrundsrenderaren är borttagen. Den godkända skulpturen är förberäknad till en PNG med samma pixlar som paketets canvasbild. Detta undviker den uppmätta blockerande bildskapandetiden vid start. Under musrörelse ändras endast transform/opacity, med paketets tidsbaserade eftersläpning, långsamma toning och begränsade tidssteg. Loopen stannar efter stabilisering. Bakgrunden fångar inga klick. Rena touchlägen, paus/reducerad rörelse, dold flik och öppen meny ger en stilla bakgrund. CSS och JavaScript använder nu samma any-hover/any-pointer-villkor även för hybrid-enheter.
 
-Film och poster är byteidentiska med paketet. H264, 1280 × 720, 24 fps, 240 bildrutor, 10,000 sekunder, inget ljud och faststart verifierades med MP4-parser och full FFmpeg-avkodning. Originalfilen `gemini_generated_video_4b466908.mp4` finns inte lokalt; originalspårets överensstämmelse är paketets uppgift, ingen ny egen originaljämförelse påstås. Ingen omkodning eller AI-redigering gjordes i detta arbete.
+Det vita Bilverkstad-exemplet omfattar kort, miniatyrer, projektvy och inspirationstext. Det är ett designförslag med illustrationsfilm, utan nya kundpåståenden. GPPE:s riktiga bilder, logga, länkar och ”Byggd av Cendovari.” är bevarade.
 
-Det stora övergångslagret och dess ”Cendovari.”-mellanbild/wipe-CSS är borttagna. Endast inkommande innehåll får en diskret opacity 0,94→1 över 140 ms efter ett sidbyte nästa task, utan utgående blankbild eller transform. Reducerad/pausad rörelse ger direkt innehållsbyte utan animation. Gamla timers/animationer avbryts, senaste giltiga klick vinner och samma menyval kan väljas upprepade gånger. Navigationshändelser, pendingflagga, menyfokus, sektionhopp och projektåtergång är bevarade.
+De tidigare sidbytesfixarna är kvar: ingen Cendovari-mellanbild/wipe, stabil header, kort innehållstoning på 140 ms, senaste giltiga navigationsklick, fokus och Tillbaka/Escape. Vanlig dokumentscroll utan iframe, mobilmeny och det lokala kontaktutkastet används även fortsättningsvis.
 
-Headerns befintliga desktopgenvägar till startsidans sektioner finns kvar mellan alla huvudvyer. Därmed hoppar inte headerhöjden när startsidan lämnas. Genvägarna leder tillbaka till rätt startsidessektion. Mobilmenyn och den fasta loggan är bevarade. På smala vyer ligger samma filmknapp i nedre vänstra delen så att telefonbilden blir fri.
+## Källa, export och resurser
 
-## Källa och export
-
-`preview-source.html` är redigerbar källa med rot `cv-gppe-featured`. Toppfilmen refererar nu direkt till den nya fulla relativa filmadressen; ingen gammal kompakt showreel finns kvar. Övriga två exempelklipp har sina tidigare kompakta förhandsvisningskopior. Exporten använder de tre hela originalfilmerna och sex relativa bilder.
+`preview-source.html` är den redigerbara källan med rot `cv-smooth-art`. Kompakta inbäddade filmer/poster används i källförhandsvisningen. Den publicerade exporten använder alltid fulla originalfilmer och full toppposter via uttryckliga SHA256-mappningar. Kompakt poster får aldrig skriva över originalpostern. Dokumentramen, CSP och exportens befintliga input/resurskontroller är bevarade.
 
 Bygg från projektmappen med Python 3:
 
@@ -39,9 +36,12 @@ Befintlig CLI ger samma export:
 python3 scripts/render.py preview-source.html index.html --title 'Cendovari Webdesign Sida — Förhandsvisning' --force
 ~~~
 
-`scripts/build-export.py` innehåller uttryckliga bild-, preview- och originalfilmhashar. De tre showreel/postervärdena är uppdaterade; gamla film-/posterversioner avvisas. `render.py` och dokumentramen `export-shell.html` är oförändrade. Vid framtida byte av media behöver källans resursvärden, originalfiler och godkända hashmappningar ändras tillsammans och verifieras på nytt.
+`scripts/build-export.py` innehåller godkända bild-/preview-/originalhashar. Bilder externaliseras till `assets/images/`; filmer till `assets/video/`. Framtida mediebyten kräver uppdatering av källvärden, original och hashmappningar tillsammans. De tre originalfilmerna och sex befintliga bilderna är byteidentiska med föregående main och paketet.
 
-Exporten är ett fristående HTML-dokument med vanlig dokumentscroll, ingen iframe/ChatGPT-/localhost-runtime. Filmbilden behåller full 16:9 med contain, utan beskärning eller dekorativ toning. Muted, playsinline, loop, normal hastighet, bestående manuell paus, reducerad rörelse, poster/Spela vid nekad autoplay och synlighetskontroller bevaras. Scroll och vanlig paus ändrar inte src/load/currentTime.
+- Toppfilm: `assets/video/cendovari-showreel-10s.mp4`, SHA256 `9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b`.
+- Toppfilmens poster: `assets/images/cendovari-showreel-poster.jpg`, SHA256 `0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb`.
+
+Alla originalklipp behåller 1280 × 720, 24 fps och hela 10 sekunder utan ljud. Ingen omkodning eller AI-redigering görs här. Full 16:9, muted, playsinline, loop, normal hastighet, bestående manuell paus, nekad-autoplay-fallback och hantering av dold flik/reducerad rörelse är bevarade. Scroll/paus ändrar inte src/load/currentTime.
 
 Starta lokalt:
 
@@ -49,16 +49,24 @@ Starta lokalt:
 python3 -m http.server 8766 --bind 127.0.0.1
 ~~~
 
-Öppna http://127.0.0.1:8766/. På Windows kan `python` ersätta `python3`. Alternativt `python3 scripts/render.py preview-source.html --serve --port 8766`. Hämta hela projektet inklusive bilder/filmer; ikoner och typsnitt använder befintliga externa leverantörer och behöver internet.
+Öppna http://127.0.0.1:8766/. På Windows kan `python` ersätta `python3`. Hela projektet behövs; befintliga externa typsnitt/ikoner behöver internet.
+
+Skulpturens exakt godkända algoritm finns i `scripts/sculpture-art.js`. `scripts/render-sculpture.cjs` är ett valfritt offlineverktyg för Chrome + Playwright:
+
+~~~sh
+node scripts/render-sculpture.cjs --output sculpture-check.png --chrome "PATH_TO_CHROME" --playwright "PATH_TO_PLAYWRIGHT"
+~~~
+
+Kontrollera den skapade bilden mot granskningsrapportens pixelhash innan källans inbäddade PNG och hashmappning uppdateras. PNG-kodning kan variera mellan webbläsarversioner. Verktyget skriver endast den uttryckliga outputfilen; det används inte på webbplatsen. Den vanliga Python-exporten behöver ingen webbläsare eller nya paket.
 
 ## Verifiering och publicering
 
-Aktuella resultat och begränsningar finns i [granskningsrapporten](docs/film-navigation-review.md) och `preview-review.json`. Mobil/touch är Chrome-emulering på Windows, inte fysiska iPhone-/Android-/Safari-tester. Dold flik och nekad autoplay testas med tydligt angiven simulering/injektion. Lyckat Pages-bygge, HTTPS 200 och nya film-/posterhashar är verifierade; 137 offentliga filmprov passerar. Kvalificerade avbrutna Bilverkstad-mediehämtningar under navigationsproven redovisas i rapporten.
+Slutexportens bild-/bakgrunds- och headerkontroller, källförhandsvisningen och reproducerbar export passerar. Granskningsrapporten skiljer lokala testomgångar före/sedan de sista riktade rättelserna; full HTTPS/browseromgång görs efter publicering. Alla mobil-/touchkontroller är emulering i Chrome på Windows, utan fysiska telefoner/Safari. Hybridinput och dold flik/nekad autoplay har särskilt angivna simuleringar.
 
-Kontaktformuläret skapar enbart ett lokalt utkast. Svenska, `noindex,nofollow` och tidigare CSP är bevarade. Inga mejltester, formulärutskick eller backend används. GPPE-länkar går till den riktiga externa sidan, och separata Plattsättning/Bilverkstad-projekt är tydligt märkta designförslag.
+Kontaktformuläret skapar enbart ett lokalt utkast. Svenska, `noindex,nofollow`, GPPE-externlänkar och designförslagens märkning är bevarade. Inga mejltester, formulärutskick eller backend används.
 
-Publicera genom befintligt main/rot-flöde på samma GitHub Pages-adress efter verifiering. Bevara andra ändringar och historiken med vanliga commits på arbetsbranch; inga hard resets eller force-pushar. Återställ vid behov med vanliga revert-commits, senare dokumentationskvitto före innehållscommiten.
+Publicering följer befintligt main/rot-flöde och samma Pages-adress. Vanliga commits bevarar historik och orelaterade filer; inga hard resets eller force-pushar. Återställ vid behov med vanliga revert-commits, senare dokumentationskvitto före innehållscommiten.
 
 Alla skrivningar gäller endast Cendovari/cendovari-webdesign-sida. Cendovari-Website, Modbus Buddy, WordPress, cendovari.com, gppe.se, produktionshosting och domän/DNS är orörda. Inga tokens, lösenord, .env, privata QA-profiler eller inmatade testkontaktuppgifter publiceras.
 
-Historiska rapporter: [GPPE](docs/gppe-review.md), [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md). De beskriver tidigare versioner.
+Historiska rapporter: [film/navigation](docs/film-navigation-review.md), [GPPE](docs/gppe-review.md), [filmversion](docs/film-first-review.md), [kristaller](docs/crystal-review.md), [filmer](docs/video-review.md), [scrollflöde](docs/natural-scroll-review.md), [mobil](docs/mobile-review.md). De beskriver tidigare versioner.
