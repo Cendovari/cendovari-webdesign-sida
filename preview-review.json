@@ -1,7 +1,7 @@
 {
   "title": "Cendovari Webdesign Sida — godkänd toppfilm och lugna sidbyten",
   "date": "2026-10-13",
-  "status": "local_verified_publication_pending",
+  "status": "published_https_verified",
   "repository": "Cendovari/cendovari-webdesign-sida",
   "branch": "codex/film-navigation",
   "baseline_commit": "9fe6de943811da098d235db6d32e0c2b1d32d2ad",
@@ -542,9 +542,546 @@
   ],
   "publication": {
     "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
-    "status": "pending",
+    "status": "HTTPS_browser_verified_with_documented_canceled_example_downloads",
+    "content_commit": "13a4fc629bce1f6cca0c4e2f646ff82dd3ef7a93",
+    "pages": {
+      "id": 38352042040,
+      "sha": "13a4fc629bce1f6cca0c4e2f646ff82dd3ef7a93",
+      "conclusion": "success",
+      "url": "https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38352042040"
+    },
     "existing_main_root_Pages_preserved": true,
-    "custom_domain": false
+    "custom_domain": false,
+    "HTTPS": {
+      "checked_utc": "2026-10-13T05:35:14.879857+00:00",
+      "all_match": true,
+      "files_checked": 23,
+      "ranges_pass": true,
+      "canonical": {
+        "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+        "status": 200,
+        "sha256": "0526cb949d35f92fec4053b51d3d3171e024905ec7b9faabab1f0abf21a23fc4",
+        "matches": true
+      },
+      "resources": [
+        {
+          "path": "preview-source.html",
+          "status": 200,
+          "bytes": 825950,
+          "sha256": "3091138d1ec7f5773722fec1e5248951674e1b47ee2197d7ef181742d86c6566",
+          "expected_sha256": "3091138d1ec7f5773722fec1e5248951674e1b47ee2197d7ef181742d86c6566",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acdc2d8-c9a5e\""
+        },
+        {
+          "path": "index.html",
+          "status": 200,
+          "bytes": 396949,
+          "sha256": "0526cb949d35f92fec4053b51d3d3171e024905ec7b9faabab1f0abf21a23fc4",
+          "expected_sha256": "0526cb949d35f92fec4053b51d3d3171e024905ec7b9faabab1f0abf21a23fc4",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acdc2d8-60e95\""
+        },
+        {
+          "path": "scripts/build-export.py",
+          "status": 200,
+          "bytes": 5155,
+          "sha256": "95fae52e07aa86d8487d10c9638d692d8a6bcb0336b37843d55f2f3b91ba6f87",
+          "expected_sha256": "95fae52e07aa86d8487d10c9638d692d8a6bcb0336b37843d55f2f3b91ba6f87",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acdc2d8-1423\""
+        },
+        {
+          "path": "assets/video/cendovari-showreel-10s.mp4",
+          "status": 200,
+          "bytes": 1284401,
+          "sha256": "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b",
+          "expected_sha256": "9bf277fb246fa44e8685773f04129dfb393d491e47da696d506377a885f2d27b",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acdc2d8-139931\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/1284401",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/images/cendovari-showreel-poster.jpg",
+          "status": 200,
+          "bytes": 63090,
+          "sha256": "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb",
+          "expected_sha256": "0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acdc2d8-f672\""
+        },
+        {
+          "path": "docs/screenshots/film-navigation-mobile.png",
+          "status": 200,
+          "bytes": 121037,
+          "sha256": "608126f40e84346d910a4ebb04b47d56be5517d7a657c7d949246378cd65fb81",
+          "expected_sha256": "608126f40e84346d910a4ebb04b47d56be5517d7a657c7d949246378cd65fb81",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdc2d8-1d8cd\""
+        },
+        {
+          "path": "docs/screenshots/film-navigation-desktop-frame.png",
+          "status": 200,
+          "bytes": 494281,
+          "sha256": "62bf3348b095f53f3415eaeb1e68ec2b37489ba5efb38da4dd750d2806250a0d",
+          "expected_sha256": "62bf3348b095f53f3415eaeb1e68ec2b37489ba5efb38da4dd750d2806250a0d",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdc2d8-78ac9\""
+        },
+        {
+          "path": "docs/screenshots/film-navigation-before-contact.png",
+          "status": 200,
+          "bytes": 311204,
+          "sha256": "7ccdf1853d75115cf39a89b20f215d09fd78c28894d7f8b9781e67cdfee7274b",
+          "expected_sha256": "7ccdf1853d75115cf39a89b20f215d09fd78c28894d7f8b9781e67cdfee7274b",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdc2d8-4bfa4\""
+        },
+        {
+          "path": "docs/screenshots/film-navigation-after-contact.png",
+          "status": 200,
+          "bytes": 296141,
+          "sha256": "8bb4b7041f5b3db374cb2380efd6c172d90a0e6f6ef50502d12315e55de43d7b",
+          "expected_sha256": "8bb4b7041f5b3db374cb2380efd6c172d90a0e6f6ef50502d12315e55de43d7b",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdc2d8-484cd\""
+        },
+        {
+          "path": "docs/screenshots/film-navigation-landscape-menu.png",
+          "status": 200,
+          "bytes": 70358,
+          "sha256": "a87104d1aff84f9cbb1c27f00406a956c31c17831b34151fbb3568ea97d140e7",
+          "expected_sha256": "a87104d1aff84f9cbb1c27f00406a956c31c17831b34151fbb3568ea97d140e7",
+          "matches": true,
+          "https": true,
+          "content_type": "image/png",
+          "etag": "\"6acdc2d8-112d6\""
+        },
+        {
+          "path": "assets/video/plattsattning-10s.mp4",
+          "status": 200,
+          "bytes": 3211270,
+          "sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "expected_sha256": "9c17dd8f2752a753afbe73febfd3a41dfb5b672326bc45d4aeae9f7df685ff14",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acdc2d8-310006\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/3211270",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/video/bilverkstad-10s.mp4",
+          "status": 200,
+          "bytes": 3384000,
+          "sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "expected_sha256": "bd9c5edcac28bfa2f17e6b72473700e7d4659f3f17d0facdcbf909519a09623e",
+          "matches": true,
+          "https": true,
+          "content_type": "video/mp4",
+          "etag": "\"6acdc2d8-33a2c0\"",
+          "range": {
+            "status": 206,
+            "content_range": "bytes 0-1023/3384000",
+            "bytes": 1024,
+            "matches": true
+          }
+        },
+        {
+          "path": "assets/images/cendovari-logo.svg",
+          "status": 200,
+          "bytes": 3513,
+          "sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "expected_sha256": "594fdd13d4231387a79314a8dd113ccde1cd0cd902443a6f1adfe91a81332dfa",
+          "matches": true,
+          "https": true,
+          "content_type": "image/svg+xml",
+          "etag": "\"6acdc2d8-db9\""
+        },
+        {
+          "path": "assets/images/plattsattning-poster.jpg",
+          "status": 200,
+          "bytes": 10073,
+          "sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "expected_sha256": "85af13d302b6999858a8240d174f0633e74868796c16eb3db0fe885af649e0de",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acdc2d8-2759\""
+        },
+        {
+          "path": "assets/images/bilverkstad-poster.jpg",
+          "status": 200,
+          "bytes": 13614,
+          "sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "expected_sha256": "ab44a5b08aaf9fb8131e6c5c714f2ae4f6fc141f30192492a4da2977a983498b",
+          "matches": true,
+          "https": true,
+          "content_type": "image/jpeg",
+          "etag": "\"6acdc2d8-352e\""
+        },
+        {
+          "path": "assets/images/gppe-startsida.webp",
+          "status": 200,
+          "bytes": 58012,
+          "sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "expected_sha256": "5d25abac0858c40197e8363ce569e9b7fdfe9316ed948eb9381b91617a3fb81f",
+          "matches": true,
+          "https": true,
+          "content_type": "image/webp",
+          "etag": "\"6acdc2d8-e29c\""
+        },
+        {
+          "path": "assets/images/gppe-logo.webp",
+          "status": 200,
+          "bytes": 15558,
+          "sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "expected_sha256": "f341e13a210aa1c5cbe8a18902a4372daa04eb00095dfae8140f4710fc7c5fa6",
+          "matches": true,
+          "https": true,
+          "content_type": "image/webp",
+          "etag": "\"6acdc2d8-3cc6\""
+        },
+        {
+          "path": "scripts/render.py",
+          "status": 200,
+          "bytes": 7006,
+          "sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "expected_sha256": "c301f6f04703f9ae97f0fbd6c6dd705615c388595292ba2fe8c9bbf9bfb26470",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acdc2d8-1b5e\""
+        },
+        {
+          "path": "scripts/export-shell.html",
+          "status": 200,
+          "bytes": 6035,
+          "sha256": "1c8e2185aabee5c54430cd935988c1e7d9bc3d5aba5342427df7b3469206d366",
+          "expected_sha256": "1c8e2185aabee5c54430cd935988c1e7d9bc3d5aba5342427df7b3469206d366",
+          "matches": true,
+          "https": true,
+          "content_type": "text/html; charset=utf-8",
+          "etag": "\"6acdc2d8-1793\""
+        },
+        {
+          "path": ".nojekyll",
+          "status": 200,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "matches": true,
+          "https": true,
+          "content_type": "application/octet-stream",
+          "etag": "\"6acdc2d8-0\""
+        }
+      ]
+    },
+    "browser": {
+      "surface": {
+        "source_sha256": "3091138d1ec7f5773722fec1e5248951674e1b47ee2197d7ef181742d86c6566",
+        "index_sha256": "0526cb949d35f92fec4053b51d3d3171e024905ec7b9faabab1f0abf21a23fc4",
+        "matrix": {
+          "views": [
+            "320x844",
+            "390x844",
+            "768x1024",
+            "1440x900",
+            "844x390",
+            "390x844-reduced"
+          ],
+          "raw_checks": 173,
+          "raw_passes": 170,
+          "raw_failed_network_assertions": [
+            {
+              "id": "320x844",
+              "name": "no script errors, failed resources or backend requests",
+              "pass": false,
+              "error": "Error: [{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"}]"
+            },
+            {
+              "id": "390x844",
+              "name": "no script errors, failed resources or backend requests",
+              "pass": false,
+              "error": "Error: [{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"},{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"}]"
+            },
+            {
+              "id": "844x390",
+              "name": "no script errors, failed resources or backend requests",
+              "pass": false,
+              "error": "Error: [{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"},{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"},{\"url\":\"https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4\",\"error\":\"net::ERR_ABORTED\",\"type\":\"media\",\"step\":\"home section design via navigation\"}]"
+            }
+          ],
+          "functional_result": "All main view navigation, native scroll/touch, desktop cross-page section links, stable header, rapid same-page Contact->Portfolio->Home latest route, pending/class cleanup, one-document sentinel/performance, mobile menu/focus/Back/Escape, project modes/position, GPPE external links/proportions, designstudio/inspiration and local Contact/newline/Enter/manual copy, noindex and overflow checks passed. The raw failed strict network assertions count the explicitly canceled Media events below; no other failed assertions."
+        },
+        "canceled_media": {
+          "count": 6,
+          "by_view": {
+            "320x844": 1,
+            "390x844": 2,
+            "844x390": 3
+          },
+          "raw_events": [
+            {
+              "viewport": "320x844",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Explicit Chrome canceled media download during home-section navigation away from video. Raw event/count retained separately from actionable HTTP/resource failures."
+            },
+            {
+              "viewport": "390x844",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Explicit Chrome canceled media download during home-section navigation away from video. Raw event/count retained separately from actionable HTTP/resource failures."
+            },
+            {
+              "viewport": "390x844",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Explicit Chrome canceled media download during home-section navigation away from video. Raw event/count retained separately from actionable HTTP/resource failures."
+            },
+            {
+              "viewport": "844x390",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Explicit Chrome canceled media download during home-section navigation away from video. Raw event/count retained separately from actionable HTTP/resource failures."
+            },
+            {
+              "viewport": "844x390",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Explicit Chrome canceled media download during home-section navigation away from video. Raw event/count retained separately from actionable HTTP/resource failures."
+            },
+            {
+              "viewport": "844x390",
+              "url": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+              "error": "net::ERR_ABORTED",
+              "type": "Media",
+              "canceled": true,
+              "step": "home section design via navigation",
+              "classification": "Explicit Chrome canceled media download during home-section navigation away from video. Raw event/count retained separately from actionable HTTP/resource failures."
+            }
+          ],
+          "zero_requestfailed_is_not_claimed": true,
+          "basis": "Exact multiset match between raw Playwright requestfailed and CDP canceled:true/typeMedia/error/URL/step. All canceled requests occurred when navigation moved away from the Bilverkstad preview. Later independent actual movie replay and HTTPS200/exactSHA/Range206 succeed."
+        },
+        "actual_actionable_errors": {
+          "javascript": [],
+          "http_400_plus": [],
+          "console_warning_error": [],
+          "cdp_non_canceled_loading_failure": [],
+          "non_get_head_requests": []
+        },
+        "navigation_timing": {
+          "checks": 4,
+          "passes": 4,
+          "trials": [
+            {
+              "target": "contact",
+              "animation_duration_ms": 140,
+              "minimum_view_opacity": 0.94,
+              "overlay_height": 0,
+              "header_height_spread": 0,
+              "header_width_spread": 0
+            },
+            {
+              "target": "examples",
+              "animation_duration_ms": 140,
+              "minimum_view_opacity": 0.94,
+              "overlay_height": 0,
+              "header_height_spread": 0,
+              "header_width_spread": 0
+            },
+            {
+              "target": "about",
+              "animation_duration_ms": 140,
+              "minimum_view_opacity": 0.94,
+              "overlay_height": 0,
+              "header_height_spread": 0,
+              "header_width_spread": 0
+            },
+            {
+              "target": "home",
+              "animation_duration_ms": 140,
+              "minimum_view_opacity": 0.94,
+              "overlay_height": 0,
+              "header_height_spread": 0,
+              "header_width_spread": 0
+            }
+          ],
+          "contract": "No ni-transition DOM, one visible view, same document, actual140ms.94->1 animation, stable header and no old/intermediate return after requested view appears, pending/class cleared."
+        },
+        "mobile_control": {
+          "checks": 6,
+          "passes": 6,
+          "views": [
+            320,
+            390
+          ],
+          "contract": "Public320/390 lower-left12px100x44 controls keep poster devices/text clear. Static reduce,t0; touchplay/pause labels plus actual Tab/ShiftTab/Enter/Space with full video visible."
+        },
+        "replay320": {
+          "url": "https://cendovari.github.io/cendovari-webdesign-sida/",
+          "viewport": "320x844 emulated touch",
+          "errors": [],
+          "failed": [],
+          "console": [],
+          "indexSHA": "0526cb949d35f92fec4053b51d3d3171e024905ec7b9faabab1f0abf21a23fc4",
+          "probes": [
+            {
+              "kind": "motor",
+              "first": {
+                "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+                "currentTime": 0.517822,
+                "paused": false,
+                "readyState": 4,
+                "masterState": "playing",
+                "posterPresent": true,
+                "error": null,
+                "width": 1280,
+                "height": 720
+              },
+              "closed": {
+                "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+                "currentTime": 0.527431,
+                "paused": true,
+                "readyState": 4,
+                "masterState": "paused",
+                "posterPresent": true,
+                "error": null,
+                "width": 1280,
+                "height": 720
+              },
+              "reopened": {
+                "src": "https://cendovari.github.io/cendovari-webdesign-sida/assets/video/bilverkstad-10s.mp4",
+                "currentTime": 1.261858,
+                "paused": false,
+                "readyState": 4,
+                "masterState": "playing",
+                "posterPresent": true,
+                "error": null,
+                "width": 1280,
+                "height": 720
+              }
+            }
+          ],
+          "pass": true
+        }
+      },
+      "film": {
+        "source_sha256": "3091138d1ec7f5773722fec1e5248951674e1b47ee2197d7ef181742d86c6566",
+        "index_sha256": "0526cb949d35f92fec4053b51d3d3171e024905ec7b9faabab1f0abf21a23fc4",
+        "all_responses_exact": true,
+        "raw_all_pass": true,
+        "passed": 137,
+        "total": 137,
+        "full_two_loop_trials": 2,
+        "loop_trials": [
+          {
+            "mode": "mobile390",
+            "functionalTimingContinuityPass": true,
+            "selector": "video[data-showreel]",
+            "wallSeconds": 22.176,
+            "mediaSeconds": 22.137154999999996,
+            "wraps": 2,
+            "frameCallbacks": 532,
+            "decodedFrames": 531,
+            "totalVideoFrames": 531,
+            "presentedFramesDelta": 532,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          },
+          {
+            "mode": "desktop1440",
+            "functionalTimingContinuityPass": true,
+            "selector": "video[data-showreel]",
+            "wallSeconds": 22.127900000005962,
+            "mediaSeconds": 22.105536999999998,
+            "wraps": 2,
+            "frameCallbacks": 530,
+            "decodedFrames": 530,
+            "totalVideoFrames": 530,
+            "presentedFramesDelta": 530,
+            "droppedFrames": 0,
+            "loadCallsDelta": 0,
+            "timeSetterDelta": 0,
+            "srcMutationDelta": 0,
+            "emptiedDelta": 0,
+            "srcUnchanged": true,
+            "currentSrcUnchanged": true,
+            "stalls": 0
+          }
+        ],
+        "decoded": 1061,
+        "total_video_frames": 1061,
+        "callbacks": 1062,
+        "presented_delta": 1062,
+        "dropped": 0,
+        "stalls": 0,
+        "zero_ordinary_source_load_time_setter_emptied_delta": true,
+        "no_JS": true,
+        "no_HTTP": true,
+        "requestfailed": 0,
+        "no_backend": true,
+        "limitations": [
+          "Chrome viewport/touch/mobile emulation; no physical phone/Safari or physical-display frame-perfect test.",
+          "Actual hidden state was unavailable in prior owned Chrome tests; explicit document.hidden/visibilitychange simulation only. Real hidden-window behavior not newly verified.",
+          "Autoplaydenied uses injected NotAllowedError while native userActivation.isActive=false, then actualChrome click retry.",
+          "Film placement uses programmatic scrollIntoView; control clicks/Escape are actualChrome inputs. Broader native touch/wheel/contact/navigation pixel checks belong to surface report.",
+          "Race reinjects exact page controller only in ephemeral browserDOM, no source changes.",
+          "Any requestfailed/CDPcanceled remains listed per-stage/UTC; rawAllPassed is preserved and is not overwritten as functional PASS."
+        ]
+      }
+    },
+    "receipt": "Documentation-only ordinary child; code/media remain byte-identical to tested content commit"
   },
   "limitations": [
     "Chrome mobile viewport/touch is emulation, not physical iPhone/Android/Safari",
@@ -553,7 +1090,8 @@
     "No real address-bar or screen-keyboard test",
     "FFprobe and original Gemini file not available; actual media parser/FFmpeg and supplied web-media hashes verified",
     "Existing external icons/fonts require network",
-    "V1 full local matrix/video tests carried forward to V2 by exact single-CSS-rule byte equivalence plus targeted mobile/control verification"
+    "V1 full local matrix/video tests carried forward to V2 by exact single-CSS-rule byte equivalence plus targeted mobile/control verification",
+    "Published surface raw170/173 counts6 explicit CDP-canceled Bilverkstad downloads during navigation; replay/HTTP/hash/Range passed. No other resource/JS/HTTP/backend failures."
   ],
   "scope": {
     "only_repository": "Cendovari/cendovari-webdesign-sida",

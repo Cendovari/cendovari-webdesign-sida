@@ -31,7 +31,15 @@ Ny poster: `0dbd5567d79bfc4beb36ef5c2bc72f26f9f4d40660007970efa7d04e32e9cedb`.
 
 ## Publicering
 
-Livekontrollen återstår i denna innehållscommit. Efter lyckat befintligt Pages-bygge kompletteras rapporten med faktisk HTTPS 200, film-/posterhashar och samma navigationsprov på den publicerade sidan. Ingen Pages-, CNAME-, domän- eller DNS-inställning ändras.
+Publicerad och verifierad på [GitHub Pages](https://cendovari.github.io/cendovari-webdesign-sida/) 2026-10-13. [Innehållscommit 13a4fc6](https://github.com/Cendovari/cendovari-webdesign-sida/commit/13a4fc629bce1f6cca0c4e2f646ff82dd3ef7a93) är en vanlig child-commit från verifierad main. [Pages-bygge 38352042040](https://github.com/Cendovari/cendovari-webdesign-sida/actions/runs/38352042040) slutförde build/deploy med success för samma commit. Arbetsbranchen och main uppdaterades utan force.
+
+HTTPS 200 och exakta bytes verifierades för 23 filer, inklusive källa/export, nya filmen/postern, oförändrade GPPE-/exempelresurser, exportscript, dokumentation och skärmbilder. Alla tre MP4 gav även korrekt Range 206. Standardadressen utan query verifierades separat till samma indexhash.
+
+Ny faktisk browser-QA av slutversion v2 på HTTPS provade alla sex vyer. Funktionella flöden passerar; fyra sidbytesserier visar 140 ms/opacitet 0,94→1, inget övergångslager, stabil header och ingen intern omladdning. De sex riktade offentliga mobilknappkontrollerna passerar. Rå yta-QA är **170/173**: tre strikta nätassertioner registrerade sex Bilverkstad-ERR_ABORTED vid snabba sektionshopp (320:1, 390:2, liggande:3). Varje event matchar CDP Media/canceled:true/URL/steg. Separat faktisk återspelning på 320 har rätt original/1280×720, pausar vid Escape och återupptar .527→1.262 s utan reset. HTTP 200, full filhash och Range 206 verifierades. Inga övriga JS-, konsol-, HTTP-, icke-canceled CDP- eller backendfel; avbrotten redovisas utan noll-requestfailed-påstående.
+
+Den nya toppfilmen genomgick **137/137** faktiska offentliga filmkontroller i fyra lägen. Två hela loopar vardera vid 390 och 1440: 1061 decoded/totalramar, 1062 rVFC-callback/presented-räknare, 0 rapporterade drops/stopp och 0 src/load/currentTime-/emptied-reset. Räknarna är separata sampel. Alla nya film-/posterhashar matchar i varje läge; paus, navigation, rörelselägen, nekad autoplay och sena ägaranrop passerar. I dessa filmprov observerades 0 JS-/HTTP-/requestfailed-/CDP-canceled-/backendfel.
+
+Ett efterföljande dokumentationskvitto ändrar endast README, denna rapport och preview-review.json. Den testade källan, exporten, filmen och postern är oförändrade. Befintligt Pages-flöde och standardadress används; inga publicerings-, domän- eller DNS-inställningar ändras.
 
 ## Skärmbilder
 

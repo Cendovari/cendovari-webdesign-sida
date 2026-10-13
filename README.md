@@ -2,9 +2,10 @@
 
 Separat Luminous-förhandsvisning för Cendovari AB. Den godkända toppfilmen från `cendovari-film-navigation-handoff.zip` ersätter föregående showreel. GPPE, texter, illustrationer, designförslag, övriga filmer och kontaktutkast är bevarade.
 
-**Status: lokalt verifierad; publiceringskontrollen återstår.**
+**Status: publicerad och verifierad på HTTPS 2026-10-13.**
 
 - [Förhandsvisning](https://cendovari.github.io/cendovari-webdesign-sida/)
+- [Innehållscommit 13a4fc6](https://github.com/Cendovari/cendovari-webdesign-sida/commit/13a4fc629bce1f6cca0c4e2f646ff82dd3ef7a93)
 - [Arbetsbranch](https://github.com/Cendovari/cendovari-webdesign-sida/tree/codex/film-navigation)
 - [Granskning och skärmbilder](docs/film-navigation-review.md)
 - [Ladda ned main](https://github.com/Cendovari/cendovari-webdesign-sida/archive/refs/heads/main.zip)
@@ -52,7 +53,7 @@ python3 -m http.server 8766 --bind 127.0.0.1
 
 ## Verifiering och publicering
 
-Aktuella resultat och begränsningar finns i [granskningsrapporten](docs/film-navigation-review.md) och `preview-review.json`. Mobil/touch är Chrome-emulering på Windows, inte fysiska iPhone-/Android-/Safari-tester. Dold flik och nekad autoplay testas med tydligt angiven simulering/injektion.
+Aktuella resultat och begränsningar finns i [granskningsrapporten](docs/film-navigation-review.md) och `preview-review.json`. Mobil/touch är Chrome-emulering på Windows, inte fysiska iPhone-/Android-/Safari-tester. Dold flik och nekad autoplay testas med tydligt angiven simulering/injektion. Lyckat Pages-bygge, HTTPS 200 och nya film-/posterhashar är verifierade; 137 offentliga filmprov passerar. Kvalificerade avbrutna Bilverkstad-mediehämtningar under navigationsproven redovisas i rapporten.
 
 Kontaktformuläret skapar enbart ett lokalt utkast. Svenska, `noindex,nofollow` och tidigare CSP är bevarade. Inga mejltester, formulärutskick eller backend används. GPPE-länkar går till den riktiga externa sidan, och separata Plattsättning/Bilverkstad-projekt är tydligt märkta designförslag.
 
